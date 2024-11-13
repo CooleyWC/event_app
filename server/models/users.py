@@ -10,6 +10,9 @@ from config import db
 
 class User(db.Model, SerializerMixin):
     __tablename__ = "users"
+
+    serialize_rules = ('-password_hash', '-tickets.user')
+
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     username: so.Mapped[str] = so.mapped_column(sa.String(64), index=True, unique=True)
     email: so.Mapped[str] = so.mapped_column(sa.String(120), index=True, unique=True)
