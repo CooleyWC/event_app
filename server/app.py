@@ -1,5 +1,6 @@
 from config import app
 from models.users import User
+from models.tickets import Ticket
 
 @app.route('/')
 @app.route('/index')
