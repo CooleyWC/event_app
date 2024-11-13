@@ -2,10 +2,13 @@ from config import app
 from models.users import User
 from models.tickets import Ticket
 
+# new
+from flask import render_template
+
 @app.route('/')
 @app.route('/index')
 def index():
-  return 'event app'
+  return render_template('index.html', title='Home', user='will')
 
 
 @app.route('/users')
