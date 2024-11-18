@@ -12,7 +12,7 @@ from config import db
 class Event(db.Model, SerializerMixin):
     __tablename__ = 'events'
 
-    serialize_rules = ('-users', '-tickets',)
+    serialize_rules = ('-attendees', '-tickets', '-creator',)
    
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
@@ -20,11 +20,11 @@ class Event(db.Model, SerializerMixin):
         index=True, default=lambda: datetime.now(timezone.utc)
     )
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
-    # creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'), nullable=False)
+    creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'))
 
     
-    # creator = db.relationship('User', back_populates='created_events')
-    users = db.relationship('User', secondary='tickets', back_populates='events')
+    creator = db.relationship('User', back_populates='created_events')
+    attendees = db.relationship('User', secondary='tickets', back_populates='events')
     tickets = db.relationship('Ticket', back_populates='event')
 
 

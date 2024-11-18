@@ -31,7 +31,7 @@ if __name__ == "__main__":
     db.session.commit()
 
     print('adding events')
-    event_1 = Event(name='Party Time', description='very cool')
+    event_1 = Event(name='Party Time', description='very cool', creator_id=1)
 
     db.session.add(event_1)
     db.session.commit()
