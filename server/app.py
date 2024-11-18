@@ -1,8 +1,9 @@
 from config import app
 from models.users import User
 from models.tickets import Ticket
+from models.events import Event
 
-# new
+
 from flask import render_template
 
 @app.route('/')
@@ -20,6 +21,11 @@ def users():
 def tickets():
   tickets = [ticket.to_dict() for ticket in Ticket.query.all()]
   return tickets, 200
+
+@app.route('/events')
+def events():
+  events = [event.to_dict() for event in Event.query.all()]
+  return events, 200
   
 
 if __name__ == "__main__":

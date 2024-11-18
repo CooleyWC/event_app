@@ -1,6 +1,7 @@
 from config import app, db
 from models.users import User
 from models.tickets import Ticket
+from models.events import Event
 from datetime import datetime, timezone
 
 
@@ -23,9 +24,17 @@ if __name__ == "__main__":
     db.session.commit()
 
     print('adding tickets')
-    ticket_1 = Ticket(price=4, user_id=1)
-    ticket_2 = Ticket(price=2, user_id=3)
+    ticket_1 = Ticket(price=4, user_id=1, event_id=1)
+    ticket_2 = Ticket(price=2, user_id=3, event_id=1)
 
     db.session.add_all([ticket_1, ticket_2])
     db.session.commit()
 
+    print('adding events')
+    event_1 = Event(name='Party Time', description='very cool')
+
+    db.session.add(event_1)
+    db.session.commit()
+
+
+    print('all done')

@@ -1,0 +1,30 @@
+from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy.orm import validates
+import sqlalchemy as sa
+import sqlalchemy.orm as so
+from typing import Optional
+from datetime import datetime, timezone
+# from models.users import User
+
+from config import db
+
+class Event(db.Model, SerializerMixin):
+    __tablename__ = 'events'
+
+    serialize_rules = ('-users', '-tickets',)
+   
+    id: so.Mapped[int] = so.mapped_column(primary_key=True)
+    name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
+    created_at: so.Mapped[datetime] = so.mapped_column(
+        index=True, default=lambda: datetime.now(timezone.utc)
+    )
+    description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
+    # creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'), nullable=False)
+
+    
+    # creator = db.relationship('User', back_populates='created_events')
+    users = db.relationship('User', secondary='tickets', back_populates='events')
+    tickets = db.relationship('Ticket', back_populates='event')
+
+
