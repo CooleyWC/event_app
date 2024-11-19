@@ -13,11 +13,11 @@ if __name__ == "__main__":
     Ticket.query.delete()
 
     print('adding users')
-    user_1 = User(username='will1', email='willia@gmail.com', location='fort wayne')
+    user_1 = User(first_name='will', last_name='coole', email='willia@gmail.com', location='fort wayne')
     user_1.password_hash='paradiddle'
-    user_2 = User(username='mj', email='mj@gmail.com', location='chicago')
+    user_2 = User(first_name='charles', last_name='barkley', email='cb@gmail.com', location='chicago')
     user_2.password_hash='paradiddle'
-    user_3 = User(username='capone', email='capone@gmail.com', location='chicago')
+    user_3 = User(first_name='michael', last_name='shannon', email='msh@gmail.com', location='chicago')
     user_3.password_hash='paradiddle'
 
     db.session.add_all([user_1, user_2, user_3])
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     db.session.commit()
 
     print('adding events')
-    event_1 = Event(name='Party Time', description='very cool', creator_id=1)
+    event_1 = Event(name='Percussion Concert', description='Third Coast Percussion', creator_id=1)
 
     db.session.add(event_1)
     db.session.commit()

@@ -5,6 +5,9 @@ from models.events import Event
 from flask_restful import Resource
 
 from resources.users import Users
+from resources.login import Login
+from resources.check_session import CheckSession
+from resources.logout import Logout
 
 
 from flask import render_template
@@ -31,6 +34,9 @@ def index():
 #   return events, 200
   
 api.add_resource(Users, '/api/users')
+api.add_resource(Login, '/api/login')
+api.add_resource(CheckSession, '/api/check_session')
+api.add_resource(Logout, '/api/logout')
 
 if __name__ == "__main__":
   app.run(port=5555, debug=True)
