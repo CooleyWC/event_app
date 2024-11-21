@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import Layout from "./Layout";
 import Dashboard from "./components/pages/Dashboard";
+import Login from "./components/forms/Login";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
+        <Route path='/login' element={<Login />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
       </Routes>
     </Router>
