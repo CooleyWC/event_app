@@ -4,7 +4,7 @@ import {IoClose, IoMenu} from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({sideOpen, setSideOpen, toggleSideDrawer, handleDropDown}) {
 
     const {user, logout} = useAuth();
 
@@ -38,7 +38,29 @@ function NavBar() {
         >
             <section className=" p-2 sm:p-0 items-center">
                 <div>
-                    <NavLink to='/'>Event App</NavLink>
+                    {/* if user is logged in and the screen size is less than tablet
+                    display the hamburger
+                    - make sure if the hamburger is clicked, the dropdown
+                    will show the sidedrawer links
+                    */}
+                    {user ? (
+                        <>
+                        <div className='sm:hidden'>
+                            <IoMenu 
+                                onClick={handleDropDown}
+                                className='hover:cursor-pointer'
+                            />
+                        </div>
+                        <div className='hidden sm:block'>
+                            <NavLink to='/'>Event App</NavLink>
+                        </div>
+                        </>
+                        ):(          
+                            <NavLink to='/'>Event App</NavLink>
+                   
+                    )}
+                    
+
                 </div>
             </section>
                 <div className='flex justify-end items-center'>
