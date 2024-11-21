@@ -13,8 +13,20 @@ function NavBar() {
     //     setIsOpen(false)
     // }
 
-    const onLogoutClick = ()=>{
-        console.log('wants to logout')
+    const onLogoutClick = async ()=>{
+        try{
+            const res = await fetch('/api/logout',{
+                method: 'DELETE',
+            })
+            if (!res.ok){
+                console.log('logout failed')
+            }
+            console.log('logout successful')
+            logout()
+        } catch (error){
+            console.log(error.message)
+            return error
+        }
     }
 
     return (
