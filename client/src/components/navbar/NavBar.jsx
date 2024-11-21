@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import {IoClose, IoMenu} from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
 
     const {user, logout} = useAuth();
 
+    let navigate = useNavigate();
     // const [isOpen, setIsOpen] = useState(false);
 
     // const handleCloseMenu = () => {
@@ -23,6 +25,7 @@ function NavBar() {
             }
             console.log('logout successful')
             logout()
+            navigate('/')
         } catch (error){
             console.log(error.message)
             return error
