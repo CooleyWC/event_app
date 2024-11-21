@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
+import {useAuth} from '../context/AuthProvider'
+import {useNavigate} from 'react-router-dom'
 
 function Login() {
+
+    const {login} = useAuth()
+
+    let navigate = useNavigate()
 
     const [emailInput, setEmailInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
@@ -15,11 +21,38 @@ function Login() {
     }
 
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
+
+        const values = {
+            email: emailInput,
+            password: passwordInput
+        }
+
         e.preventDefault()
-        // send the post to /api/login
-        // update global user state
-        // handle navigation to dashboard
+        try {
+            const res = await fetch('/api/login',{
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            })
+            const userData = await res.json()
+
+            if (!res.ok){
+                console.log('error', userData.error)
+                return
+            } else {
+                console.log('login success')
+                login(userData)
+                setEmailInput('')
+                setPasswordInput('')
+                navigate('/dashboard')
+            }
+        } catch (error) {
+            console.error('error loggin in', error)
+        }
+        
     }
 
     return (

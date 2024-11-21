@@ -1,4 +1,5 @@
 import "./index.css"
+import React, {useEffect} from "react";
 import NavBar from "./components/navbar/NavBar";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
@@ -11,7 +12,7 @@ import {useAuth} from './components/context/AuthProvider'
 function App() {
 
 
-  const {login, user, update} = useAuth()
+  const {login, logout, user, update} = useAuth()
 
   useEffect(()=>{
     checkUser()

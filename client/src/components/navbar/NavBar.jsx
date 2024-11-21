@@ -1,14 +1,21 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import {IoClose, IoMenu} from "react-icons/io5"
+import { useAuth } from '../context/AuthProvider';
 
 function NavBar() {
+
+    const {user, logout} = useAuth();
 
     // const [isOpen, setIsOpen] = useState(false);
 
     // const handleCloseMenu = () => {
     //     setIsOpen(false)
     // }
+
+    const onLogoutClick = ()=>{
+        console.log('wants to logout')
+    }
 
     return (
         <>
@@ -20,8 +27,24 @@ function NavBar() {
                 </div>
             </section>
                 <div className='flex justify-end items-center'>
-                    <NavLink className='block px-4'>Avatar</NavLink>
-                    <NavLink className='block px-4'>Login/Logout</NavLink>
+                    {user ? (
+                        <>
+                        <NavLink className='block px-4'>Avatar</NavLink>
+                        <button
+                            className='block px-4'
+                            onClick={onLogoutClick}
+                        >
+                            Logout</button>
+                        </>
+                    ) : (
+                        <>
+                        <NavLink 
+                            className='block px-4'
+                            to='/login'
+                        >Login</NavLink>
+                        </>
+                    )
+                    }
                 </div>
        
         </header>
