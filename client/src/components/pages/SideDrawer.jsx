@@ -3,11 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function SideDrawer() {
     return (
-        <div className='w-64 bg-green-200 hidden sm:fixed sm:block'>
-            <div>
-                <h2>Sidedrawer</h2>
-            </div>
-            <hr />
+        <div>
             <ul>
                 <li>
                     <NavLink>Upcoming Events</NavLink>

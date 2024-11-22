@@ -57,10 +57,8 @@ function NavBar({sideOpen, setSideOpen, toggleSideDrawer, handleDropDown}) {
                         </>
                         ):(          
                             <NavLink to='/'>Event App</NavLink>
-                   
                     )}
                     
-
                 </div>
             </section>
                 <div className='flex justify-end items-center'>

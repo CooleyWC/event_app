@@ -14,8 +14,13 @@ function Dashboard({dropdownOpen}) {
 
             {user && (
                 <div className='w-64 bg-green-200 hidden sm:fixed sm:block'>
-                <SideDrawer />
-            </div>
+                    <SideDrawer />
+                </div>
+            )}
+            {user && dropdownOpen && (
+                <div className='w-full fixed bg-sky-400 md:hidden'>
+                    <SideDrawer />
+                </div>
             )}
             
         </div>
