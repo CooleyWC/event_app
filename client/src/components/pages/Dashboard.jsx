@@ -16,12 +16,12 @@ function Dashboard({dropdownOpen}) {
     return (
         <div>
             {user && (
-                <div className='w-44 bg-indigo-800 text-zinc-200 hidden sm:fixed sm:block'>
+                <div className='w-44 h-screen bg-indigo-800 text-zinc-200 hidden sm:fixed sm:block'>
                     <SideDrawer />
                 </div>
             )}
             {user && dropdownOpen && (
-                <div className='w-full fixed bg-sky-400 md:hidden'>
+                <div className='w-full h-screen fixed bg-sky-400 md:hidden'>
                     <SideDrawer />
                 </div>
             )}

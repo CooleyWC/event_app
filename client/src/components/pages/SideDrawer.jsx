@@ -31,7 +31,6 @@ function SideDrawer() {
 
     const onLinkClick = (e)=>{
         const clickedLink = e.target.getAttribute('section-ref')
-        console.log(clickedLink)
         navigate(`/dashboard/${clickedLink}`)
     }
 
