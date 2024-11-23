@@ -1,22 +1,51 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
+
+
+
+const navLinks = [
+    {
+        title: 'Upcoming Events',
+        href: 'upcoming_events',
+    },
+    {
+        title: 'Past Events',
+        href: 'past_events',
+    },
+    {
+        title: 'Find Events',
+        href: 'find_events',
+    },
+    {
+        title: 'Create Event',
+        href: 'create_event',
+    },
+    {
+        title: 'Profile',
+        href: 'profile',
+    }
+]
+
 
 function SideDrawer() {
+
+    let navigate = useNavigate();
+
+    const onLinkClick = (e)=>{
+        const clickedLink = e.target.getAttribute('section-ref')
+        console.log(clickedLink)
+        navigate(`/dashboard/${clickedLink}`)
+    }
+
+
     return (
         <div>
-            <ul>
-                <li>
-                    <NavLink>Upcoming Events</NavLink>
-                </li>
-                <li>
-                    <NavLink>Past Events</NavLink>
-                </li>
-                <li>
-                    <NavLink>Find Events</NavLink>
-                </li>
-                <li>
-                    <NavLink>Create an Event</NavLink>
-                </li>
+            <ul onClick={onLinkClick}>
+                {navLinks.map(({title, href})=>(
+                    <li key={title} section-ref={href}>
+                        {title}
+                    </li>
+                ))}
             </ul>
         </div>
     );

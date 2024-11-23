@@ -1,17 +1,18 @@
 import React from 'react';
 import SideDrawer from './SideDrawer';
 import { useAuth} from '../context/AuthProvider'
+import {useParams} from 'react-router-dom'
+
 
 function Dashboard({dropdownOpen}) {
-    console.log('from dashboard', dropdownOpen)
 
     const {user} = useAuth();
+
+    const {section} = useParams();
 
     
     return (
         <div>
-            <h2>Dashboard</h2>
-
             {user && (
                 <div className='w-64 bg-green-200 hidden sm:fixed sm:block'>
                     <SideDrawer />
@@ -22,6 +23,38 @@ function Dashboard({dropdownOpen}) {
                     <SideDrawer />
                 </div>
             )}
+
+            {!section && (
+                <div>
+                    <h1 className='text-center'>No selection - content area empty</h1>
+                </div>
+            )}
+            {section === 'upcoming_events' && (
+                <div>
+                    <h1 className='text-center'>Upcoming Events</h1>
+                </div>
+            )}
+            {section === 'past_events' && (
+                <div>
+                    <h1 className='text-center'>Past Events</h1>
+                </div>
+            )}
+            {section === 'find_events' && (
+                <div>
+                    <h1 className='text-center'>Find Events</h1>
+                </div>
+            )}
+            {section === 'create_event' && (
+                <div>
+                    <h1 className='text-center'>Create Event</h1>
+                </div>
+            )}
+            {section === 'profile' && (
+                <div>
+                    <h1 className='text-center'>Profile</h1>
+                </div>
+            )}
+
             
         </div>
     );

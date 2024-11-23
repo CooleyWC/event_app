@@ -57,6 +57,7 @@ function App() {
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/dashboard' element={<Dashboard dropdownOpen={dropdownOpen}/>} />
+        <Route path='/dashboard/:section' element={<Dashboard dropdownOpen={dropdownOpen}/>} />
       </Routes>
     </Router>
   )
