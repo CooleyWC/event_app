@@ -1,7 +1,5 @@
 import React from 'react';
-import { Navigate, NavLink, useNavigate } from 'react-router-dom';
-
-
+import { useNavigate } from 'react-router-dom';
 
 const navLinks = [
     {
@@ -39,10 +37,12 @@ function SideDrawer() {
 
 
     return (
-        <div>
+        <div >
             <ul onClick={onLinkClick}>
                 {navLinks.map(({title, href})=>(
-                    <li key={title} section-ref={href}>
+                    <li key={title} 
+                        section-ref={href} 
+                        className='py-2 px-4 cursor-pointer hover:bg-indigo-950 '>
                         {title}
                     </li>
                 ))}

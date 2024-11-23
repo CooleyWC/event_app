@@ -10,11 +10,13 @@ function Dashboard({dropdownOpen}) {
 
     const {section} = useParams();
 
+    const sideWidth = 64
+
     
     return (
         <div>
             {user && (
-                <div className='w-64 bg-green-200 hidden sm:fixed sm:block'>
+                <div className='w-44 bg-indigo-800 text-zinc-200 hidden sm:fixed sm:block'>
                     <SideDrawer />
                 </div>
             )}
