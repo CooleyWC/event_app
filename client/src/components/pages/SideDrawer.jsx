@@ -25,13 +25,15 @@ const navLinks = [
 ]
 
 
-function SideDrawer() {
+function SideDrawer({handleDropdown}) {
 
     let navigate = useNavigate();
 
     const onLinkClick = (e)=>{
-        const clickedLink = e.target.getAttribute('section-ref')
-        navigate(`/dashboard/${clickedLink}`)
+        console.log('type', typeof handleDropdown)
+        const clickedLink = e.target.getAttribute('section-ref');
+        navigate(`/dashboard/${clickedLink}`);
+        handleDropdown();
     }
 
 

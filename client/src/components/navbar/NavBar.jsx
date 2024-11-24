@@ -4,7 +4,7 @@ import {IoClose, IoMenu} from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
-function NavBar({sideOpen, setSideOpen, toggleSideDrawer, handleDropDown}) {
+function NavBar({sideOpen, setSideOpen, toggleSideDrawer, handleDropdown}) {
 
     const {user, logout} = useAuth();
 
@@ -47,7 +47,7 @@ function NavBar({sideOpen, setSideOpen, toggleSideDrawer, handleDropDown}) {
                         <>
                         <div className='sm:hidden'>
                             <IoMenu 
-                                onClick={handleDropDown}
+                                onClick={handleDropdown}
                                 className='hover:cursor-pointer'
                             />
                         </div>

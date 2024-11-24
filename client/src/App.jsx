@@ -39,9 +39,10 @@ function App() {
   const toggleSideDrawer = ()=>{
     setSideOpen(!sideOpen)
   }
-  const handleDropDown = ()=>{
+  const handleDropdown = ()=>{
     setDropdownOpen(!dropdownOpen)
   }
+  console.log('app', typeof handleDropdown)
 
  
 
@@ -51,13 +52,13 @@ function App() {
         setSideOpen={setSideOpen} 
         sideOpen={sideOpen} 
         toggleSideDrawer={toggleSideDrawer}
-        handleDropDown={handleDropDown}
+        handleDropdown={handleDropdown}
         />
       <Routes>
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/dashboard' element={<Dashboard dropdownOpen={dropdownOpen}/>} />
-        <Route path='/dashboard/:section' element={<Dashboard dropdownOpen={dropdownOpen}/>} />
+        <Route path='/dashboard' element={<Dashboard dropdownOpen={dropdownOpen} handleDropDown={handleDropdown}/>} />
+        <Route path='/dashboard/:section' element={<Dashboard dropdownOpen={dropdownOpen} handleDropdown={handleDropdown}/>} />
       </Routes>
     </Router>
   )

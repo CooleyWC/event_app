@@ -4,26 +4,27 @@ import { useAuth} from '../context/AuthProvider'
 import {useParams} from 'react-router-dom'
 
 
-function Dashboard({dropdownOpen}) {
+function Dashboard({dropdownOpen, handleDropdown}) {
 
     const {user} = useAuth();
 
     const {section} = useParams();
+    console.log('dash', typeof handleDropdown)
 
+    if(user===null || !user){
+        return <p>loading...</p>
+    }
 
     return (
         <div className='sm:grid grid-cols-[200px_1fr] w-full h-screen'>
-            {dropdownOpen ? (
-                <div className='w-full h-screen fixed bg-sky-400 md:hidden'>
-                     <SideDrawer />
-                </div>
-            ) : (
-                <div className='h-screen bg-indigo-800 hidden sm:block text-zinc-200'>
-                    <SideDrawer />
-                </div>
-            )
-        }
-            <div className='p-4 overflow-auto'>
+            {/* sidedrawer */}
+            <div className={`w-full h-screen ${dropdownOpen ? 'fixed bg-sky-400 md:hidden' : 'h-screen bg-indigo-800 hidden sm:relative sm:block text-zinc-200'}`}
+            >
+                <SideDrawer handleDropdown={handleDropdown}/>
+            </div>
+
+            {/* content area */}
+            <div className='p-4'>
             {!section && (
                 <div className='text-center'>
                     <h1>No selection - content area empty</h1>
