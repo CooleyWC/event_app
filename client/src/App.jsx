@@ -1,5 +1,5 @@
 import "./index.css"
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import NavBar from "./components/navbar/NavBar";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
@@ -16,7 +16,6 @@ function App() {
 
   // for side drawer toggle
   const [sideOpen, setSideOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   useEffect(()=>{
     checkUser()
@@ -39,10 +38,10 @@ function App() {
   const toggleSideDrawer = ()=>{
     setSideOpen(!sideOpen)
   }
-  const handleDropdown = ()=>{
-    setDropdownOpen(!dropdownOpen)
-  }
-  console.log('app', typeof handleDropdown)
+  // const handleDropdown = useCallback(()=>{
+  //   setDropdownOpen((prev)=>!prev)
+  // }, [])
+  // console.log('app', typeof handleDropdown)
 
  
 
@@ -52,13 +51,13 @@ function App() {
         setSideOpen={setSideOpen} 
         sideOpen={sideOpen} 
         toggleSideDrawer={toggleSideDrawer}
-        handleDropdown={handleDropdown}
+        // handleDropdown={handleDropdown}
         />
       <Routes>
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/dashboard' element={<Dashboard dropdownOpen={dropdownOpen} handleDropDown={handleDropdown}/>} />
-        <Route path='/dashboard/:section' element={<Dashboard dropdownOpen={dropdownOpen} handleDropdown={handleDropdown}/>} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard/:section' element={<Dashboard />} />
       </Routes>
     </Router>
   )

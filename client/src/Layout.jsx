@@ -2,7 +2,7 @@ import React from 'react';
 
 function Layout() {
     return (
-        <div>
+        <div className='mt-40 h-screen'>
             <h1>Layout</h1>
         </div>
     );

@@ -56,7 +56,7 @@ function Login() {
     }
 
     return (
-        <div>
+        <div className='mt-[64px] h-screen'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email</label>
                 <input 
