@@ -13,8 +13,6 @@ function App() {
 
 
   const {login, logout, user, update} = useAuth()
-
-  // for side drawer toggle
   const [sideOpen, setSideOpen] = useState(false)
 
   useEffect(()=>{
@@ -36,14 +34,15 @@ function App() {
   }
 
   const toggleSideDrawer = ()=>{
+
     setSideOpen(!sideOpen)
   }
-  // const handleDropdown = useCallback(()=>{
-  //   setDropdownOpen((prev)=>!prev)
-  // }, [])
-  // console.log('app', typeof handleDropdown)
-
- 
+  
+  // not currently used
+  const closeDrawer = ()=>{
+    setSideOpen(false)
+   
+  }
 
   return (
     <Router>
@@ -51,13 +50,22 @@ function App() {
         setSideOpen={setSideOpen} 
         sideOpen={sideOpen} 
         toggleSideDrawer={toggleSideDrawer}
-        // handleDropdown={handleDropdown}
         />
       <Routes>
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
         <Route path='/login' element={<Login />}/>
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/dashboard/:section' element={<Dashboard />} />
+        <Route path='/dashboard' element={
+          <Dashboard 
+            sideOpen={sideOpen} 
+            toggleSideDrawer={toggleSideDrawer}
+            closeDrawer={closeDrawer}
+          />} />
+        <Route path='/dashboard/:section' element={
+          <Dashboard 
+            sideOpen={sideOpen} 
+            closeDrawer={closeDrawer} 
+            toggleSideDrawer={toggleSideDrawer}
+            />} />
       </Routes>
     </Router>
   )

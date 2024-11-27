@@ -4,16 +4,11 @@ import {IoClose, IoMenu} from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
-function NavBar({sideOpen, setSideOpen, toggleSideDrawer, handleDropdown}) {
+function NavBar({toggleSideDrawer}) {
 
     const {user, logout} = useAuth();
 
     let navigate = useNavigate();
-    // const [isOpen, setIsOpen] = useState(false);
-
-    // const handleCloseMenu = () => {
-    //     setIsOpen(false)
-    // }
 
     const onLogoutClick = async ()=>{
         try{

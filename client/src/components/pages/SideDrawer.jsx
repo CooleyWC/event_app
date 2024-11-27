@@ -25,19 +25,24 @@ const navLinks = [
 ]
 
 
-function SideDrawer({sideOpen}) {
+function SideDrawer({sideOpen, toggleSideDrawer, closeDrawer}) {
 
     let navigate = useNavigate();
 
     const onLinkClick = (e)=>{
      
         const clickedLink = e.target.getAttribute('section-ref');
+        toggleSideDrawer()
+        // closeDrawer()
         navigate(`/dashboard/${clickedLink}`);
         
     }
 
+    console.log('sideOpen in SideDrawer', sideOpen)
+
 
     return (
+        // pt-20 is responsible for making sure the links do not overlap with the navbar
         <div className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700 transition-transform ${sideOpen ? "translate-x-0": "-translate-x-full"}`}>
             <ul className='text-slate-300' onClick={onLinkClick}>
                 {navLinks.map(({title, href})=>(
