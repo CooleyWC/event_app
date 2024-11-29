@@ -32,7 +32,7 @@ function SideDrawer({sideOpen, toggleSideDrawer, closeDrawer}) {
     const onLinkClick = (e)=>{
      
         const clickedLink = e.target.getAttribute('section-ref');
-        toggleSideDrawer()
+        // toggleSideDrawer()
         // closeDrawer()
         navigate(`/dashboard/${clickedLink}`);
         

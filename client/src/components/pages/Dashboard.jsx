@@ -26,7 +26,8 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer}) {
             toggleSideDrawer={toggleSideDrawer}
             closeDrawer={closeDrawer}/>
             <Main>
-                <Content>
+                <div>
+                {/* <Content> */}
                     {(!section || section==='profile') && (
                         <Profile />
                     )}
@@ -42,7 +43,8 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer}) {
                     {section==='find_events' && (
                         <Search />
                     )}
-                </Content>
+                </div>
+                {/* </Content> */}
             </Main>
         </div>
     );
