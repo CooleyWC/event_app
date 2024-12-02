@@ -22,9 +22,9 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer}) {
     return (
         <div>
             <SideDrawer 
-            sideOpen={sideOpen} 
-            toggleSideDrawer={toggleSideDrawer}
-            closeDrawer={closeDrawer}/>
+                sideOpen={sideOpen} 
+                toggleSideDrawer={toggleSideDrawer}
+                closeDrawer={closeDrawer}/>
             <Main>
                 <div>
                 {/* <Content> */}

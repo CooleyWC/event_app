@@ -45,21 +45,26 @@ function NavBar({toggleSideDrawer}) {
                             </NavLink>
                         </div>
                     </div>
-                    <div className='space-x-2'>
+                    <div className='space-x-3'>
                         {user ? (
-                            <div >
+                            <>
+                                <NavLink to='/dashboard'
+                                    
+                                >
+                                    Dashboard
+                                </NavLink>
                                 <NavLink to='/'
                                     onClick={onLogoutClick}
                                 >
                                     Logout
                                 </NavLink>
-                            </div>
+                            </>
                         ):(
-                            <div>
+                            <>
                                 <NavLink 
                                     to='/login'
                                 >Login</NavLink>
-                            </div>
+                            </>
                         )}
                     </div>
                 </div>
