@@ -11,13 +11,23 @@ import {useAuth} from './components/context/AuthProvider'
 
 function App() {
 
-
   const {login, logout, user, update} = useAuth()
   const [sideOpen, setSideOpen] = useState(false)
+  const [allEvents, setAllEvents] = useState([])
 
   useEffect(()=>{
     checkUser()
   }, [])
+
+  useEffect(()=>{
+    fetch('/api/events')
+    .then(res=>res.json())
+    .then(data=>{
+      setAllEvents(data)
+    })
+  }, [])
+
+  console.log('events outside', allEvents)
   
   const checkUser = async () =>{
     try{ 
