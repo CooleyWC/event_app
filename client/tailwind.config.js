@@ -11,7 +11,8 @@ export default {
         'purple': '#715c8c',
         'ivory': '#d7d4dd',
         'periwinkle': '#838bc2'
-      }
+      },
+      fontFamily: {mulish: ["Mulish", "sans-serif"]}
     },
   },
   plugins: [],
