@@ -41,7 +41,7 @@ function NavBar({toggleSideDrawer}) {
                         </button>
                         <div className='flex ms-2 md:me-24'>
                             <NavLink to='/'>
-                                Logo
+                                <img src='./src/assets/images/parlor_logo.png' className='w-20 h-full'/>
                             </NavLink>
                         </div>
                     </div>
