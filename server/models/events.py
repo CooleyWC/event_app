@@ -19,6 +19,9 @@ class Event(db.Model, SerializerMixin):
     created_at: so.Mapped[datetime] = so.mapped_column(
         index=True, default=lambda: datetime.now(timezone.utc)
     )
+    start_time: so.Mapped[datetime] = so.mapped_column(
+        index=True
+    )
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
     creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'))
 
