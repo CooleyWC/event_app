@@ -2,6 +2,7 @@ from config import app, db
 from models.users import User
 from models.tickets import Ticket
 from models.events import Event
+from models.venues import Venue
 from datetime import datetime, timezone
 import pytz
 
@@ -31,6 +32,15 @@ if __name__ == "__main__":
     db.session.add_all([ticket_1, ticket_2])
     db.session.commit()
 
+
+    print('adding venues')
+    venue_1 = Venue(name='Wills House', location='1555 spicelane', capacity=10, description='backyard')
+    venue_2 = Venue(name='Firefly Coffee', location='st joe', capacity=20, description='coffee shop')
+    venue_3 = Venue(name='Sweetwater', location='goshen road', capacity=50, description='music megalopolis')
+    venue_4 = Venue(name='Queso House', location='Dobree', capacity=5, description='texas')
+
+    db.session.add_all([venue_1, venue_2, venue_3, venue_4])
+
     print('adding events')
 
     dateObj_1 = datetime(year=2025, month=4, day=12, hour=10, minute=30, second=30, tzinfo=pytz.UTC)
@@ -38,13 +48,13 @@ if __name__ == "__main__":
     dateObj_3 = datetime(year=2025, month=7, day=19, hour=8, minute=30, second=0, tzinfo=pytz.UTC)
     dateObj_4 = datetime(year=2025, month=9, day=2, hour=12, minute=0, second=0, tzinfo=pytz.UTC)
 
-    event_1 = Event(name='Third Coast Percussion', description='Percussion Ensemble concert by Third Coast Percussion. Premiering new works by Philip Glass', start_time=dateObj_1, creator_id=1)
+    event_1 = Event(name='Third Coast Percussion', description='Percussion Ensemble concert by Third Coast Percussion. Premiering new works by Philip Glass', start_time=dateObj_1, creator_id=1, venue_id=1)
 
-    event_2 = Event(name='Takacs Quartet', description='World renowned sting quartet perfoming works by Mozart and Mos Def', start_time=dateObj_2, creator_id=2)
+    event_2 = Event(name='Takacs Quartet', description='World renowned sting quartet perfoming works by Mozart and Mos Def', start_time=dateObj_2, creator_id=2, venue_id=2)
 
-    event_3 = Event(name='Boston Brass', description='Some really good musicians playing on brass instruments. Perfoming Taylor Swifts entire anthology', start_time=dateObj_3, creator_id=2)
+    event_3 = Event(name='Boston Brass', description='Some really good musicians playing on brass instruments. Perfoming Taylor Swifts entire anthology', start_time=dateObj_3, creator_id=2, venue_id=3)
 
-    event_4 = Event(name='Panoramic', description='Steel Pan based performing arts group. Perfoming works from their new album', start_time=dateObj_4, creator_id=2)
+    event_4 = Event(name='Panoramic', description='Steel Pan based performing arts group. Perfoming works from their new album', start_time=dateObj_4, creator_id=2, venue_id=4)
 
 
 

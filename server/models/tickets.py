@@ -25,8 +25,6 @@ class Ticket(db.Model, SerializerMixin):
                                                 index=True)
     # event_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('events.id'), 
     #                                             index=True)
-    # seat_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('seats.id'))
-
     # user: so.Mapped["User"] = so.relationship("User", back_populates='tickets')
     user = db.relationship('User', back_populates='tickets')
     event = db.relationship('Event', back_populates='tickets')

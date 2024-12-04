@@ -25,9 +25,11 @@ class Event(db.Model, SerializerMixin):
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
     creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'))
 
-    
+    venue_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('venues.id'))
+
     creator = db.relationship('User', back_populates='created_events')
     attendees = db.relationship('User', secondary='tickets', back_populates='events')
     tickets = db.relationship('Ticket', back_populates='event')
+
 
 
