@@ -3,13 +3,14 @@ import SideDrawer from './SideDrawer';
 import { useAuth} from '../context/AuthProvider'
 import {useParams} from 'react-router-dom'
 import Main from '../../ui/Main';
-import Content from '../../ui/Content';
+// import Content from '../../ui/Content';
 import EventCard from '../cards/EventCard';
 import Search from '../forms/Search';
 import Profile from '../cards/Profile';
 import CreateEvent from '../forms/CreateEvent';
+import EventList from './EventList';
 
-function Dashboard({sideOpen, toggleSideDrawer, closeDrawer}) {
+function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
 
     const {user} = useAuth();
 
@@ -41,7 +42,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer}) {
                         <CreateEvent />
                     )}
                     {section==='find_events' && (
-                        <Search />
+                        <EventList allEvents={allEvents}/>
                     )}
                 </div>
                 {/* </Content> */}

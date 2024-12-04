@@ -69,12 +69,14 @@ function App() {
             sideOpen={sideOpen} 
             toggleSideDrawer={toggleSideDrawer}
             closeDrawer={closeDrawer}
+            allEvents={allEvents}
           />} />
         <Route path='/dashboard/:section' element={
           <Dashboard 
             sideOpen={sideOpen} 
             closeDrawer={closeDrawer} 
             toggleSideDrawer={toggleSideDrawer}
+            allEvents={allEvents}
             />} />
       </Routes>
     </Router>
