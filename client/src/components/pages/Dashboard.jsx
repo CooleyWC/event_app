@@ -5,8 +5,8 @@ import {useParams} from 'react-router-dom'
 import Main from '../../ui/Main';
 // import Content from '../../ui/Content';
 import EventCard from '../cards/EventCard';
-import Search from '../forms/Search';
-import Profile from '../cards/Profile';
+// import Search from '../forms/Search';
+import ProfileCard from '../cards/ProfileCard';
 import CreateEvent from '../forms/CreateEvent';
 import EventList from './EventList';
 
@@ -30,7 +30,13 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
                 <div>
                 {/* <Content> */}
                     {(!section || section==='profile') && (
-                        <Profile />
+                        <ProfileCard 
+                            key={user.id}
+                            user={user}
+                            firstName={user.first_name}
+                            lastName={user.last_name}
+                            location={user.location}
+                        />
                     )}
                     {section==='upcoming_events' && (
                         <EventCard />
