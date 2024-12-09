@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, NavLink} from 'react-router-dom';
 
 const EventDetail = () => {
 
     const params = useParams()
-    console.log('params', params)
+ 
     const eventID = params.eventid
 
     const [eventData, setEventData] = useState([])
 
-    console.log('eventID', eventID)
+ 
 
     useEffect(()=>{
         fetch(`/api/event_by_id/${eventID}`)
@@ -24,10 +24,19 @@ const EventDetail = () => {
         return <p>...loading</p>
     }
 
+    const handleTicketClick = () =>{
+        console.log('purchase ticket for this event', eventID)
+    }
+
     return (
         <div className='mt-52'>
-            <button className='border-solid border-2'>Back to Events</button>
+            <NavLink to={'/dashboard/find_events'}>
+                <button className='border-solid border-2'>Back to Events</button>
+            </NavLink>
             <h1 className='text-4xl text-black'>{eventData.name}</h1>
+            <p>{eventData.start_time}</p>
+            <p>{eventData.description}</p>
+            <button className='border-solid border-2' onClick={handleTicketClick}>Get Ticket</button>
         </div>
     );
 };
