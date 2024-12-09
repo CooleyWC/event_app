@@ -7,6 +7,8 @@ function EventList({allEvents}) {
     const events = allEvents.map((ev)=>{
         return (
             <EventCard 
+                key={ev.id}
+                eventID={ev.id}
                 eventName={ev.name}
                 startTime={ev.start_time}
                 description={ev.description}

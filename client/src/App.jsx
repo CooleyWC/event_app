@@ -7,6 +7,7 @@ import Layout from "./Layout";
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/forms/Login";
 import {useAuth} from './components/context/AuthProvider'
+import EventDetail from "./components/pages/EventDetail";
 
 
 function App() {
@@ -26,8 +27,6 @@ function App() {
       setAllEvents(data)
     })
   }, [])
-
-  console.log('events outside', allEvents)
   
   const checkUser = async () =>{
     try{ 
@@ -78,6 +77,7 @@ function App() {
             toggleSideDrawer={toggleSideDrawer}
             allEvents={allEvents}
             />} />
+        <Route path='/dashboard/event/:eventid' element={<EventDetail />} />
       </Routes>
     </Router>
   )

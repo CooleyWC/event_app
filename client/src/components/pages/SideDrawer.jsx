@@ -38,8 +38,6 @@ function SideDrawer({sideOpen, toggleSideDrawer, closeDrawer}) {
         
     }
 
-    console.log('sideOpen in SideDrawer', sideOpen)
-
 
     return (
         // pt-20 is responsible for making sure the links do not overlap with the navbar

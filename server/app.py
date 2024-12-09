@@ -10,6 +10,7 @@ from resources.login import Login
 from resources.check_session import CheckSession
 from resources.logout import Logout
 from resources.events import Events
+from resources.event_by_id import EventByID
 
 
 from flask import render_template
@@ -26,6 +27,7 @@ api.add_resource(Login, '/api/login')
 api.add_resource(CheckSession, '/api/check_session')
 api.add_resource(Logout, '/api/logout')
 api.add_resource(Events, '/api/events')
+api.add_resource(EventByID, '/api/event_by_id/<int:id>')
 
 if __name__ == "__main__":
   app.run(port=5555, debug=True)

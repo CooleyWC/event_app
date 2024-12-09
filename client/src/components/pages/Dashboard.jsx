@@ -19,7 +19,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
     if(user===null || !user){
         return <p>loading...</p>
     }
-    console.log('section', section)
+
     return (
         <div>
             <SideDrawer 
