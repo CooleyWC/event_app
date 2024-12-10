@@ -5,7 +5,7 @@ import sqlalchemy as sa
 import sqlalchemy.orm as so
 from typing import Optional
 from datetime import datetime, timezone
-# from models.users import User
+
 
 from config import db
 
@@ -22,6 +22,10 @@ class Event(db.Model, SerializerMixin):
     start_time: so.Mapped[datetime] = so.mapped_column(
         index=True
     )
+    end_time: so.Mapped[datetime] = so.mapped_column(
+        index=True
+    )
+    capacity: so.Mapped[int] = so.mapped_column(index=True)
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
     creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'))
 

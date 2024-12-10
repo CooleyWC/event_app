@@ -1,8 +1,8 @@
-"""initial migration
+"""added end_time and capacity to event model
 
-Revision ID: dd05c1938740
+Revision ID: 9ee012f3864a
 Revises: 
-Create Date: 2024-11-18 21:13:20.634839
+Create Date: 2024-12-09 22:02:38.545855
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'dd05c1938740'
+revision = '9ee012f3864a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -33,19 +33,41 @@ def upgrade():
         batch_op.create_index(batch_op.f('ix_users_last_name'), ['last_name'], unique=True)
         batch_op.create_index(batch_op.f('ix_users_location'), ['location'], unique=False)
 
+    op.create_table('venues',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('name', sa.String(), nullable=False),
+    sa.Column('location', sa.String(), nullable=False),
+    sa.Column('capacity', sa.Integer(), nullable=False),
+    sa.Column('description', sa.String(), nullable=False),
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_venues'))
+    )
+    with op.batch_alter_table('venues', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_venues_capacity'), ['capacity'], unique=False)
+        batch_op.create_index(batch_op.f('ix_venues_description'), ['description'], unique=False)
+        batch_op.create_index(batch_op.f('ix_venues_location'), ['location'], unique=False)
+        batch_op.create_index(batch_op.f('ix_venues_name'), ['name'], unique=False)
+
     op.create_table('events',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=64), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
+    sa.Column('start_time', sa.DateTime(), nullable=False),
+    sa.Column('end_time', sa.DateTime(), nullable=False),
+    sa.Column('capacity', sa.Integer(), nullable=False),
     sa.Column('description', sa.String(length=300), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=False),
+    sa.Column('venue_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['creator_id'], ['users.id'], name=op.f('fk_events_creator_id_users')),
+    sa.ForeignKeyConstraint(['venue_id'], ['venues.id'], name=op.f('fk_events_venue_id_venues')),
     sa.PrimaryKeyConstraint('id', name=op.f('pk_events'))
     )
     with op.batch_alter_table('events', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_events_capacity'), ['capacity'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_created_at'), ['created_at'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_description'), ['description'], unique=False)
+        batch_op.create_index(batch_op.f('ix_events_end_time'), ['end_time'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_name'), ['name'], unique=False)
+        batch_op.create_index(batch_op.f('ix_events_start_time'), ['start_time'], unique=False)
 
     op.create_table('tickets',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -76,11 +98,21 @@ def downgrade():
 
     op.drop_table('tickets')
     with op.batch_alter_table('events', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_events_start_time'))
         batch_op.drop_index(batch_op.f('ix_events_name'))
+        batch_op.drop_index(batch_op.f('ix_events_end_time'))
         batch_op.drop_index(batch_op.f('ix_events_description'))
         batch_op.drop_index(batch_op.f('ix_events_created_at'))
+        batch_op.drop_index(batch_op.f('ix_events_capacity'))
 
     op.drop_table('events')
+    with op.batch_alter_table('venues', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_venues_name'))
+        batch_op.drop_index(batch_op.f('ix_venues_location'))
+        batch_op.drop_index(batch_op.f('ix_venues_description'))
+        batch_op.drop_index(batch_op.f('ix_venues_capacity'))
+
+    op.drop_table('venues')
     with op.batch_alter_table('users', schema=None) as batch_op:
         batch_op.drop_index(batch_op.f('ix_users_location'))
         batch_op.drop_index(batch_op.f('ix_users_last_name'))
