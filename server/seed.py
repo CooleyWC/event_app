@@ -10,7 +10,6 @@ import pytz
 if __name__ == "__main__":
   with app.app_context():
     pass
-    # remove pass and write your seed data
     User.query.delete()
     Ticket.query.delete()
 
@@ -62,9 +61,9 @@ if __name__ == "__main__":
 
     event_4 = Event(name='Panoramic', description='Steel Pan based performing arts group. Perfoming works from their new album', start_time=dateObj_4, end_time=dateObj_4_end, creator_id=2, capacity=4, venue_id=4)
 
+    event_5 = Event(name='Radiohead', description='Radiohead plays Huey Lewis and the News greatest hits', start_time=dateObj_1, end_time=dateObj_1_end, capacity=14, creator_id=1, venue_id=2)
 
-
-    db.session.add_all([event_1, event_2, event_3, event_4])
+    db.session.add_all([event_1, event_2, event_3, event_4, event_5])
     db.session.commit()
 
 
