@@ -21,23 +21,25 @@ class CheckEventConflict(Resource):
             ).first()
 
         if existing_ticket:
-            error = {"conflict": "whoops", "message": 'you already bought this ticket'}
+            error = {"conflict": True, "message": 'You already have a ticket for this event.'}
             return error, 422
+        
+        incoming_start_time_format = datetime.fromisoformat(incoming_start_time.replace('Z', ''))
+        incoming_end_time_format = datetime.fromisoformat(incoming_end_time.replace('Z', ''))
+        
+        user_events = db.session.query(Event).join(Ticket).filter(Ticket.user_id == incoming_user_id).all()
 
-        event_conflicts = db.session.query(Ticket).join(Event).filter(
-      
-            Ticket.user_id == incoming_user_id,
-            Event.id == incoming_event_id,
-            Event.start_time <= incoming_end_time,
-            Event.end_time >= incoming_start_time
-        ).all()
+        conflicts = []
 
-        print('event conflicts', event_conflicts)
+        for event in user_events:
+            if event.start_time <= incoming_end_time_format and event.end_time >= incoming_start_time_format:
+                conflicts.append(event)       
 
-        if len(event_conflicts) > 0:
-            error = {"conflict": True, "message": "Uh oh - you got conflicts"}
+        if len(conflicts) > 0:
+            conflict_list = [conflict.to_dict() for conflict in conflicts]
+            error = {"conflict": True, "message": "You have a conflict with this event", "conflicts": conflict_list}
             return error, 422
         else:
-            result = {"conflict": False, "message": "All good"}
+            result = {"conflict": False, "message": "All good - no conflicts here"}
             return result, 200
         
