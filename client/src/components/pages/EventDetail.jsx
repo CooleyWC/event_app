@@ -13,8 +13,6 @@ const EventDetail = () => {
 
     const [eventData, setEventData] = useState([])
 
- 
-
     useEffect(()=>{
         fetch(`/api/event_by_id/${eventID}`)
         .then(res=>res.json())
