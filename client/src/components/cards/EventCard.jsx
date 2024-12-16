@@ -7,8 +7,6 @@ function EventCard({eventID,eventName, startTime, creator, description}) {
     const {user} = useAuth();
     const [hasTicket, setHasTicket] = useState(false)
 
-    
- 
     const userTickets = user?.tickets || [];
 
     useEffect(()=>{
@@ -34,7 +32,7 @@ function EventCard({eventID,eventName, startTime, creator, description}) {
             </div>
             <div>
                 {hasTicket && (
-                    <h1>(You're going to this event)</h1>
+                    <h1 className='border-solid border-2 inline-block'>(You're going to this event)</h1>
                 )}
             </div>
         </div>

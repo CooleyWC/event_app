@@ -20,7 +20,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
         return <p>loading...</p>
     }
 
-    console.log('tickets', user.tickets)
+    
 
     return (
         <div>

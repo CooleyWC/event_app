@@ -16,6 +16,10 @@ const EventDetail = ({handleProcessTicket}) => {
 
     const [eventData, setEventData] = useState([])
 
+    const [hasTicket, setHasTicket] = useState(false)
+
+    const userTickets = user?.tickets || [];
+
     useEffect(()=>{
         fetch(`/api/event_by_id/${eventID}`)
         .then(res=>res.json())
@@ -26,6 +30,20 @@ const EventDetail = ({handleProcessTicket}) => {
     }, [eventID])
 
     if(!eventData){
+        return <p>...loading</p>
+    }
+
+    useEffect(()=>{
+        for(let ticket of userTickets){
+            console.log(ticket.event_id)
+            console.log('event_id', eventID)
+            if(String(ticket.event_id) === String(eventID)){
+                setHasTicket(true)
+            }
+        }
+    }, [user])
+
+    if(!user){
         return <p>...loading</p>
     }
 
@@ -41,7 +59,11 @@ const EventDetail = ({handleProcessTicket}) => {
             <h1 className='text-4xl text-black'>{eventData.name}</h1>
             <p>{eventData.start_time}</p>
             <p>{eventData.description}</p>
-            <button className='border-solid border-2' onClick={onProcessTicket}>Get Ticket</button>
+            {hasTicket ? (
+                <h1 className='border-solid border-2 inline-block'>You have a ticket for this event</h1>
+            ):(
+                <button className='border-solid border-2' onClick={onProcessTicket}>Get Ticket</button>
+            )}
         </div>
     );
 };
