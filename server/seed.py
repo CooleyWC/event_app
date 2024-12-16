@@ -12,6 +12,8 @@ if __name__ == "__main__":
     pass
     User.query.delete()
     Ticket.query.delete()
+    Event.query.delete()
+    Venue.query.delete()
 
     print('adding users')
     user_1 = User(first_name='will', last_name='coole', email='willia@gmail.com', location='fort wayne')

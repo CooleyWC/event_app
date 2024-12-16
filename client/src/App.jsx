@@ -46,12 +46,43 @@ function App() {
 
     setSideOpen(!sideOpen)
   }
-  
-  // not currently used
+
   const closeDrawer = ()=>{
     setSideOpen(false)
    
   }
+
+  if(user){
+    console.log(user)
+  }
+  const handleProcessTicket = async (eventData, ticketPrice) =>{
+    try {
+        const response = await fetch('/api/process_ticket', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                event_id: eventData.id,
+                start_time: eventData.start_time,
+                end_time: eventData.end_time,
+                price: ticketPrice
+                }) 
+        })
+        const result = await response.json()
+        if(result.conflict){
+            alert(result.message)
+            return
+        } 
+        console.log('approved', result.message)
+        setAllEvents((prevEvents)=> [...prevEvents, result.event])
+
+    } catch (error) {
+        console.error('there was a problem', error)
+    }
+}
+
 
   return (
     <Router>
@@ -77,7 +108,7 @@ function App() {
             toggleSideDrawer={toggleSideDrawer}
             allEvents={allEvents}
             />} />
-        <Route path='/dashboard/event/:eventid' element={<EventDetail />} />
+        <Route path='/dashboard/event/:eventid' element={<EventDetail handleProcessTicket={handleProcessTicket}/>} />
       </Routes>
     </Router>
   )

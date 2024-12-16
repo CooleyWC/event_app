@@ -37,7 +37,9 @@ class ProcessTicket(Resource):
             db.session.add(new_ticket)
             db.session.commit()
 
-            return new_ticket.to_dict(), 200
+            event=Event.query.get(event_id)
+
+            return {'ticket': new_ticket.to_dict(), 'event': event.to_dict()}, 200
 
         except:
             error = {'error': 'there was a problem processing this ticket'}
