@@ -20,6 +20,8 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
         return <p>loading...</p>
     }
 
+    console.log('tickets', user.tickets)
+
     return (
         <div>
             <SideDrawer 
@@ -41,9 +43,9 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
                     {section==='upcoming_events' && (
                         <EventCard />
                     )}
-                    {section==='past_events' && (
+                    {/* {section==='past_events' && (
                         <EventCard />
-                    )}
+                    )} */}
                     {section==='create_event' && (
                         <CreateEvent />
                     )}

@@ -29,32 +29,6 @@ const EventDetail = ({handleProcessTicket}) => {
         return <p>...loading</p>
     }
 
-    // need to update this
-    // const handleProcessTicket = async () =>{
-    //     try {
-    //         const response = await fetch('/api/process_ticket', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-type': 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 user_id: user.id,
-    //                 event_id: eventData.id,
-    //                 start_time: eventData.start_time,
-    //                 end_time: eventData.end_time,
-    //                 }) 
-    //         })
-    //         const result = await response.json()
-    //         if(result.conflict){
-    //             alert(result.message)
-    //             return
-    //         } 
-    //         console.log('approved', result.message)
-    //     } catch (error) {
-    //         console.error('there was a problem', error)
-    //     }
-    // }
-
     const onProcessTicket = ()=>{
         handleProcessTicket(eventData, price)
     }

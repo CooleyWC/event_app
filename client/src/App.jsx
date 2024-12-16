@@ -76,7 +76,7 @@ function App() {
             return
         } 
         console.log('approved', result.message)
-        setAllEvents((prevEvents)=> [...prevEvents, result.event])
+        await checkUser()
 
     } catch (error) {
         console.error('there was a problem', error)
