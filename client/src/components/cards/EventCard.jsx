@@ -2,17 +2,20 @@ import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
 
-function EventCard({eventID,eventName, startTime, creator, description}) {
+function EventCard({eventID,eventName, startTime, endTime, creator, description}) {
 
     const {user} = useAuth();
     const [hasTicket, setHasTicket] = useState(false)
 
     const userTickets = user?.tickets || [];
 
-    const timeFormat = new Date(startTime)
-    const startDateStr = timeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
-    const startTimeStr = timeFormat.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})
+    const startTimeFormat = new Date(startTime)
+    const startDateStr = startTimeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
+    const startTimeStr = startTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
 
+    const endTimeFormat = new Date(endTime)
+    const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+    console.log(endTimeStr)
 
     useEffect(()=>{
         for(let ticket of userTickets){
@@ -27,7 +30,7 @@ function EventCard({eventID,eventName, startTime, creator, description}) {
             <div>
                 <h1 className='text-dark-blue text-center text-2xl'>{eventName}</h1>
                 <p>{startDateStr}</p>
-                <p>{startTimeStr}</p>
+                <p>{startTimeStr} - {endTimeStr}</p>
                 <p>{description}</p>
                 <p>{creator}</p>
             </div>

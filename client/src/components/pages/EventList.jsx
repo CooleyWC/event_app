@@ -11,8 +11,10 @@ function EventList({allEvents}) {
                 eventID={ev.id}
                 eventName={ev.name}
                 startTime={ev.start_time}
+                endTime={ev.end_time}
                 description={ev.description}
                 creator={ev.creator}
+
             />
         )
     })

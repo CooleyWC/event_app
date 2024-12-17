@@ -31,6 +31,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
                 eventName={ticket.event.name}
                 description={ticket.event.description}
                 startTime={ticket.event.start_time}
+                endTime={ticket.event.end_time}
             />
         )
     })

@@ -33,6 +33,14 @@ const EventDetail = ({handleProcessTicket}) => {
         return <p>...loading</p>
     }
 
+    const startTimeFormat = new Date(eventData.start_time)
+    const startDateStr = startTimeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
+    const startTimeStr = startTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+
+    const endTimeFormat = new Date(eventData.end_time)
+    const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+    console.log(endTimeStr)
+
     useEffect(()=>{
         for(let ticket of userTickets){
             if(String(ticket.event_id) === String(eventID)){
@@ -55,7 +63,8 @@ const EventDetail = ({handleProcessTicket}) => {
                 <button className='border-solid border-2'>Back to Events</button>
             </NavLink>
             <h1 className='text-4xl text-black'>{eventData.name}</h1>
-            <p>{eventData.start_time}</p>
+            <p>{startDateStr}</p>
+            <p>{startTimeStr} - {endTimeStr}</p>
             <p>{eventData.description}</p>
             {hasTicket ? (
                 <h1 className='border-solid border-2 inline-block'>You have a ticket for this event</h1>
