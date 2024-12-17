@@ -12,7 +12,7 @@ from config import db
 class Ticket(db.Model, SerializerMixin):
     __tablename__ = 'tickets'
 
-    serialize_rules = ('-user', '-event',)
+    serialize_rules = ('-user', '-event.user',)
     
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     purchase_date: so.Mapped[datetime] = so.mapped_column(

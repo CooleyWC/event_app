@@ -23,6 +23,10 @@ from flask import render_template
 #   return render_template('index.html', title='Home', user='will')
 
 
+@app.route('/tickets')
+def tickets():
+  return [ticket.to_dict() for ticket in Ticket.query.all()]
+
 api.add_resource(Users, '/api/users')
 api.add_resource(Login, '/api/login')
 api.add_resource(CheckSession, '/api/check_session')

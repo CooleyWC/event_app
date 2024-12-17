@@ -20,7 +20,21 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
         return <p>loading...</p>
     }
 
-    
+    const userTickets = user?.tickets || [];
+
+    const upcomingEvents = userTickets.map((ticket)=>{
+
+        return (
+            <EventCard 
+                key={ticket.id}
+                eventID={ticket.event.id}
+                eventName={ticket.event.name}
+                description={ticket.event.description}
+                startTime={ticket.event.start_time}
+            />
+        )
+    })
+    console.log(upcomingEvents)
 
     return (
         <div>
@@ -41,7 +55,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
                         />
                     )}
                     {section==='upcoming_events' && (
-                        <EventCard />
+                        <div>{upcomingEvents}</div>
                     )}
                     {/* {section==='past_events' && (
                         <EventCard />
