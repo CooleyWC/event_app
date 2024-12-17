@@ -9,6 +9,11 @@ function EventCard({eventID,eventName, startTime, creator, description}) {
 
     const userTickets = user?.tickets || [];
 
+    const timeFormat = new Date(startTime)
+    const startDateStr = timeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
+    const startTimeStr = timeFormat.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})
+
+
     useEffect(()=>{
         for(let ticket of userTickets){
             if(ticket.event_id === eventID){
@@ -21,7 +26,8 @@ function EventCard({eventID,eventName, startTime, creator, description}) {
         <div className='bg-slate-200 flex flex-col justify-center px-8 py-8 mx-8 my-2 gap-2 rounded border-solid border-black'>
             <div>
                 <h1 className='text-dark-blue text-center text-2xl'>{eventName}</h1>
-                <p>{startTime}</p>
+                <p>{startDateStr}</p>
+                <p>{startTimeStr}</p>
                 <p>{description}</p>
                 <p>{creator}</p>
             </div>

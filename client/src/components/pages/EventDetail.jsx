@@ -35,8 +35,6 @@ const EventDetail = ({handleProcessTicket}) => {
 
     useEffect(()=>{
         for(let ticket of userTickets){
-            console.log(ticket.event_id)
-            console.log('event_id', eventID)
             if(String(ticket.event_id) === String(eventID)){
                 setHasTicket(true)
             }

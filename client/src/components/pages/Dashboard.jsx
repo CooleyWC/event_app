@@ -34,7 +34,6 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
             />
         )
     })
-    console.log(upcomingEvents)
 
     return (
         <div>
