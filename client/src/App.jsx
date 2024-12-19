@@ -52,9 +52,6 @@ function App() {
    
   }
 
-  // if(user){
-  //   console.log(user)
-  // }
   const handleProcessTicket = async (eventData, ticketPrice) =>{
     try {
         const response = await fetch('/api/process_ticket', {

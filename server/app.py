@@ -12,6 +12,7 @@ from resources.logout import Logout
 from resources.events import Events
 from resources.event_by_id import EventByID
 from resources.process_ticket import ProcessTicket
+from resources.ticket_by_id import TicketByID
 
 
 
@@ -34,6 +35,8 @@ api.add_resource(Logout, '/api/logout')
 api.add_resource(Events, '/api/events')
 api.add_resource(EventByID, '/api/event_by_id/<int:id>')
 api.add_resource(ProcessTicket, '/api/process_ticket')
+api.add_resource(TicketByID, '/api/ticket_by_id/<int:id>')
+
 
 if __name__ == "__main__":
   app.run(port=5555, debug=True)
