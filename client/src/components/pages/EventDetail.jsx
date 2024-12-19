@@ -3,7 +3,7 @@ import {useParams, NavLink} from 'react-router-dom';
 import { useAuth} from '../context/AuthProvider'
 
 
-const EventDetail = ({handleProcessTicket}) => {
+const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
 
     // change this later
     const price = 10
@@ -15,8 +15,8 @@ const EventDetail = ({handleProcessTicket}) => {
     const eventID = params.eventid
 
     const [eventData, setEventData] = useState([])
-
     const [hasTicket, setHasTicket] = useState(false)
+    const [matchingTicket, setMatchingTicket] = useState(null)
 
     const userTickets = user?.tickets || [];
 
@@ -39,12 +39,12 @@ const EventDetail = ({handleProcessTicket}) => {
 
     const endTimeFormat = new Date(eventData.end_time)
     const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
-    console.log(endTimeStr)
 
     useEffect(()=>{
         for(let ticket of userTickets){
             if(String(ticket.event_id) === String(eventID)){
                 setHasTicket(true)
+                setMatchingTicket(ticket.id)
             }
         }
     }, [user])
@@ -57,6 +57,12 @@ const EventDetail = ({handleProcessTicket}) => {
         handleProcessTicket(eventData, price)
     }
 
+    const onTicketDelete = ()=>{
+        console.log('onDeleteFunc')
+        console.log('matching tx', matchingTicket)
+        handleTicketDelete(matchingTicket)
+    }
+
     return (
         <div className='mt-52'>
             <NavLink to={'/dashboard/find_events'}>
@@ -67,10 +73,16 @@ const EventDetail = ({handleProcessTicket}) => {
             <p>{startTimeStr} - {endTimeStr}</p>
             <p>{eventData.description}</p>
             {hasTicket ? (
-                <h1 className='border-solid border-2 inline-block'>You have a ticket for this event</h1>
+                <>
+                    <h1 className='border-solid border-2 inline-block'>
+                        You have a ticket for this event
+                    </h1>
+                    <button onClick={onTicketDelete}>Cancel</button>
+                </>
             ):(
                 <button className='border-solid border-2' onClick={onProcessTicket}>Get Ticket</button>
             )}
+            
         </div>
     );
 };

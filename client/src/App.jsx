@@ -80,6 +80,22 @@ function App() {
     }
 }
 
+const handleTicketDelete = (ticketID)=>{
+  console.log('handleTicketCalled')
+  fetch(`/api/ticket_by_id/${ticketID}`, {
+    method: 'DELETE'
+  })
+  .then((res)=>{
+    if(res.ok){
+      console.log('handleDelete success')
+      checkUser()
+    }
+  })
+  .catch((error)=>{
+    console.error(error.error)
+  })
+}
+
 
   return (
     <Router>
@@ -104,8 +120,13 @@ function App() {
             closeDrawer={closeDrawer} 
             toggleSideDrawer={toggleSideDrawer}
             allEvents={allEvents}
+            // handleTicketDelete={handleTicketDelete}
             />} />
-        <Route path='/dashboard/event/:eventid' element={<EventDetail handleProcessTicket={handleProcessTicket}/>} />
+        <Route path='/dashboard/event/:eventid' element={
+          <EventDetail 
+            handleProcessTicket={handleProcessTicket}
+            handleTicketDelete={handleTicketDelete}
+          />} />
       </Routes>
     </Router>
   )
