@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
-import {IoClose, IoMenu} from "react-icons/io5"
+import {IoClose, IoMenu, IoSunnyOutline, IoMoonOutline} from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
-function NavBar({toggleSideDrawer}) {
+function NavBar({toggleSideDrawer, toggleDarkMode, darkMode}) {
 
     const {user, logout} = useAuth();
 
@@ -29,7 +29,7 @@ function NavBar({toggleSideDrawer}) {
 
     return (
         <>
-        <nav className='fixed top-0 z-50 w-full bg-dark-blue text-white'>
+        <nav className='fixed top-0 z-50 w-full bg-white dark:bg-dark-blue text-black dark:text-ivory'>
             <div className='px-3 py-3 sm:py-5'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center justify-start rtl:justify-end'>
@@ -45,15 +45,24 @@ function NavBar({toggleSideDrawer}) {
                             </NavLink>
                         </div>
                     </div>
-                    <div className='space-x-3'>
+                    <div className='space-x-3 flex flex-row items-center'>
                         {user ? (
                             <>
-                                <NavLink to='/dashboard'
-                                    
+                                <button
+                                    onClick={toggleDarkMode}
+                                >
+                                    {darkMode ? <IoSunnyOutline className='size-6 text-black dark:text-ivory'/> : <IoMoonOutline className='size-6 text-black dark:text-ivory' />}
+                                </button>
+                                
+                                <NavLink 
+                                    to='/dashboard'
+                                    className='text-black dark:text-ivory'
                                 >
                                     Dashboard
                                 </NavLink>
-                                <NavLink to='/'
+                                <NavLink 
+                                    className='text-black dark:text-ivory'
+                                    to='/'
                                     onClick={onLogoutClick}
                                 >
                                     Logout
@@ -62,8 +71,11 @@ function NavBar({toggleSideDrawer}) {
                         ):(
                             <>
                                 <NavLink 
+                                    className='text-black dark:text-ivory'
                                     to='/login'
-                                >Login</NavLink>
+                                >
+                                    Login
+                                </NavLink>
                             </>
                         )}
                     </div>

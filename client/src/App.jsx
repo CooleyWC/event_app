@@ -16,6 +16,12 @@ function App() {
   const [sideOpen, setSideOpen] = useState(false)
   const [allEvents, setAllEvents] = useState([])
 
+  const [darkMode, setDarkMode] = useState(false)
+
+  const toggleDarkMode = ()=>{
+    setDarkMode(!darkMode)
+  }
+
   useEffect(()=>{
     checkUser()
   }, [])
@@ -98,11 +104,14 @@ const handleTicketDelete = (ticketID)=>{
 
 
   return (
+    <div className={`${darkMode && "dark"}`}>
     <Router>
       <NavBar 
         setSideOpen={setSideOpen} 
         sideOpen={sideOpen} 
         toggleSideDrawer={toggleSideDrawer}
+        toggleDarkMode={toggleDarkMode}
+        darkMode={darkMode }
         />
       <Routes>
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
@@ -129,6 +138,7 @@ const handleTicketDelete = (ticketID)=>{
           />} />
       </Routes>
     </Router>
+    </div>
   )
 }
 
