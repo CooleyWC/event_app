@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, NavLink} from 'react-router-dom';
+import {useParams, NavLink, useNavigate} from 'react-router-dom';
 import { useAuth} from '../context/AuthProvider'
 
 
@@ -11,6 +11,8 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     const {user} = useAuth()
 
     const params = useParams()
+
+    let navigate = useNavigate()
  
     const eventID = params.eventid
 
@@ -58,9 +60,8 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     }
 
     const onTicketDelete = ()=>{
-        console.log('onDeleteFunc')
-        console.log('matching tx', matchingTicket)
         handleTicketDelete(matchingTicket)
+        navigate('/dashboard/upcoming_events')
     }
 
     return (

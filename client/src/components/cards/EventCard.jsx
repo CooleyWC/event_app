@@ -15,7 +15,6 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description}
 
     const endTimeFormat = new Date(endTime)
     const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
-    console.log(endTimeStr)
 
     useEffect(()=>{
         for(let ticket of userTickets){
