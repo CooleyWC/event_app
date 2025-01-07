@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {IoClose, IoMenu, IoSunnyOutline, IoMoonOutline} from "react-icons/io5"
+import {IoMenu, IoSunnyOutline, IoMoonOutline} from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode}) {
 
     return (
         <>
-        <nav className='fixed top-0 z-50 w-full bg-white dark:bg-dark-blue text-black dark:text-ivory'>
+        <nav className='fixed top-0 z-50 w-full bg-white dark:bg-dark-blue text-black dark:text-ivory border-b border-dark-blue dark:border-ivory'>
             <div className='px-3 py-3 sm:py-5'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center justify-start rtl:justify-end'>
@@ -45,23 +45,23 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode}) {
                             </NavLink>
                         </div>
                     </div>
-                    <div className='space-x-3 flex flex-row items-center'>
+                    <div className='space-x-5 flex flex-row items-center mr-2'>
                         {user ? (
                             <>
                                 <button
                                     onClick={toggleDarkMode}
                                 >
-                                    {darkMode ? <IoSunnyOutline className='size-6 text-black dark:text-ivory'/> : <IoMoonOutline className='size-6 text-black dark:text-ivory' />}
+                                    {darkMode ? <IoSunnyOutline className='size-6 text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900'/> : <IoMoonOutline className='size-6 text-black hover:bg-slate-200 dark:text-ivory' />}
                                 </button>
                                 
                                 <NavLink 
                                     to='/dashboard'
-                                    className='text-black dark:text-ivory'
+                                    className='text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900 px-1'
                                 >
                                     Dashboard
                                 </NavLink>
                                 <NavLink 
-                                    className='text-black dark:text-ivory'
+                                    className='text-black dark:text-ivory hover:bg-slate-200 dark:hover:bg-slate-900 px-1'
                                     to='/'
                                     onClick={onLogoutClick}
                                 >
