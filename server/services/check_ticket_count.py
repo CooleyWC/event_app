@@ -1,19 +1,17 @@
 from config import db
 from flask_restful import Resource
-# from flask import request
 from datetime import datetime
 
 from models.events import Event
-from models.tickets import Ticket
 
 def check_ticket_count(event_id, num):
 
-    print('check_update ran')
+    event = Event.query.get(event_id)
 
-    event = Event.query.get(event_id == Event.id).first()
+    if not event_id:
+        return {"error": "event not found"}, 404
 
     event_capacity = event.capacity
-
     current_total = event.current_total
 
     if current_total + num > event_capacity:

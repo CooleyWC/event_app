@@ -10,6 +10,7 @@ from services.check_ticket_count import check_ticket_count
 from services.update_ticket_count import update_ticket_count
 
 class ProcessTicket(Resource):
+
     def post(self):
         data=request.get_json()
 
@@ -28,8 +29,6 @@ class ProcessTicket(Resource):
 
         if conflict_check_result['conflict']:
             return conflict_check_result, status_code
-        
-        # new
 
         capacity_check_result, cytcr_status_code = check_ticket_count(
             event_id, 
@@ -50,14 +49,16 @@ class ProcessTicket(Resource):
             db.session.add(new_ticket)
             db.session.commit()
 
-            # 
+            update_result, update_status_code = update_ticket_count(event_id, 1)
+            if update_result:
+                return update_result, update_status_code
 
             event=Event.query.get(event_id)
-
             return {'ticket': new_ticket.to_dict(), 'event': event.to_dict()}, 200
 
-        except:
-            error = {'error': 'there was a problem processing this ticket'}
+        except Exception as e:
+            db.session.rollback()
+            error = {'error': 'there was a problem processing this ticket', 'details': str(e)}
             return error, 422
             
 
