@@ -26,6 +26,7 @@ class Event(db.Model, SerializerMixin):
         index=True
     )
     capacity: so.Mapped[int] = so.mapped_column(index=True)
+    current_total: so.Mapped[int] = so.mapped_column(index=True, default=0, nullable=True)
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
     creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'))
 

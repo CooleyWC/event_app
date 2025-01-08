@@ -6,6 +6,8 @@ from datetime import datetime
 from models.events import Event
 from models.tickets import Ticket
 from services.check_event_conflict import check_event_conflict
+from services.check_ticket_count import check_ticket_count
+from services.update_ticket_count import update_ticket_count
 
 class ProcessTicket(Resource):
     def post(self):
@@ -27,6 +29,17 @@ class ProcessTicket(Resource):
         if conflict_check_result['conflict']:
             return conflict_check_result, status_code
         
+        # new
+
+        capacity_check_result, cytcr_status_code = check_ticket_count(
+            event_id, 
+            # later, update this to accomodate multiple ticket purchases
+            1
+        )
+
+        if capacity_check_result['error']:
+            return capacity_check_result, cytcr_status_code
+        
         try:
             new_ticket = Ticket(
                 user_id = user_id,
@@ -36,6 +49,8 @@ class ProcessTicket(Resource):
 
             db.session.add(new_ticket)
             db.session.commit()
+
+            # 
 
             event=Event.query.get(event_id)
 

@@ -1,8 +1,8 @@
-"""added end_time and capacity to event model
+"""added current_total to events model
 
-Revision ID: 9ee012f3864a
+Revision ID: a41e4197edc7
 Revises: 
-Create Date: 2024-12-09 22:02:38.545855
+Create Date: 2025-01-07 20:55:13.679339
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9ee012f3864a'
+revision = 'a41e4197edc7'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -54,6 +54,7 @@ def upgrade():
     sa.Column('start_time', sa.DateTime(), nullable=False),
     sa.Column('end_time', sa.DateTime(), nullable=False),
     sa.Column('capacity', sa.Integer(), nullable=False),
+    sa.Column('current_total', sa.Integer(), nullable=True),
     sa.Column('description', sa.String(length=300), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=False),
     sa.Column('venue_id', sa.Integer(), nullable=False),
@@ -64,6 +65,7 @@ def upgrade():
     with op.batch_alter_table('events', schema=None) as batch_op:
         batch_op.create_index(batch_op.f('ix_events_capacity'), ['capacity'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_created_at'), ['created_at'], unique=False)
+        batch_op.create_index(batch_op.f('ix_events_current_total'), ['current_total'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_description'), ['description'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_end_time'), ['end_time'], unique=False)
         batch_op.create_index(batch_op.f('ix_events_name'), ['name'], unique=False)
@@ -102,6 +104,7 @@ def downgrade():
         batch_op.drop_index(batch_op.f('ix_events_name'))
         batch_op.drop_index(batch_op.f('ix_events_end_time'))
         batch_op.drop_index(batch_op.f('ix_events_description'))
+        batch_op.drop_index(batch_op.f('ix_events_current_total'))
         batch_op.drop_index(batch_op.f('ix_events_created_at'))
         batch_op.drop_index(batch_op.f('ix_events_capacity'))
 
