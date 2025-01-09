@@ -16,10 +16,16 @@ function App() {
   const [sideOpen, setSideOpen] = useState(false)
   const [allEvents, setAllEvents] = useState([])
 
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(()=>{
+    return localStorage.getItem('darkMode') === 'true';
+  })
 
   const toggleDarkMode = ()=>{
-    setDarkMode(!darkMode)
+    setDarkMode((prevMode)=>{
+      const newMode = !prevMode
+      localStorage.setItem('darkMode', newMode)
+      return newMode
+    })
   }
 
   useEffect(()=>{
