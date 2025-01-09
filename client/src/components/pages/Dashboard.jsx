@@ -37,7 +37,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
     })
 
     return (
-        <div>
+        <div className='bg-ivory dark:bg-periwinkle'>
             <SideDrawer 
                 sideOpen={sideOpen} 
                 toggleSideDrawer={toggleSideDrawer}

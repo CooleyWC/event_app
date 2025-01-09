@@ -20,7 +20,7 @@ function EventList({allEvents}) {
     })
 
     return (
-        <div className='bg-slate-300 h-screen pt-2'>
+        <div className='h-screen pt-2'>
             <div>
                 {events}
             </div>
