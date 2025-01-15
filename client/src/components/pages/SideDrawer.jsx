@@ -6,10 +6,6 @@ const navLinks = [
         title: 'Upcoming Events',
         href: 'upcoming_events',
     },
-    // {
-    //     title: 'Past Events',
-    //     href: 'past_events',
-    // },
     {
         title: 'Find Events',
         href: 'find_events',
@@ -25,15 +21,12 @@ const navLinks = [
 ]
 
 
-function SideDrawer({sideOpen, toggleSideDrawer, closeDrawer}) {
+function SideDrawer({sideOpen}) {
 
     let navigate = useNavigate();
 
     const onLinkClick = (e)=>{
-     
         const clickedLink = e.target.getAttribute('section-ref');
-        // toggleSideDrawer()
-        // closeDrawer()
         navigate(`/dashboard/${clickedLink}`);
         
     }

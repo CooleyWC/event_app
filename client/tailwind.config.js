@@ -19,3 +19,6 @@ export default {
   darkMode: 'class',
 }
 
+
+// new color palette
+// ["#4b3d8f", "#37a987", "#b7b1d2"]

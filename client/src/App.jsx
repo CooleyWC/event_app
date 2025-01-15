@@ -14,7 +14,9 @@ function App() {
 
   const {login, logout, user, update} = useAuth()
   const [sideOpen, setSideOpen] = useState(false)
+  const [profileOpen, setProfileOpen] = useState(false)
   const [allEvents, setAllEvents] = useState([])
+  
 
   const [darkMode, setDarkMode] = useState(()=>{
     return localStorage.getItem('darkMode') === 'true';
@@ -55,13 +57,15 @@ function App() {
   }
 
   const toggleSideDrawer = ()=>{
-
     setSideOpen(!sideOpen)
   }
 
   const closeDrawer = ()=>{
     setSideOpen(false)
-   
+  }
+
+  const toggleProfileDrawer = ()=>{
+    setProfileOpen(!profileOpen)
   }
 
   const handleProcessTicket = async (eventData, ticketPrice) =>{
@@ -117,6 +121,8 @@ const handleTicketDelete = (ticketID)=>{
         sideOpen={sideOpen} 
         toggleSideDrawer={toggleSideDrawer}
         toggleDarkMode={toggleDarkMode}
+        toggleProfileDrawer={toggleProfileDrawer}
+        profileOpen={profileOpen}
         darkMode={darkMode }
         />
       <Routes>
@@ -126,6 +132,8 @@ const handleTicketDelete = (ticketID)=>{
           <Dashboard 
             sideOpen={sideOpen} 
             toggleSideDrawer={toggleSideDrawer}
+            toggleProfileDrawer={toggleProfileDrawer}
+            profileOpen={profileOpen}
             closeDrawer={closeDrawer}
             allEvents={allEvents}
           />} />
@@ -134,6 +142,8 @@ const handleTicketDelete = (ticketID)=>{
             sideOpen={sideOpen} 
             closeDrawer={closeDrawer} 
             toggleSideDrawer={toggleSideDrawer}
+            toggleProfileDrawer={toggleProfileDrawer}
+            profileOpen={profileOpen}
             allEvents={allEvents}
             // handleTicketDelete={handleTicketDelete}
             />} />

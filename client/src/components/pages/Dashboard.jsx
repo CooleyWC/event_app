@@ -1,5 +1,6 @@
 import React from 'react';
 import SideDrawer from './SideDrawer';
+import ProfileDrawer from './ProfileDrawer';
 import { useAuth} from '../context/AuthProvider'
 import {useParams} from 'react-router-dom'
 import Main from '../../ui/Main';
@@ -10,7 +11,7 @@ import ProfileCard from '../cards/ProfileCard';
 import CreateEvent from '../forms/CreateEvent';
 import EventList from './EventList';
 
-function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
+function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, toggleProfileDrawer, profileOpen}) {
 
     const {user} = useAuth();
 
@@ -42,6 +43,10 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents}) {
                 sideOpen={sideOpen} 
                 toggleSideDrawer={toggleSideDrawer}
                 closeDrawer={closeDrawer}/>
+            <ProfileDrawer
+                toggleProfileDrawer={toggleProfileDrawer} 
+                profileOpen={profileOpen}
+            />
             <Main>
                 <div>
                 {/* <Content> */}

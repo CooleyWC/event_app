@@ -1,31 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {IoMenu, IoSunnyOutline, IoMoonOutline} from "react-icons/io5"
+import {IoMenu, IoSunnyOutline, IoMoonOutline, IoPersonOutline } from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
-import { useNavigate } from 'react-router-dom';
 
-function NavBar({toggleSideDrawer, toggleDarkMode, darkMode}) {
+function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer}) {
 
-    const {user, logout} = useAuth();
-
-    let navigate = useNavigate();
-
-    const onLogoutClick = async ()=>{
-        try{
-            const res = await fetch('/api/logout',{
-                method: 'DELETE',
-            })
-            if (!res.ok){
-                console.log('logout failed')
-            }
-            console.log('logout successful')
-            logout()
-            navigate('/')
-        } catch (error){
-            console.log(error.message)
-            return error
-        }
-    }
+    const {user} = useAuth();
+    const nameDisplay = user?.first_name + ' ' + user?.last_name
 
     return (
         <>
@@ -50,6 +31,7 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode}) {
                             <>
                                 <button
                                     onClick={toggleDarkMode}
+                                    aria-label={darkMode ? "Switch to light mode." : "Switch to dark mode."}
                                 >
                                     {darkMode ? <IoSunnyOutline className='size-6 text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900'/> : <IoMoonOutline className='size-6 text-black hover:bg-slate-200 dark:text-ivory' />}
                                 </button>
@@ -60,13 +42,12 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode}) {
                                 >
                                     Dashboard
                                 </NavLink>
-                                <NavLink 
-                                    className='text-black dark:text-ivory hover:bg-slate-200 dark:hover:bg-slate-900 px-1'
-                                    to='/'
-                                    onClick={onLogoutClick}
-                                >
-                                    Logout
-                                </NavLink>
+                                <button onClick={toggleProfileDrawer} aria-label='Open profile drawer'>
+                                    <div className='flex items-center  text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900'>
+                                        <IoPersonOutline className='size-6'/>
+                                        <span className='display-block'>{nameDisplay}</span>
+                                    </div>
+                                </button>
                             </>
                         ):(
                             <>
