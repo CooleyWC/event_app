@@ -7,6 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        'playDoughPurple': '#4b3d8f',
+        'playDoughGreen': '#37a987',
+        'playDoughLightPurple': '#b7b1d2',
         'dark-blue': '#333f63',
         'purple': '#715c8c',
         'ivory': '#d7d4dd',
@@ -18,7 +21,3 @@ export default {
   plugins: [],
   darkMode: 'class',
 }
-
-
-// new color palette
-// ["#4b3d8f", "#37a987", "#b7b1d2"]

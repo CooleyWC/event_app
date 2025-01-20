@@ -34,7 +34,7 @@ function SideDrawer({sideOpen}) {
 
     return (
         // pt-20 is responsible for making sure the links do not overlap with the navbar
-        <div className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white dark:bg-dark-blue border-r dark:border-ivory border-dark-blue sm:translate-x-0 transition-transform ${sideOpen ? "translate-x-0": "-translate-x-full"}`}>
+        <div className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 bg-white dark:bg-slate-950 border-r dark:border-ivory border-dark-blue sm:translate-x-0 transition-transform ${sideOpen ? "translate-x-0": "-translate-x-full"}`}>
             <ul className='dark:text-ivory text-black' onClick={onLinkClick}>
                 {navLinks.map(({title, href})=>(
                     <li key={title} 

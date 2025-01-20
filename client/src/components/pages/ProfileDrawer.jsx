@@ -16,7 +16,8 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
     const {logout} = useAuth()
 
     const onLinkClick = (e)=>{
-        const clickedLink = e.target.getAttribute('section-ref');
+        e.preventDefault()
+        const clickedLink = e.currentTarget.getAttribute('section-ref');
         navigate(`/dashboard/${clickedLink}`);
         toggleProfileDrawer()
     }
@@ -45,11 +46,14 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
             aria-modal='true'
             aria-label='profile drawer'
         >
-            <ul className='dark:text-ivory text-black' onClick={onLinkClick}>
+            <ul className='dark:text-ivory text-black' >
                 {navLinks.map(({title, href})=>(
                     <li key={title} 
                         section-ref={href} 
-                        className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900 '>
+                        className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900 '
+                        onClick={onLinkClick}
+                        >
+                        
                         <a href={href} className='focus:outline-none focus:ring-2 focus:ring-blue-400'>
                             {title}
                         </a>
