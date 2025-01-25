@@ -25,7 +25,7 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description}
     }, [user])
 
     return (
-        <div className='bg-slate-200 flex flex-col justify-center px-8 py-8 mx-8 my-2 gap-2 rounded border-solid border-black'>
+        <div className='bg-slate-200 w-full flex flex-col justify-center px-8 py-8 mx-8 my-2 gap-2 rounded border-solid border-black'>
             <div>
                 <h1 className='text-dark-blue text-center text-2xl'>{eventName}</h1>
                 <p>{startDateStr}</p>
