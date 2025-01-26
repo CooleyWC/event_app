@@ -37,6 +37,8 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
         )
     })
 
+    console.log('section', section)
+
     return (
         <div className='bg-ivory dark:bg-periwinkle'>
             <SideDrawer 
@@ -58,6 +60,15 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                     )}
                     {section==='create_event' && (
                         <CreateEvent />
+                    )}
+                    {section==='profile' && (
+                        <ProfileCard 
+                            key={user.id}
+                            user={user}
+                            firstName={user.first_name}
+                            lastName={user.last_name}
+                            location={user.location}
+                        />
                     )}
                 </div>
                 {/* </Content> */}
