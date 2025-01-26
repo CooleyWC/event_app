@@ -50,26 +50,14 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
             <Main>
                 <div>
                 {/* <Content> */}
-                    {(!section || section==='profile') && (
-                        <ProfileCard 
-                            key={user.id}
-                            user={user}
-                            firstName={user.first_name}
-                            lastName={user.last_name}
-                            location={user.location}
-                        />
+                    {(!section || section==='find_events') && (
+                        <EventList allEvents={allEvents}/>
                     )}
                     {section==='upcoming_events' && (
                         <div>{upcomingEvents}</div>
                     )}
-                    {/* {section==='past_events' && (
-                        <EventCard />
-                    )} */}
                     {section==='create_event' && (
                         <CreateEvent />
-                    )}
-                    {section==='find_events' && (
-                        <EventList allEvents={allEvents}/>
                     )}
                 </div>
                 {/* </Content> */}

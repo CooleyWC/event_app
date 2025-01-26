@@ -14,17 +14,15 @@ function EventList({allEvents}) {
                 endTime={ev.end_time}
                 description={ev.description}
                 creator={ev.creator}
-
             />
         )
     })
 
     return (
         <div className='h-screen pt-2'>
-            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 '>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                 {events}
             </div>
-            
         </div>
     );
 }
