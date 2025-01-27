@@ -7,23 +7,23 @@ function CreateEvent() {
             <div className='w-full flex justify-center'>
                 <form>
                     <div>
-                        <label>Event Name</label>
+                        <label className='block text-ivory'>Event Name</label>
                         <input />
                     </div>
                     <div>
-                        <label>Start Time</label>
+                        <label className='block text-ivory'>Start Time</label>
                         <input />
                     </div>
                     <div>
-                        <label>End Time</label>
+                        <label className='block text-ivory'>End Time</label>
                         <input />
                     </div>
                     <div>
-                        <label>Capacity</label>
+                        <label className='block text-ivory'>Capacity</label>
                         <input />
                     </div>
                     <div>
-                        <label>Description</label>
+                        <label className='block text-ivory'>Description</label>
                         <input />
                     </div>
                 </form>
