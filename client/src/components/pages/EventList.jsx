@@ -19,7 +19,7 @@ function EventList({allEvents}) {
     })
 
     return (
-        <div className='h-screen pt-2'>
+        <div className='pt-2'>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
                 {events}
             </div>

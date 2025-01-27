@@ -41,7 +41,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
 
     return (
         profileOpen && (
-        <div className={`fixed top-0 right-0 z-40 w-52 pt-20 bg-white dark:bg-dark-blue border-l dark:border-ivory border-dark-blue sm:translate-x-0 transition-transform ${profileOpen ? 'translate-x-0' : 'translate-x-full'} `}
+        <div className={`fixed top-0 right-0 z-40 w-52 pt-20 bg-white dark:bg-slate-950 border-l dark:border-ivory border-dark-blue sm:translate-x-0 transition-transform ${profileOpen ? 'translate-x-0' : 'translate-x-full'} `}
             role='dialog'
             aria-modal='true'
             aria-label='profile drawer'

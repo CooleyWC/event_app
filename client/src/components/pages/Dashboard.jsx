@@ -40,7 +40,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
     console.log('section', section)
 
     return (
-        <div className='bg-ivory dark:bg-periwinkle'>
+        <div className='bg-ivory dark:bg-slate-950'>
             <SideDrawer 
                 sideOpen={sideOpen} 
                 toggleSideDrawer={toggleSideDrawer}
