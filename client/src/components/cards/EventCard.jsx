@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
 
-function EventCard({eventID,eventName, startTime, endTime, creator, description}) {
+function EventCard({eventID,eventName, startTime, endTime, creator, description, image}) {
 
     const {user} = useAuth();
     const [hasTicket, setHasTicket] = useState(false)
@@ -25,23 +25,27 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description}
     }, [user])
 
     return (
-        <div className='bg-slate-200 min-h-80 flex flex-col justify-center px-8 py-8 mx-4 my-4 rounded border-solid border-black'>
+        <div className='bg-slate-200 max-w-sm rounded mx-2 my-2 flex flex-col'>
             <div>
-                <h1 className='text-dark-blue text-center text-2xl'>{eventName}</h1>
-                <p>{startDateStr}</p>
-                <p>{startTimeStr} - {endTimeStr}</p>
+                <img src={image} className='h-[200px] w-full object-cover'/>
+            </div>
+            <div className='px-6 py-4 flex-grow flex flex-col'>
+            <div>
+                <h1 className='text-dark-blue text-center text-2xl font-bold'>{eventName}</h1>
+                <h2 className='text-lg'>{startDateStr}</h2>
+                <p className='mb-4'>{startTimeStr} - {endTimeStr}</p>
                 <p>{description}</p>
                 <p>{creator}</p>
             </div>
-            <div className='my-4'>
-                <NavLink to={`/dashboard/event/${eventID}`}>
-                    <a className='bg-transparent font-bold py-2 px-4 border-solid rounded border-dark-blue border hover:bg-periwinkle hover:text-white transition ease-in-out'>Details</a>
+            <div className='mt-auto'>
+                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-dark-blue border hover:bg-periwinkle hover:text-white transition ease-in-out'>
+                    Details
                 </NavLink>
-            </div>
-            <div>
+        
                 {hasTicket && (
                     <h1 className='border-solid border-2 inline-block'>(You're going to this event)</h1>
                 )}
+            </div>
             </div>
         </div>
     );

@@ -25,6 +25,8 @@ class Event(db.Model, SerializerMixin):
     end_time: so.Mapped[datetime] = so.mapped_column(
         index=True
     )
+
+    image: so.Mapped[str] = so.mapped_column(sa.String(200), default='default_image_url')
     capacity: so.Mapped[int] = so.mapped_column(index=True)
     current_total: so.Mapped[int] = so.mapped_column(index=True, default=0, nullable=True)
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)

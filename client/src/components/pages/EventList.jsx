@@ -4,6 +4,7 @@ import EventCard from '../cards/EventCard';
 
 function EventList({allEvents}) {
 
+
     const events = allEvents.map((ev)=>{
         return (
             <EventCard 
@@ -14,6 +15,7 @@ function EventList({allEvents}) {
                 endTime={ev.end_time}
                 description={ev.description}
                 creator={ev.creator}
+                image={ev.image}
             />
         )
     })
