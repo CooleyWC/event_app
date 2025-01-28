@@ -33,9 +33,9 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description}
                 <p>{description}</p>
                 <p>{creator}</p>
             </div>
-            <div>
+            <div className='my-4'>
                 <NavLink to={`/dashboard/event/${eventID}`}>
-                    <button className='border-solid border-dark-blue border' >Details</button>
+                    <a className='bg-transparent font-bold py-2 px-4 border-solid rounded border-dark-blue border hover:bg-periwinkle hover:text-white transition ease-in-out'>Details</a>
                 </NavLink>
             </div>
             <div>
