@@ -1,20 +1,28 @@
 import React, {useState} from 'react';
 import CreateVenue from './CreateVenue';
 import CreateEventForm from './CreateEventForm';
+import useVenueFormData from '../context/VenueFormData';
 
 function CreateEvent() {
 
-    const [venueData, setVenueData] = useState([]);
+    const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
 
+    console.log(venueFormData)
 
+    const isVenueFormEmpty = (data)=>{
+        return Object.keys(data).length === 0;
+    }
+
+    
 
     return (
         <div>
-        {!venueData || venueData.length === 0 ? (
+        { isVenueFormEmpty(venueFormData) ? (
             <CreateVenue />
         ): (
             <CreateEventForm />
         )}
+        <button onClick={clearVenueFormData}>Reset Venue Data</button>
         </div>
     
     );
