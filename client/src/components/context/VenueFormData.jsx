@@ -12,6 +12,7 @@ const useVenueFormData = () =>{
     }, [venueFormData])
 
     const saveVenueFormData = (data) =>{
+        console.log('venue data saved', data)
         setVenueFormData(data)
     }
 

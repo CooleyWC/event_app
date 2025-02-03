@@ -3,9 +3,9 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import useVenueFormData from '../context/VenueFormData';
 
-function CreateVenue() {
+function CreateVenue({submitVenue}) {
 
-    const {VenueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
+    const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
 
     const venueSchema = yup.object({
         name: yup
@@ -42,11 +42,6 @@ function CreateVenue() {
             .required('Description is required'),
     })
 
-    const submitVenue = (values) =>{
-        console.log(values)
-        saveVenueFormData(values)
-    }
-
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -71,9 +66,11 @@ function CreateVenue() {
                 <h2 className='text-lg/9  text-center text-ivory'>Where will the event be?</h2>
             </div>
             
-            <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
+            <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full'>
                 <form className='space-y-4' onSubmit={formik.handleSubmit}>
-                    <label className='block font-medium'>Name</label>
+
+                    <div>
+                    <label className='mb-2 block font-medium'>Name</label>
                     <input 
                         type='text' 
                         id='name' 
@@ -86,7 +83,11 @@ function CreateVenue() {
                     {formik.touched.name && formik.errors.name ? (
                         <div className='text-red-500'>{formik.errors.name}</div>
                     ): null}
-                    <label className='block font-medium'>Street address</label>
+                    </div>
+
+
+                    <div>
+                    <label className='block mb-2 font-medium'>Street address</label>
                     <input 
                         type='text'
                         id='street'
@@ -99,53 +100,68 @@ function CreateVenue() {
                     {formik.touched.street && formik.errors.street ? (
                         <div className='text-red-500'>{formik.errors.street}</div>
                     ): null}
-                    <label className='block font-medium'>City</label>
-                    <input 
-                        type='text'
-                        id='city'
-                        name='city'
-                        placeholder=' City'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
-                        value={formik.values.city}
-                        onChange={formik.handleChange}
-                    />
-                    {formik.touched.city && formik.errors.city ? (
-                        <div className='text-red-500'>{formik.errors.city}</div>
-                    ): null}
-                    <label className='block font-medium'>State / Province</label>
-                    <input
-                        type='text'
-                        id='state'
-                        name='state'
-                        placeholder=' State'
-                        rows='7'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
-                        value={formik.values.state}
-                        onChange={formik.handleChange}
-                    />
-                    {formik.touched.state && formik.errors.state ? (
-                        <div className='text-red-500'>{formik.errors.state}</div>
-                    ): null}
-                    <label className='block font-medium'>Zip / Postal Code</label>
-                    <input
-                        type='text'
-                        id='zip'
-                        name='zip'
-                        placeholder=' Zip'
-                        rows='7'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
-                        value={formik.values.zip}
-                        onChange={formik.handleChange}
-                    />
-                    {formik.touched.zip && formik.errors.zip ? (
-                        <div className='text-red-500'>{formik.errors.zip}</div>
-                    ): null}
-                    <label className='block font-medium'>Capacity</label>
+                    </div>
+                    
+
+                    
+                    <div className='md:grid grid-cols-1 gap-x-6 sm:grid-cols-6'>
+                        <div className='col-span-1 sm:col-span-2'>
+                
+                        <label className='block mb-2 font-medium'>City</label>
+                        <input 
+                            type='text'
+                            id='city'
+                            name='city'
+                            placeholder=' City'
+                            className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            value={formik.values.city}
+                            onChange={formik.handleChange}
+                        />
+                        {formik.touched.city && formik.errors.city ? (
+                            <div className='text-red-500'>{formik.errors.city}</div>
+                        ): null}
+                    </div>
+                    <div className='col-span-1 sm:col-span-2'>
+                        <label className='block mb-2 font-medium'>State / Province</label>
+                        <input
+                            type='text'
+                            id='state'
+                            name='state'
+                            placeholder=' State'
+                            rows='7'
+                            className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            value={formik.values.state}
+                            onChange={formik.handleChange}
+                        />
+                        {formik.touched.state && formik.errors.state ? (
+                            <div className='text-red-500'>{formik.errors.state}</div>
+                        ): null}
+                    </div>
+                    <div className='col-span-1 sm:col-span-2'>
+                        <label className='block mb-2 font-medium'>Zip / Postal Code</label>
+                        <input
+                            type='text'
+                            id='zip'
+                            name='zip'
+                            placeholder=' Zip'
+                            className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            value={formik.values.zip}
+                            onChange={formik.handleChange}
+                        />
+                        {formik.touched.zip && formik.errors.zip ? (
+                            <div className='text-red-500'>{formik.errors.zip}</div>
+                        ): null}
+                    </div>
+
+                    </div>
+
+
+                    <div>
+                    <label className='block mb-2 font-medium'>Capacity</label>
                     <input
                         type='number'
                         id='capacity'
                         name='capacity'
-                        placeholder=' 150 max'
                         className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                         value={formik.values.capacity}
                         onChange={formik.handleChange}
@@ -153,7 +169,10 @@ function CreateVenue() {
                     {formik.touched.capacity && formik.errors.capacity ? (
                         <div className='text-red-500'>{formik.errors.capacity}</div>
                     ): null}
-                    <label className='block font-medium'>Description</label>
+                    </div>
+
+                    <div>
+                    <label className='block mb-2 font-medium'>Description</label>
                     <textarea
                         type='text'
                         id='description'
@@ -167,6 +186,8 @@ function CreateVenue() {
                     {formik.touched.description && formik.errors.description ? (
                         <div className='text-red-500'>{formik.errors.description}</div>
                     ): null}
+                    </div>
+
                     <div>
                         <button type='submit' className='flex mt-8 w-full justify-center py-4 rounded-md font-semibold bg-periwinkle dark:text-black hover:bg-slate-800 hover:text-ivory dark:hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Submit and Continue</button>
                     </div>

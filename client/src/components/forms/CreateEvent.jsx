@@ -1,28 +1,41 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CreateVenue from './CreateVenue';
 import CreateEventForm from './CreateEventForm';
 import useVenueFormData from '../context/VenueFormData';
+import useEventFormData from '../context/EventFormData';
 
 function CreateEvent() {
 
     const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
+    const {eventFormData, saveEventFormData, clearEventFormData} = useEventFormData();
 
-    console.log(venueFormData)
 
-    const isVenueFormEmpty = (data)=>{
-        return Object.keys(data).length === 0;
+    const [isVenueFormEmpty, setIsVenueFormEmpty] = useState(true);
+
+    useEffect(()=>{
+        setIsVenueFormEmpty(Object.keys(venueFormData).length===0)
+    }, [venueFormData])
+
+    const submitVenue = (values) =>{
+        console.log('venue', values)
+        saveVenueFormData(values)
     }
 
-    
+    const submitEvent = (values) =>{
+        console.log('event values', values)
+        saveEventFormData(values)
+    }
+
 
     return (
         <div>
-        { isVenueFormEmpty(venueFormData) ? (
-            <CreateVenue />
+        { isVenueFormEmpty ? (
+            <CreateVenue submitVenue={submitVenue}/>
         ): (
-            <CreateEventForm />
+            <CreateEventForm submitEvent={submitEvent}/>
         )}
         <button onClick={clearVenueFormData}>Reset Venue Data</button>
+        <button onClick={clearEventFormData}>Reset Event Data</button>
         </div>
     
     );
