@@ -58,8 +58,8 @@ function CreateVenue({submitVenue}) {
 
 
     return (
-
-        <div className='px-6 bg-ivory dark:bg-slate-950 text-slate-800 flex flex-col'>
+        <div className='lg:flex lg:justify-center lg:align-center'>
+        <div className='px-6 max-w-[1400px] bg-ivory dark:bg-slate-950 text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Create Venue</h1>
@@ -195,6 +195,8 @@ function CreateVenue({submitVenue}) {
             </div>
         </div>
       
+
+      </div>
     );
 }
 
