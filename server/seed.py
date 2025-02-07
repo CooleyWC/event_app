@@ -35,10 +35,10 @@ if __name__ == "__main__":
 
 
     print('adding venues')
-    venue_1 = Venue(name='Wills House', location='1555 spicelane', capacity=10, description='backyard')
-    venue_2 = Venue(name='Firefly Coffee', location='st joe', capacity=20, description='coffee shop')
-    venue_3 = Venue(name='Sweetwater', location='goshen road', capacity=50, description='music megalopolis')
-    venue_4 = Venue(name='Queso House', location='Dobree', capacity=5, description='texas')
+    venue_1 = Venue(name='Wills House', street='1555 spicelane', city='fort worth', state='CO', zip=23489, capacity=10, description='backyard neighbor')
+    venue_2 = Venue(name='Firefly Coffee', street='st joe', city='denver', state='MA', zip=98243, capacity=20, description='coffee shop')
+    venue_3 = Venue(name='Sweetwater', street='goshen road', city='naperville', state='NV', zip=12398, capacity=50, description='music megalopolis')
+    venue_4 = Venue(name='Queso House', street='Dobree', city='chicago', state='NY', zip=23489, capacity=5, description='texas desert')
 
     db.session.add_all([venue_1, venue_2, venue_3, venue_4])
 

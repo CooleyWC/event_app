@@ -20,7 +20,7 @@ function CreateVenue({submitVenue}) {
             .required('Street is required'),
         city: yup
             .string('Enter City Name')
-            .min(3, 'City must be at least 4 characters')
+            .min(4, 'City must be at least 4 characters')
             .max(25, 'City must be no longer than 25 characters')
             .required('City is required'),
         state: yup

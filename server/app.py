@@ -10,6 +10,7 @@ from resources.login import Login
 from resources.check_session import CheckSession
 from resources.logout import Logout
 from resources.events import Events
+from resources.venues import Venues
 from resources.event_by_id import EventByID
 from resources.process_ticket import ProcessTicket
 from resources.ticket_by_id import TicketByID
@@ -24,9 +25,16 @@ from flask import render_template
 #   return render_template('index.html', title='Home', user='will')
 
 
-@app.route('/tickets')
+# @app.route('/tickets')
+# def tickets():
+#   return [ticket.to_dict() for ticket in Ticket.query.all()]
+
+
+@app.route('/venues')
 def tickets():
-  return [ticket.to_dict() for ticket in Ticket.query.all()]
+  return [venue.to_dict() for venue in Venue.query.all()]
+
+api.add_resource(Venues, '/api/venues')
 
 api.add_resource(Users, '/api/users')
 api.add_resource(Login, '/api/login')

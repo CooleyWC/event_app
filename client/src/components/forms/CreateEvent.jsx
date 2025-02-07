@@ -4,6 +4,8 @@ import CreateEventForm from './CreateEventForm';
 import useVenueFormData from '../context/VenueFormData';
 import useEventFormData from '../context/EventFormData';
 
+import {format, set} from 'date-fns'
+
 function CreateEvent() {
 
     const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
@@ -26,16 +28,55 @@ function CreateEvent() {
         saveEventFormData(values)
     }
 
+    // datetime
+
+    const [startDate, setStartDate] = useState(new Date())
+    const [startTime, setStartTime] = useState(new Date())
+    const [endTime, setEndTime] = useState(new Date())
+
+
+    const startDateChange = (newDate)=>{
+        setStartDate(newDate)
+    }
+
+    const startTimeChange = (newStartTime)=>{
+        setStartTime(newStartTime)
+    }
+
+    const endTimeChange = (newEndTime)=>{
+        setEndTime(newEndTime)
+    }
+
+    function combineDateAndTime(date, time) {
+            return set(date, {
+                hours: time.getHours(),
+                minutes: time.getMinutes(),
+                seconds: time.getSeconds(),
+            })
+        }
+    
+    console.log('combined', combineDateAndTime(startDate, startTime))
+    console.log('combined end', combineDateAndTime(startDate, endTime))
+
 
     return (
         <div>
         { isVenueFormEmpty ? (
             <CreateVenue submitVenue={submitVenue}/>
         ): (
-            <CreateEventForm submitEvent={submitEvent}/>
+            <CreateEventForm 
+                submitEvent={submitEvent}
+                startDate={startDate}
+                startTime={startTime}
+                endTime={endTime}
+
+                onDateChange={startDateChange}
+                onStartChange={startTimeChange}
+                onEndChange={endTimeChange}
+                />
         )}
-        <button onClick={clearVenueFormData}>Reset Venue Data</button>
-        <button onClick={clearEventFormData}>Reset Event Data</button>
+        <button onClick={clearVenueFormData} className='block dark:text-white text-black border-solid border-2 my-4'>Reset Venue Data</button>
+        <button onClick={clearEventFormData} className='dark:text-white text-black border-solid border-2' >Reset Event Data</button>
         </div>
     
     );
