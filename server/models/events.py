@@ -12,7 +12,7 @@ from config import db
 class Event(db.Model, SerializerMixin):
     __tablename__ = 'events'
 
-    serialize_rules = ('-attendees', '-tickets', '-creator',)
+    serialize_rules = ('-attendees', '-tickets', '-creator', '-venues.events',)
    
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
@@ -27,7 +27,7 @@ class Event(db.Model, SerializerMixin):
     )
 
     image: so.Mapped[str] = so.mapped_column(sa.String(200), default='default_image_url')
-    capacity: so.Mapped[int] = so.mapped_column(index=True)
+    
     current_total: so.Mapped[int] = so.mapped_column(index=True, default=0, nullable=True)
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
     creator_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('users.id'))
@@ -37,6 +37,10 @@ class Event(db.Model, SerializerMixin):
     creator = db.relationship('User', back_populates='created_events')
     attendees = db.relationship('User', secondary='tickets', back_populates='events')
     tickets = db.relationship('Ticket', back_populates='event')
+    venue = db.relationship('User', secondary='tickets', back_populates='events')
 
 
+    @hybrid_property
+    def capacity(self):
+        return self.venue.capacity
 
