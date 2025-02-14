@@ -25,14 +25,18 @@ from flask import render_template
 #   return render_template('index.html', title='Home', user='will')
 
 
-# @app.route('/tickets')
-# def tickets():
-#   return [ticket.to_dict() for ticket in Ticket.query.all()]
-
-
-@app.route('/venues')
+@app.route('/tickets')
 def tickets():
-  return [venue.to_dict() for venue in Venue.query.all()]
+  return [ticket.to_dict() for ticket in Ticket.query.all()]
+
+
+# @app.route('/venues')
+# def tickets():
+#   return [venue.to_dict() for venue in Venue.query.all()]
+
+# @app.route('/events')
+# def events():
+#   return [event.to_dict() for event in Event.query.all()]
 
 api.add_resource(Venues, '/api/venues')
 

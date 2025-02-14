@@ -19,7 +19,7 @@ VALID_STATES = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
 class Venue(db.Model, SerializerMixin):
     __tablename__ = 'venues'
 
-    # serialize_rules = ('-user', '-event', '-ticket',)
+    serialize_rules = ('-events.venue',)
     
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str] = so.mapped_column(index=True)
@@ -29,6 +29,8 @@ class Venue(db.Model, SerializerMixin):
     zip: so.Mapped[int] = so.mapped_column(index=True)
     capacity: so.Mapped[int] = so.mapped_column(index=True)
     description: so.Mapped[str] = so.mapped_column(index=True)
+
+    events = db.relationship('Event', back_populates='venue')
 
 
 

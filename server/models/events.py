@@ -12,7 +12,7 @@ from config import db
 class Event(db.Model, SerializerMixin):
     __tablename__ = 'events'
 
-    serialize_rules = ('-attendees', '-tickets', '-creator', '-venues.events',)
+    serialize_rules = ('-attendees', '-tickets', '-creator', '-venue.events',)
    
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     name: so.Mapped[str] = so.mapped_column(sa.String(64), index=True)
@@ -37,7 +37,7 @@ class Event(db.Model, SerializerMixin):
     creator = db.relationship('User', back_populates='created_events')
     attendees = db.relationship('User', secondary='tickets', back_populates='events')
     tickets = db.relationship('Ticket', back_populates='event')
-    venue = db.relationship('User', secondary='tickets', back_populates='events')
+    venue = db.relationship('Venue', back_populates='events')
 
 
     @hybrid_property
