@@ -18,9 +18,30 @@ function CreateEvent() {
         setIsVenueFormEmpty(Object.keys(venueFormData).length===0)
     }, [venueFormData])
 
-    const submitVenue = (values) =>{
-        console.log('venue', values)
-        saveVenueFormData(values)
+    const submitVenue = async (values) =>{
+
+        try {
+            const res = await fetch('/api/venues', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(values)
+            })
+            const venueData = await res.json()
+
+            if(!res.ok){
+                console.log('error', venueData.error)
+                return
+            } else {
+                console.log('venue success!', values)
+                saveVenueFormData(values)
+            }
+        } catch {
+            console.log('error')
+            return
+        }
+        
     }
 
     const submitEvent = (values) =>{
@@ -55,8 +76,8 @@ function CreateEvent() {
             })
         }
     
-    console.log('combined', combineDateAndTime(startDate, startTime))
-    console.log('combined end', combineDateAndTime(startDate, endTime))
+    // console.log('combined', combineDateAndTime(startDate, startTime))
+    // console.log('combined end', combineDateAndTime(startDate, endTime))
 
 
     return (

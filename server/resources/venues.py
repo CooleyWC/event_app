@@ -15,13 +15,19 @@ class Venues(Resource):
         json = request.get_json()
 
         try:
-            # breakpoint()
+
+            print('the json', json)
             venue = Venue(
-                name = json.get('name'),street = json.get('street'),city = json.get('city'),state = json.get('state'),zip = json.get('zip'),capacity = json.get('capacity'),description = json.get('description'),
+                name = json.get('name'),
+                street = json.get('street'),
+                city = json.get('city'),
+                state = json.get('state'),
+                zip = int(json.get('zip')),
+                capacity = int(json.get('capacity')),
+                description = json.get('description'),
 
             )
 
-            # breakpoint()
             db.session.add(venue)
             db.session.commit()
 
