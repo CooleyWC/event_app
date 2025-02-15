@@ -49,6 +49,8 @@ if __name__ == "__main__":
     dateObj_3 = datetime(year=2025, month=7, day=19, hour=8, minute=30, second=0, tzinfo=pytz.UTC)
     dateObj_4 = datetime(year=2025, month=9, day=2, hour=12, minute=0, second=0, tzinfo=pytz.UTC)
 
+    print(dateObj_1)
+
     dateObj_1_end = datetime(year=2025, month=4, day=12, hour=12, minute=0, second=30, tzinfo=pytz.UTC)
     dateObj_2_end = datetime(year=2025, month=2, day=7, hour=15, minute=0, second=0, tzinfo=pytz.UTC)
     dateObj_3_end = datetime(year=2025, month=7, day=19, hour=10, minute=0, second=0, tzinfo=pytz.UTC)

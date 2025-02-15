@@ -3,6 +3,9 @@ from flask_restful import Resource
 from models.events import Event
 from flask import request, session
 
+from datetime import datetime
+from dateutil import parser
+
 class Events(Resource):
     def get(self):
 
@@ -13,21 +16,18 @@ class Events(Resource):
     def post(self):
 
         json = request.get_json()
+        start_time_obj = parser.parse(json.get('startTime'))
+        end_time_obj = parser.parse(json.get('endTime'))
 
         try:
-
-            print('the json', json)
             event = Event(
                 name = json.get('name'),
-                start_time = json.get('startTime'),
-                endTime = json.get('endTime'),
+                start_time = start_time_obj,
+                end_time = end_time_obj,
                 image = json.get('image'),
-                description = json.get('description'),
-                user_id = json.get('userId')
-
-            )
-
-            breakpoint()
+                description = json.get('description'), 
+                creator_id = json.get('creatorId'), 
+                venue_id = json.get('venue_id'))
 
             db.session.add(event)
             db.session.commit()
