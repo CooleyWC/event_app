@@ -27,7 +27,7 @@ class Events(Resource):
                 image = json.get('image'),
                 description = json.get('description'), 
                 creator_id = json.get('creatorId'), 
-                venue_id = json.get('venue_id'))
+                venue_id = json.get('venueId'))
 
             db.session.add(event)
             db.session.commit()

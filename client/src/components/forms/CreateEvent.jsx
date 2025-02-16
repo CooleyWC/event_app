@@ -4,13 +4,16 @@ import CreateEventForm from './CreateEventForm';
 import useVenueFormData from '../context/VenueFormData';
 import useEventFormData from '../context/EventFormData';
 
-import {format, set} from 'date-fns'
+import { useAuth} from '../context/AuthProvider'
+
+import {set} from 'date-fns'
+
 
 function CreateEvent() {
 
+    const {user} = useAuth()
     const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
     const {eventFormData, saveEventFormData, clearEventFormData} = useEventFormData();
-
 
     const [isVenueFormEmpty, setIsVenueFormEmpty] = useState(true);
 
@@ -34,8 +37,8 @@ function CreateEvent() {
                 console.log('error', venueData.error)
                 return
             } else {
-                console.log('venue success!', values)
-                saveVenueFormData(values)
+                console.log('venue success!', venueData)
+                saveVenueFormData(venueData)
             }
         } catch {
             console.log('error')
@@ -43,17 +46,11 @@ function CreateEvent() {
         }
         
     }
-
-    const submitEvent = (values) =>{
-        console.log('event values', values)
-        saveEventFormData(values)
-    }
-
     // datetime
 
     const [startDate, setStartDate] = useState(new Date())
-    const [startTime, setStartTime] = useState(new Date())
-    const [endTime, setEndTime] = useState(new Date())
+    const [eventStart, setEventStart] = useState(new Date())
+    const [eventEnd, setEventEnd] = useState(new Date())
 
 
     const startDateChange = (newDate)=>{
@@ -61,24 +58,67 @@ function CreateEvent() {
     }
 
     const startTimeChange = (newStartTime)=>{
-        setStartTime(newStartTime)
+        setEventStart(newStartTime)
     }
 
     const endTimeChange = (newEndTime)=>{
-        setEndTime(newEndTime)
+        setEventEnd(newEndTime)
     }
 
     function combineDateAndTime(date, time) {
-            return set(date, {
-                hours: time.getHours(),
-                minutes: time.getMinutes(),
-                seconds: time.getSeconds(),
-            })
-        }
-    
-    // console.log('combined', combineDateAndTime(startDate, startTime))
-    // console.log('combined end', combineDateAndTime(startDate, endTime))
+        const combinedDate = set(date, {
+            hours: time.getHours(),
+            minutes: time.getMinutes(),
+            seconds: time.getSeconds(),
+        })
 
+        const parsedDate = new Date(combinedDate)
+
+        const formatted = parsedDate.toISOString().slice(0, 19) + "Z";
+        return formatted
+
+    }
+    
+
+    const submitEvent = async (values) =>{
+
+        const startTime = combineDateAndTime(startDate, eventStart)
+        const endTime = combineDateAndTime(startDate, eventEnd)
+
+        const newEventObj = {
+            "name": values.name,
+            "startTime": startTime,
+            "endTime": endTime,
+            "image": values.imageURL,
+            "description": values.description, 
+            "creatorId": user.id, 
+            "venueId": venueFormData.id
+        }
+        
+        console.log('newEventObj', newEventObj)
+
+        try {
+            const res = await fetch('/api/events', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify(newEventObj)
+            })
+            const eventData = await res.json()
+
+            if(!res.ok){
+                console.log('error', eventData.error)
+                return
+            } else {
+                console.log('event success!', eventData)
+                saveEventFormData(eventData)
+            }
+        } catch {
+            console.log('error')
+            return
+        }
+    }
 
     return (
         <div>
@@ -88,8 +128,8 @@ function CreateEvent() {
             <CreateEventForm 
                 submitEvent={submitEvent}
                 startDate={startDate}
-                startTime={startTime}
-                endTime={endTime}
+                eventStart={eventStart}
+                eventEnd={eventEnd}
 
                 onDateChange={startDateChange}
                 onStartChange={startTimeChange}

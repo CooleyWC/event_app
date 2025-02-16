@@ -33,6 +33,8 @@ class Venues(Resource):
 
             venue_dict = venue.to_dict()
 
+            print(venue_dict)
+
             return venue_dict, 201
         
         except:

@@ -9,8 +9,8 @@ import "react-datepicker/dist/react-datepicker.css";
 function CreateEventForm({
     submitEvent, 
     startDate, 
-    startTime, 
-    endTime,
+    eventStart, 
+    eventEnd,
     onDateChange,
     onStartChange,
     onEndChange,
@@ -83,14 +83,13 @@ function CreateEventForm({
                     <div>
                     <label className='block mb-2 font-medium'>Start Time</label>
                     <DatePicker
-                        selected={startTime}
+                        selected={eventStart}
                         onChange={(date) => onStartChange(date)}
                         showTimeSelect
                         showTimeSelectOnly
                         timeIntervals={15}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
-
                         className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
                         />
                     </div>
@@ -98,7 +97,7 @@ function CreateEventForm({
                     <div>
                     <label className='block mb-2 font-medium'>End Time</label>
                     <DatePicker
-                        selected={endTime}
+                        selected={eventEnd}
                         onChange={(date) => onEndChange(date)}
                         showTimeSelect
                         showTimeSelectOnly
