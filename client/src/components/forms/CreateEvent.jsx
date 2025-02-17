@@ -126,10 +126,15 @@ function CreateEvent({handleNewEvent}) {
         }
     }
 
+    const handleBackClick = ()=>{
+        console.log('back clicked in create event')
+        clearVenueFormData() 
+    }
+
     return (
         <div>
         { isVenueFormEmpty ? (
-            <CreateVenue submitVenue={submitVenue}/>
+            <CreateVenue submitVenue={submitVenue} />
         ): (
             <CreateEventForm 
                 submitEvent={submitEvent}
@@ -140,10 +145,10 @@ function CreateEvent({handleNewEvent}) {
                 onDateChange={startDateChange}
                 onStartChange={startTimeChange}
                 onEndChange={endTimeChange}
+                handleBackClick={handleBackClick}
                 />
         )}
-        <button onClick={clearVenueFormData} className='block dark:text-white text-black border-solid border-2 my-4'>Reset Venue Data</button>
-        <button onClick={clearEventFormData} className='dark:text-white text-black border-solid border-2' >Reset Event Data</button>
+        
         </div>
     
     );

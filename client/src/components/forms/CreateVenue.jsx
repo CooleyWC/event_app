@@ -56,16 +56,18 @@ function CreateVenue({submitVenue}) {
         onSubmit: submitVenue,
     })
 
+    
+
 
     return (
         <div className='lg:flex lg:justify-center lg:align-center'>
-        <div className='px-6 max-w-[1400px] bg-ivory dark:bg-slate-950 text-slate-800 flex flex-col'>
+        <div className='px-6 max-w-[1400px] bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Create Venue</h1>
                 <h2 className='text-lg/9  text-center text-ivory'>Where will the event be?</h2>
             </div>
-            
+
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full'>
                 <form className='space-y-4' onSubmit={formik.handleSubmit}>
 
@@ -76,12 +78,12 @@ function CreateVenue({submitVenue}) {
                         id='name' 
                         name='name'
                         placeholder=' Name of the Venue'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
                     {formik.touched.name && formik.errors.name ? (
-                        <div className='text-red-500'>{formik.errors.name}</div>
+                        <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.name}</div>
                     ): null}
                     </div>
 
@@ -93,18 +95,18 @@ function CreateVenue({submitVenue}) {
                         id='street'
                         name='street'
                         placeholder=' Street'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                         value={formik.values.street}
                         onChange={formik.handleChange}
                     />
                     {formik.touched.street && formik.errors.street ? (
-                        <div className='text-red-500'>{formik.errors.street}</div>
+                        <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.street}</div>
                     ): null}
                     </div>
                     
 
                     
-                    <div className='md:grid grid-cols-1 gap-x-6 sm:grid-cols-6'>
+                    <div className='md:grid grid-cols-1 gap-x-6 sm:grid-cols-6 space-y-4 md:space-y-0'>
                         <div className='col-span-1 sm:col-span-2'>
                 
                         <label className='block mb-2 font-medium'>City</label>
@@ -113,12 +115,12 @@ function CreateVenue({submitVenue}) {
                             id='city'
                             name='city'
                             placeholder=' City'
-                            className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                             value={formik.values.city}
                             onChange={formik.handleChange}
                         />
                         {formik.touched.city && formik.errors.city ? (
-                            <div className='text-red-500'>{formik.errors.city}</div>
+                            <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.city}</div>
                         ): null}
                     </div>
                     <div className='col-span-1 sm:col-span-2'>
@@ -129,12 +131,12 @@ function CreateVenue({submitVenue}) {
                             name='state'
                             placeholder=' State'
                             rows='7'
-                            className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                             value={formik.values.state}
                             onChange={formik.handleChange}
                         />
                         {formik.touched.state && formik.errors.state ? (
-                            <div className='text-red-500'>{formik.errors.state}</div>
+                            <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.state}</div>
                         ): null}
                     </div>
                     <div className='col-span-1 sm:col-span-2'>
@@ -144,12 +146,12 @@ function CreateVenue({submitVenue}) {
                             id='zip'
                             name='zip'
                             placeholder=' Zip'
-                            className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                             value={formik.values.zip}
                             onChange={formik.handleChange}
                         />
                         {formik.touched.zip && formik.errors.zip ? (
-                            <div className='text-red-500'>{formik.errors.zip}</div>
+                            <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.zip}</div>
                         ): null}
                     </div>
 
@@ -162,12 +164,12 @@ function CreateVenue({submitVenue}) {
                         type='number'
                         id='capacity'
                         name='capacity'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                         value={formik.values.capacity}
                         onChange={formik.handleChange}
                     />
                     {formik.touched.capacity && formik.errors.capacity ? (
-                        <div className='text-red-500'>{formik.errors.capacity}</div>
+                        <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.capacity}</div>
                     ): null}
                     </div>
 
@@ -179,18 +181,19 @@ function CreateVenue({submitVenue}) {
                         name='description'
                         placeholder=' Description 200 character max'
                         rows='4'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
                         value={formik.values.description}
                         onChange={formik.handleChange}
                     />
                     {formik.touched.description && formik.errors.description ? (
-                        <div className='text-red-500'>{formik.errors.description}</div>
+                        <div className='text-red-500 text-2xl -bg--clr-dark-black'>{formik.errors.description}</div>
                     ): null}
                     </div>
 
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-4 rounded-md font-semibold bg-periwinkle dark:text-black hover:bg-slate-800 hover:text-ivory dark:hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Submit and Continue</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Save and Continue</button>
                     </div>
+        
                 </form>
             </div>
         </div>

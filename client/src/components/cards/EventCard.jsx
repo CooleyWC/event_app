@@ -39,7 +39,7 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description,
 
             </div>
             <div className='mt-auto mb-10 px-6'>
-                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-dark-blue border hover:bg-periwinkle hover:text-white transition ease-in-out'>
+                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-dark-blue border hover:bg-gray-800 hover:text-white transition ease-in-out'>
                     Details
                 </NavLink>
                 {hasTicket && (

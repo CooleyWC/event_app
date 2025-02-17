@@ -126,9 +126,6 @@ const handleNewEvent = (newEvent)=>{
   }))
 }
 
-console.log('Yo all the events', allEvents)
-console.log('Yo user details', user)
-
 
   return (
     <div className={`${darkMode && "dark"}`}>
