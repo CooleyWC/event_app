@@ -112,6 +112,23 @@ const handleTicketDelete = (ticketID)=>{
   })
 }
 
+// handle new event
+
+const handleNewEvent = (newEvent)=>{
+
+  setAllEvents((prevEventData)=>{
+    const updatedEvents = [...prevEventData, newEvent]
+    return updatedEvents
+  })
+  update((prevUserData)=>({
+    ...prevUserData,
+    created_events: [...(prevUserData?.created_events || []), newEvent]
+  }))
+}
+
+console.log('Yo all the events', allEvents)
+console.log('Yo user details', user)
+
 
   return (
     <div className={`${darkMode && "dark"}`}>
@@ -136,6 +153,7 @@ const handleTicketDelete = (ticketID)=>{
             profileOpen={profileOpen}
             closeDrawer={closeDrawer}
             allEvents={allEvents}
+            handleNewEvent={handleNewEvent}
           />} />
         <Route path='/dashboard/:section' element={
           <Dashboard 
@@ -145,6 +163,7 @@ const handleTicketDelete = (ticketID)=>{
             toggleProfileDrawer={toggleProfileDrawer}
             profileOpen={profileOpen}
             allEvents={allEvents}
+            handleNewEvent={handleNewEvent}
             // handleTicketDelete={handleTicketDelete}
             />} />
         <Route path='/dashboard/event/:eventid' element={

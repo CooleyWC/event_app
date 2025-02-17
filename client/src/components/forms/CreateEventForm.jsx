@@ -16,7 +16,6 @@ function CreateEventForm({
     onEndChange,
 }) {
 
-
     const eventSchema = yup.object({
             name: yup
                 .string('Enter Venue Name')
@@ -42,7 +41,6 @@ function CreateEventForm({
             validationSchema: eventSchema,
             onSubmit: submitEvent,
         })
-
 
     return (
 

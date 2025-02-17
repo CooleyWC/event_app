@@ -11,7 +11,7 @@ import ProfileCard from '../cards/ProfileCard';
 import CreateEvent from '../forms/CreateEvent';
 import EventList from './EventList';
 
-function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, toggleProfileDrawer, profileOpen}) {
+function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, toggleProfileDrawer, profileOpen, handleNewEvent}) {
 
     const {user} = useAuth();
 
@@ -57,7 +57,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                         <div>{upcomingEvents}</div>
                     )}
                     {section==='create_event' && (
-                        <CreateEvent />
+                        <CreateEvent handleNewEvent={handleNewEvent}/>
                     )}
                     {section==='profile' && (
                         <ProfileCard 

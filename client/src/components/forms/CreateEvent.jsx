@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 import CreateVenue from './CreateVenue';
 import CreateEventForm from './CreateEventForm';
 import useVenueFormData from '../context/VenueFormData';
@@ -9,7 +10,9 @@ import { useAuth} from '../context/AuthProvider'
 import {set} from 'date-fns'
 
 
-function CreateEvent() {
+function CreateEvent({handleNewEvent}) {
+
+    let navigate = useNavigate();
 
     const {user} = useAuth()
     const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
@@ -73,7 +76,6 @@ function CreateEvent() {
         })
 
         const parsedDate = new Date(combinedDate)
-
         const formatted = parsedDate.toISOString().slice(0, 19) + "Z";
         return formatted
 
@@ -111,8 +113,12 @@ function CreateEvent() {
                 console.log('error', eventData.error)
                 return
             } else {
-                console.log('event success!', eventData)
                 saveEventFormData(eventData)
+                handleNewEvent(eventData)
+                clearVenueFormData()
+                clearEventFormData()
+                navigate('/dashboard/find_events')
+
             }
         } catch {
             console.log('error')
