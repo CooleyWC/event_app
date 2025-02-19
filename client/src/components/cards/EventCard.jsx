@@ -25,25 +25,25 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description,
     }, [user])
 
     return (
-        <div className='bg-slate-200 max-w-sm rounded mx-2 my-2 flex flex-col'>
+        <div className='dark:bg-gray-700 dark:text-ivory max-w-sm rounded mx-2 my-2 flex flex-col'>
             <div>
                 <img src={image} className='h-[200px] w-full object-cover'/>
             </div>
             <div className='px-6 py-4 flex-grow flex flex-col mb-10'>
       
-                <h1 className='text-dark-blue text-center text-2xl font-bold mb-4'>{eventName}</h1>
-                <h2 className='text-lg'>{startDateStr}</h2>
-                <p className='mb-4'>{startTimeStr} - {endTimeStr}</p>
+                <h1 className='text-center text-2xl font-bold mb-4 tracking-wider'>{eventName}</h1>
+                <h2 className='text-lg tracking-wide'>{startDateStr}</h2>
+                <p className='mb-8 text-lg tracking-wide'>{startTimeStr} - {endTimeStr}</p>
                 <p>{description}</p>
                 <p>{creator}</p>
 
             </div>
             <div className='mt-auto mb-10 px-6'>
-                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-dark-blue border hover:bg-gray-800 hover:text-white transition ease-in-out'>
+                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>
                     Details
                 </NavLink>
                 {hasTicket && (
-                    <h1 className='border-solid border-2 inline-block'>(You're going to this event)</h1>
+                    <h1 className='inline-block mx-2'>(You're going to this event)</h1>
                 )}
             </div>
         </div>
