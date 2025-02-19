@@ -4,7 +4,6 @@ import EventCard from '../cards/EventCard';
 
 function EventList({allEvents}) {
 
-
     const events = allEvents.map((ev)=>{
         return (
             <EventCard 
@@ -21,8 +20,8 @@ function EventList({allEvents}) {
     })
 
     return (
-        <div className='pt-2'>
-            <div className='grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
+        <div className='pt-2 flex justify-center'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2'>
                 {events}
             </div>
         </div>
