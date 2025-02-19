@@ -56,22 +56,27 @@ function CreateEventForm({
             onSubmit: submitEvent,
         })
 
-        {venueFormData ? console.log('in create venue', venueFormData): console.log('nothing here')}
-
 
     return (
 
-        <div className='px-6 bg-ivory dark:bg-gray-800 text-slate-800 mt-[64px] flex justify-center flex-col'>
+        <div className='lg:flex lg:justify-center lg:align-center'>
+        <div className='px-6 w-full max-w-[1000px] bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
+
+        <div className='bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Create Event Form</h1>
-                <h2>Where will the event be?</h2>
+                <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-ivory'>Create Event Form</h1>
+                
+               
             </div>
-
-            { venueFormData && (<p className='text-white'>{venueFormData.name}</p>)}
+            <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
+                { venueFormData && (
+                    <p className='text-white text-center text-lg'>For this Venue: {venueFormData.name}, {venueFormData.street}</p>
+                    )}
+            </div>
             
 
-            <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
+            <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full'>
                 <form className='space-y-4' onSubmit={formik.handleSubmit}>
 
                     <div>
@@ -80,8 +85,8 @@ function CreateEventForm({
                         type='text' 
                         id='name' 
                         name='name'
-                        placeholder=' Artist or Presenters Name'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        placeholder='Hall and Oates'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         value={formik.values.name}
                         onChange={formik.handleChange} 
                     />
@@ -93,7 +98,7 @@ function CreateEventForm({
                         selected={startDate} 
                         onChange={(date) => onDateChange(date)}
                         minDate={new Date()} 
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         />
                     </div>
 
@@ -108,7 +113,7 @@ function CreateEventForm({
                         timeIntervals={15}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         />
                     </div>
                    
@@ -123,7 +128,7 @@ function CreateEventForm({
                         timeCaption="Time"
                         dateFormat="h:mm aa"
 
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         />
                     </div>
                 </div>
@@ -134,9 +139,9 @@ function CreateEventForm({
                         type='text'
                         id='description'
                         name='description'
-                        placeholder=' Enter the Description of the Event'
+                        placeholder='Hall & Oates is an American pop rock duo formed by Daryl Hall and John Oates in the early 1970s, known for their fusion of rock, soul, and R&B. With their smooth harmonies and catchy hooks, Hall & Oates have left a lasting influence on pop music, earning numerous accolades and a place in the Rock and Roll Hall of Fame.'
                         rows='7'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         value={formik.values.description}
                         onChange={formik.handleChange} 
                     />
@@ -148,8 +153,8 @@ function CreateEventForm({
                         type='text'
                         id='imageURL'
                         name='imageURL'
-                        placeholder=' paste image url'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        placeholder='www.hallandoats.org/images.jpg'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         value={formik.values.imageURL}
                         onChange={formik.handleChange} 
                     />
@@ -164,6 +169,10 @@ function CreateEventForm({
                         <button onClick={handleBackClick} className=' dark:text-white text-black border-solid border-2 rounded-md p-1 hover:bg-gray-700 mt-6'>Back to Venue Form</button>
                 </div>
             </div>
+        </div>
+
+
+        </div>
         </div>
       
     );

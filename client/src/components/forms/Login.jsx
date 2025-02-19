@@ -56,9 +56,9 @@ function Login() {
     }
 
     return (
-        <div className='px-6 bg-ivory dark:bg-slate-950 text-slate-800 mt-[64px] h-screen flex justify-center flex-col'>
+        <div className='px-6 bg-ivory dark:bg-gray-800 text-slate-800 mt-[64px] flex h-screen  flex-col'>
             
-            <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
+            <div className='mt-20 sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Sign In to Your Account</h1>
             </div>
             
@@ -70,7 +70,7 @@ function Login() {
                         id='email' 
                         name='email'
                         placeholder=' exampleemail@gmail.com'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         onChange={(e)=>handleEmailChange(e)}
                     />
                     <label htmlFor='password' className='block font-medium'>Password</label>
@@ -79,11 +79,11 @@ function Login() {
                         id='password'
                         name='password'
                         placeholder=' enter your password here'
-                        className='block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         onChange={(e)=>handlePasswordChange(e)}
                     />
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-4 rounded-md font-semibold bg-transparent border border-ivory hover:bg-slate-800 transition ease-in-out duration-300'>Login</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 '>Login</button>
                     </div>
                 </form>
             </div>

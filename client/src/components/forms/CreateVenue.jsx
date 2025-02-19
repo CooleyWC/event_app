@@ -49,23 +49,21 @@ function CreateVenue({submitVenue}) {
             city: '',
             state: '',
             zip: '',
-            capacity: 3,
+            capacity: 15,
             description: ''
         },
         validationSchema: venueSchema,
         onSubmit: submitVenue,
     })
 
-    
-
 
     return (
         <div className='lg:flex lg:justify-center lg:align-center'>
-        <div className='px-6 max-w-[1400px] bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
+        <div className='px-6 max-w-[1000px] w-full bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Create Venue</h1>
-                <h2 className='text-lg/9  text-center text-ivory'>Where will the event be?</h2>
+                <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-ivory'>Create Venue</h1>
+                <h2 className='text-md  text-center text-ivory'>Enter the details of where the event will take place.</h2>
             </div>
 
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full'>
@@ -77,8 +75,8 @@ function CreateVenue({submitVenue}) {
                         type='text' 
                         id='name' 
                         name='name'
-                        placeholder=' Name of the Venue'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700'
+                        placeholder="The McAllister Residence - Living Room"
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
@@ -94,8 +92,8 @@ function CreateVenue({submitVenue}) {
                         type='text'
                         id='street'
                         name='street'
-                        placeholder=' Street'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        placeholder='670 Lincoln Ave.'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         value={formik.values.street}
                         onChange={formik.handleChange}
                     />
@@ -114,8 +112,8 @@ function CreateVenue({submitVenue}) {
                             type='text'
                             id='city'
                             name='city'
-                            placeholder=' City'
-                            className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            placeholder='Winnetka'
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                             value={formik.values.city}
                             onChange={formik.handleChange}
                         />
@@ -129,9 +127,9 @@ function CreateVenue({submitVenue}) {
                             type='text'
                             id='state'
                             name='state'
-                            placeholder=' State'
+                            placeholder='IL'
                             rows='7'
-                            className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                             value={formik.values.state}
                             onChange={formik.handleChange}
                         />
@@ -145,8 +143,8 @@ function CreateVenue({submitVenue}) {
                             type='text'
                             id='zip'
                             name='zip'
-                            placeholder=' Zip'
-                            className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                            placeholder='60092'
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                             value={formik.values.zip}
                             onChange={formik.handleChange}
                         />
@@ -164,7 +162,7 @@ function CreateVenue({submitVenue}) {
                         type='number'
                         id='capacity'
                         name='capacity'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         value={formik.values.capacity}
                         onChange={formik.handleChange}
                     />
@@ -179,9 +177,9 @@ function CreateVenue({submitVenue}) {
                         type='text'
                         id='description'
                         name='description'
-                        placeholder=' Description 200 character max'
+                        placeholder="A spacious, warmly decorated suburban home, and the living room is a centerpiece of its cozy, classic aesthetic. The room features rich, dark wood accents and festive decorations. A large, plush sofa sits in front of a brick fireplace, which is adorned with stockings, garland, and lights. Seating for up to 15 guests. "
                         rows='4'
-                        className='border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-700' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         value={formik.values.description}
                         onChange={formik.handleChange}
                     />
@@ -191,7 +189,7 @@ function CreateVenue({submitVenue}) {
                     </div>
 
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Save and Continue</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 '>Save and Continue</button>
                     </div>
         
                 </form>
