@@ -20,6 +20,8 @@ class Events(Resource):
         end_time_obj = parser.parse(json.get('endTime'))
 
         try:
+
+
             event = Event(
                 name = json.get('name'),
                 start_time = start_time_obj,

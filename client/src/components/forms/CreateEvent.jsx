@@ -114,6 +114,7 @@ function CreateEvent({handleNewEvent}) {
                 // delete the associated venue here - call a delete func
                 // get the venue id
                 // delete route
+                handleVenueDelete(venueFormData.id)
                 return
             } else {
                 saveEventFormData(eventData)
@@ -132,6 +133,19 @@ function CreateEvent({handleNewEvent}) {
     const handleBackClick = ()=>{
         console.log('back clicked in create event')
         clearVenueFormData() 
+    }
+
+    const handleVenueDelete = (id) =>{
+        fetch(`/api/venue_by_id/${id}`, {
+            method: 'DELETE'
+        })
+        .then((res)=>{
+            if(res.ok){
+                clearVenueFormData()
+                clearEventFormData() 
+                alert('there was an error creating this event - please try resubmitting the venue and event forms.')
+            }
+        })
     }
 
     return (
