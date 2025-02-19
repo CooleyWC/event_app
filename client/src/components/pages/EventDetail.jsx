@@ -65,11 +65,11 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     }
 
     return (
-        <div className='mt-52'>
+        <div className='pt-52 px-4 dark:bg-slate-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
             <NavLink to={'/dashboard/find_events'}>
-                <button className='border-solid border-2'>Back to Events</button>
+                <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
             </NavLink>
-            <h1 className='text-4xl text-black'>{eventData.name}</h1>
+            <h1 className='text-4xl text-black dark:text-ivory'>{eventData.name}</h1>
             <p>{startDateStr}</p>
             <p>{startTimeStr} - {endTimeStr}</p>
             <p>{eventData.description}</p>
@@ -78,10 +78,10 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
                     <h1 className='border-solid border-2 inline-block'>
                         You have a ticket for this event
                     </h1>
-                    <button onClick={onTicketDelete}>Cancel</button>
+                    <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onTicketDelete}>Cancel</button>
                 </>
             ):(
-                <button className='border-solid border-2' onClick={onProcessTicket}>Get Ticket</button>
+                <button className='max-w-56 bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onProcessTicket}>Get Ticket</button>
             )}
             
         </div>
