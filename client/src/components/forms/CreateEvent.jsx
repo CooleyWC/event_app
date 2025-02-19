@@ -111,6 +111,9 @@ function CreateEvent({handleNewEvent}) {
 
             if(!res.ok){
                 console.log('error', eventData.error)
+                // delete the associated venue here - call a delete func
+                // get the venue id
+                // delete route
                 return
             } else {
                 saveEventFormData(eventData)

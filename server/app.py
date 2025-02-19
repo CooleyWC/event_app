@@ -14,7 +14,7 @@ from resources.venues import Venues
 from resources.event_by_id import EventByID
 from resources.process_ticket import ProcessTicket
 from resources.ticket_by_id import TicketByID
-
+from resources.venue_by_id import VenueByID
 
 
 from flask import render_template
@@ -48,6 +48,7 @@ api.add_resource(Events, '/api/events')
 api.add_resource(EventByID, '/api/event_by_id/<int:id>')
 api.add_resource(ProcessTicket, '/api/process_ticket')
 api.add_resource(TicketByID, '/api/ticket_by_id/<int:id>')
+api.add_resource(VenueByID, '/api/venue_by_id/<int:id>')
 
 
 if __name__ == "__main__":

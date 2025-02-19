@@ -69,7 +69,7 @@ function CreateEventForm({
                 
                
             </div>
-            <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
+            <div className='sm:mx-auto sm:w-full sm:max-w-sm bg-gray-900 p-4'>
                 { venueFormData && (
                     <p className='text-white text-center text-lg'>For this Venue: {venueFormData.name}, {venueFormData.street}</p>
                     )}
@@ -85,8 +85,8 @@ function CreateEventForm({
                         type='text' 
                         id='name' 
                         name='name'
-                        placeholder='Hall and Oates'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
+                        placeholder='e.g Hall and Oates'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-600'
                         value={formik.values.name}
                         onChange={formik.handleChange} 
                     />
@@ -141,7 +141,7 @@ function CreateEventForm({
                         name='description'
                         placeholder='Hall & Oates is an American pop rock duo formed by Daryl Hall and John Oates in the early 1970s, known for their fusion of rock, soul, and R&B. With their smooth harmonies and catchy hooks, Hall & Oates have left a lasting influence on pop music, earning numerous accolades and a place in the Rock and Roll Hall of Fame.'
                         rows='7'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500'
                         value={formik.values.description}
                         onChange={formik.handleChange} 
                     />
@@ -154,7 +154,7 @@ function CreateEventForm({
                         id='imageURL'
                         name='imageURL'
                         placeholder='www.hallandoats.org/images.jpg'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500'
                         value={formik.values.imageURL}
                         onChange={formik.handleChange} 
                     />
