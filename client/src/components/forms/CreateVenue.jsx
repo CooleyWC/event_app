@@ -76,7 +76,7 @@ function CreateVenue({submitVenue}) {
                         id='name' 
                         name='name'
                         placeholder="e.g. The McAllister Residence - Living Room"
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500'
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
@@ -93,7 +93,7 @@ function CreateVenue({submitVenue}) {
                         id='street'
                         name='street'
                         placeholder='e.g. 670 Lincoln Ave.'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                         value={formik.values.street}
                         onChange={formik.handleChange}
                     />
@@ -113,7 +113,7 @@ function CreateVenue({submitVenue}) {
                             id='city'
                             name='city'
                             placeholder='e.g Winnetka'
-                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500' 
                             value={formik.values.city}
                             onChange={formik.handleChange}
                         />
@@ -129,7 +129,7 @@ function CreateVenue({submitVenue}) {
                             name='state'
                             placeholder='e.g IL'
                             rows='7'
-                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                             value={formik.values.state}
                             onChange={formik.handleChange}
                         />
@@ -144,7 +144,7 @@ function CreateVenue({submitVenue}) {
                             id='zip'
                             name='zip'
                             placeholder='e.g 60092'
-                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                             value={formik.values.zip}
                             onChange={formik.handleChange}
                         />
@@ -162,7 +162,7 @@ function CreateVenue({submitVenue}) {
                         type='number'
                         id='capacity'
                         name='capacity'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                         value={formik.values.capacity}
                         onChange={formik.handleChange}
                     />
@@ -177,9 +177,9 @@ function CreateVenue({submitVenue}) {
                         type='text'
                         id='description'
                         name='description'
-                        placeholder="e.g. A spacious, warmly decorated suburban home, and the living room is a centerpiece of its cozy, classic aesthetic. The room features rich, dark wood accents and festive decorations. A large, plush sofa sits in front of a brick fireplace, which is adorned with stockings, garland, and lights. Seating for up to 15 guests. "
+                        placeholder="e.g. A spacious, warmly decorated suburban home, and the living room is a centerpiece of its cozy, classic aesthetic... "
                         rows='4'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                         value={formik.values.description}
                         onChange={formik.handleChange}
                     />
