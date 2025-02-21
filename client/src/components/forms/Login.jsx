@@ -69,8 +69,8 @@ function Login() {
                         type='email' 
                         id='email' 
                         name='email'
-                        placeholder=' exampleemail@gmail.com'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
+                        placeholder='example@gmail.com'
+                        className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         onChange={(e)=>handleEmailChange(e)}
                     />
                     <label htmlFor='password' className='block font-medium'>Password</label>
@@ -78,8 +78,8 @@ function Login() {
                         type='password'
                         id='password'
                         name='password'
-                        placeholder=' enter your password here'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-gray-400 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
+                        placeholder='enter your password here'
+                        className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         onChange={(e)=>handlePasswordChange(e)}
                     />
                     <div>

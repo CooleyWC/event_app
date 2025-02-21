@@ -65,13 +65,21 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     }
 
     return (
-        <div className='pt-52 px-4 dark:bg-slate-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
+        <>
+        <div className='flex justify-center bg-gray-900'>
+            <img src={`${eventData.image}`} alt={`${eventData.name} image`}
+                className='max-h-[500px] max-w-full'
+            />
+        </div>
+        <div className='pt-20 px-4 dark:bg-slate-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
             <NavLink to={'/dashboard/find_events'}>
                 <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
             </NavLink>
-            <h1 className='text-4xl text-black dark:text-ivory'>{eventData.name}</h1>
-            <p>{startDateStr}</p>
-            <p>{startTimeStr} - {endTimeStr}</p>
+            <h1 className='text-6xl text-black dark:text-ivory'>{eventData.name}</h1>
+            <div className='font-semibold'>
+                <p>{startDateStr}</p>
+                <p>{startTimeStr} - {endTimeStr}</p>
+            </div>
             <p>{eventData.description}</p>
             {hasTicket ? (
                 <>
@@ -85,6 +93,7 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
             )}
             
         </div>
+        </>
     );
 };
 
