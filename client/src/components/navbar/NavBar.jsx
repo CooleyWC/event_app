@@ -22,7 +22,7 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                         </button>
                         <div className='flex ms-2 md:me-24'>
                             <NavLink to='/'>
-                                <img src='./src/assets/images/parlor_logo.png' className='w-20 h-full'/>
+                                <img src='./src/assets/images/parlor_logo_2.png' className='w-20 h-full'/>
                             </NavLink>
                         </div>
                     </div>
@@ -32,19 +32,19 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                                 <button
                                     onClick={toggleDarkMode}
                                     aria-label={darkMode ? "Switch to light mode." : "Switch to dark mode."}
-                                    className='p-1 sm:p-4 hover:bg-slate-200 dark:hover:bg-slate-900'
+                                    className='p-1 sm:p-4 hover:bg-slate-200 dark:hover:bg-slate-900 transition ease-in-out duration-300'
                                 >
                                     {darkMode ? <IoSunnyOutline className='size-8 text-black dark:text-ivory'/> : <IoMoonOutline className='size-8 text-black dark:text-ivory' />}
                                 </button>
                                 
                                 <NavLink 
                                     to='/dashboard'
-                                    className='text-lg p-1 sm:p-4 text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900'
+                                    className='text-lg p-1 sm:p-4 text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900 transition ease-in-out duration-300'
                                 >
                                     Dashboard
                                 </NavLink>
                                 <button onClick={toggleProfileDrawer} aria-label='Open profile drawer'>
-                                    <div className='flex gap-2 items-center  text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900 p-1 sm:p-4'>
+                                    <div className='flex gap-2 items-center  text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900 p-1 sm:p-4 transition ease-in-out duration-300'>
                                         <IoPersonOutline className='size-8'/>
                                         <span className='display-block text-lg'>{nameDisplay}</span>
                                     </div>
