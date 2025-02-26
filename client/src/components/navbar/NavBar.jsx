@@ -2,8 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {IoMenu, IoSunnyOutline, IoMoonOutline, IoPersonOutline } from "react-icons/io5"
 import { useAuth } from '../context/AuthProvider';
+import ProfileDrawer from '../pages/ProfileDrawer';
 
-function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer}) {
+function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer, profileOpen}) {
 
     const {user} = useAuth();
     const nameDisplay = user?.first_name + ' ' + user?.last_name
@@ -63,7 +64,10 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                     </div>
                 </div>
             </div>
-
+            <ProfileDrawer
+                toggleProfileDrawer={toggleProfileDrawer} 
+                profileOpen={profileOpen}
+            />
         </nav>
         </>
     );

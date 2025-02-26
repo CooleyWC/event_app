@@ -33,6 +33,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
             console.log('logout successful')
             logout()
             navigate('/')
+            toggleProfileDrawer()
         } catch (error){
             console.log(error.message)
             return error
@@ -41,7 +42,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
 
     return (
         profileOpen && (
-        <div className={`fixed top-10 right-0 z-40 w-52 pt-20 bg-white dark:bg-slate-950 sm:translate-x-0 transition-transform ${profileOpen ? 'translate-x-0' : 'translate-x-full'} `}
+        <div className={`fixed top-22 right-0 z-40 w-52 pt-6 bg-white dark:bg-slate-950 sm:translate-x-0 transition-transform ${profileOpen ? 'translate-x-0' : 'translate-x-full'} `}
             role='dialog'
             aria-modal='true'
             aria-label='profile drawer'
