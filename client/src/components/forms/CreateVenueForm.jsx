@@ -77,6 +77,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
         })
 
         formik.setValues({
+            id: selectedVenue.venue.id || '',
             name: selectedVenue.venue.name || '',
             street: selectedVenue.venue.street || '',
             city: selectedVenue.venue.city || '',

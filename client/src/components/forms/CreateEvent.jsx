@@ -39,13 +39,20 @@ function CreateEvent({handleNewEvent}) {
 
     const submitVenue = async (values) =>{
 
+        const venuePayload = {...values}
+
+        if(values.id){
+            venuePayload.id = values.id
+        }
+
+
         try {
             const res = await fetch('/api/venues', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify(values)
+                body: JSON.stringify(venuePayload)
             })
             const venueData = await res.json()
 
