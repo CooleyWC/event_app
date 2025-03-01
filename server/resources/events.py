@@ -21,12 +21,13 @@ class Events(Resource):
 
         try:
 
+            image = json.get('image') or None
 
             event = Event(
                 name = json.get('name'),
                 start_time = start_time_obj,
                 end_time = end_time_obj,
-                image = json.get('image'),
+                image = image,
                 description = json.get('description'), 
                 creator_id = json.get('creatorId'), 
                 venue_id = json.get('venueId'))

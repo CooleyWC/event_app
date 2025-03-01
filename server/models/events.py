@@ -26,7 +26,9 @@ class Event(db.Model, SerializerMixin):
         index=True
     )
 
-    image: so.Mapped[str] = so.mapped_column(sa.String(200), default='default_image_url')
+    image: so.Mapped[str] = so.mapped_column(
+        sa.String(200), 
+        default='https://images.unsplash.com/photo-1586299576722-e14abcdcfcb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
     
     current_total: so.Mapped[int] = so.mapped_column(index=True, default=0, nullable=True)
     description: so.Mapped[str] = so.mapped_column(sa.String(300), index=True)
