@@ -1,11 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import useVenueFormData from '../context/VenueFormData';
 
-function CreateVenue({submitVenue}) {
+function CreateVenueForm({submitVenue, userCreatedEvents}) {
 
     const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
+
+    const {venueSelect, setVenueSelect} = useState('')
+
+    // console.log('in venue', userCreatedEvents)
+
+    const createdVenues = userCreatedEvents.map((event)=>{
+        return (
+            <option key={event.venue.id} value={event.venue.id}>
+                {event.venue.name}
+            </option>
+        )
+    })
+
+    console.log('created Venues', createdVenues)
 
     const venueSchema = yup.object({
         name: yup
@@ -56,9 +70,33 @@ function CreateVenue({submitVenue}) {
         onSubmit: submitVenue,
     })
 
+    const handleSelectChange = (e)=>{
+        const selectedVenueId = parseInt(e.target.value)
+        const selectedVenue = userCreatedEvents.find((ev) => {
+            return ev.venue.id === selectedVenueId
+        })
+
+        formik.setValues({
+            name: selectedVenue.venue.name || '',
+            street: selectedVenue.venue.street || '',
+            city: selectedVenue.venue.city || '',
+            state: selectedVenue.venue.state || '',
+            zip: selectedVenue.venue.zip || '',
+            capacity: selectedVenue.venue.capacity || 15,
+            description: selectedVenue.venue.description || '',
+        })
+    }
+
 
     return (
         <div className='lg:flex lg:justify-center lg:align-center'>
+        <div className='px-6'>
+            <p>Use a previously created Venue?</p>
+            <select onChange={handleSelectChange} className='rounded-sm pl-2'>
+                <option value=''>Select A Venue</option>
+                {createdVenues}
+            </select>
+        </div>
         <div className='px-6 max-w-[1000px] w-full bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
@@ -195,10 +233,8 @@ function CreateVenue({submitVenue}) {
                 </form>
             </div>
         </div>
-      
-
       </div>
     );
 }
 
-export default CreateVenue;
+export default CreateVenueForm;

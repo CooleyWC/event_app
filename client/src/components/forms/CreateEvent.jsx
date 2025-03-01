@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
-import CreateVenue from './CreateVenue';
+import CreateVenueForm from './CreateVenueForm';
 import CreateEventForm from './CreateEventForm';
 import useVenueFormData from '../context/VenueFormData';
 import useEventFormData from '../context/EventFormData';
@@ -23,6 +23,19 @@ function CreateEvent({handleNewEvent}) {
     useEffect(()=>{
         setIsVenueFormEmpty(Object.keys(venueFormData).length===0)
     }, [venueFormData])
+
+    const userCreatedEvents = user.created_events
+
+    const createdVenues = userCreatedEvents.map((event)=>{
+        return (
+            <div key={event.id}>
+                {event.venue.name}
+                {event.venue.id}
+            </div>
+        )
+    })
+
+    console.log('created Venues', createdVenues)
 
     const submitVenue = async (values) =>{
 
@@ -150,8 +163,9 @@ function CreateEvent({handleNewEvent}) {
 
     return (
         <div>
+            {/* {createdVenues} */}
         { isVenueFormEmpty ? (
-            <CreateVenue submitVenue={submitVenue} />
+            <CreateVenueForm submitVenue={submitVenue} userCreatedEvents={userCreatedEvents}/>
         ): (
             <CreateEventForm 
                 submitEvent={submitEvent}
