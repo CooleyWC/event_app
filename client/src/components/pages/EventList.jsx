@@ -13,8 +13,8 @@ function EventList({allEvents}) {
                 startTime={ev.start_time}
                 endTime={ev.end_time}
                 description={ev.description}
-                creator={ev.creator}
                 image={ev.image}
+                venue={ev.venue}
             />
         )
     })

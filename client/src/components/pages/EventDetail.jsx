@@ -35,6 +35,7 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
         return <p>...loading</p>
     }
 
+
     const startTimeFormat = new Date(eventData.start_time)
     const startDateStr = startTimeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
     const startTimeStr = startTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
@@ -64,6 +65,11 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
         navigate('/dashboard/upcoming_events')
     }
 
+
+    if(!eventData.venue){
+        return <p>....loading</p>
+    }
+
     return (
         <>
         <div className='flex justify-center bg-gray-900'>
@@ -80,6 +86,14 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
                 <p>{startDateStr}</p>
                 <p>{startTimeStr} - {endTimeStr}</p>
             </div>
+            <div>
+                    <h2 className='font-semibold text-lg'>
+                        {eventData.venue.name}
+                    </h2>
+                    <p className='text-lg'>
+                        {`${eventData.venue.street}, ${eventData.venue.city}, ${eventData.venue.state}, ${eventData.venue.zip}`}
+                    </p>
+                </div>
             <p>{eventData.description}</p>
             {hasTicket ? (
                 <>

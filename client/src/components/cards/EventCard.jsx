@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
 
-function EventCard({eventID,eventName, startTime, endTime, creator, description, image}) {
+function EventCard({eventID, eventName, startTime, endTime, description, image, venue}) {
+
 
     const {user} = useAuth();
     const [hasTicket, setHasTicket] = useState(false)
@@ -29,15 +30,25 @@ function EventCard({eventID,eventName, startTime, endTime, creator, description,
             <div>
                 <img src={image} className='h-[200px] w-full object-cover'/>
             </div>
-            <div className='px-6 py-4 flex-grow flex flex-col mb-10'>
-      
-                <h1 className='text-center text-2xl font-bold mb-4 tracking-wider'>{eventName}</h1>
-                <h2 className='text-lg tracking-wide'>{startDateStr}</h2>
-                <p className='mb-8 text-lg tracking-wide'>{startTimeStr} - {endTimeStr}</p>
-                <p>{description}</p>
-                <p>{creator}</p>
+            <article className='px-6 py-4 flex-grow flex flex-col space-y-4'>
+                <div>
+                    <h1 className='text-center text-2xl font-bold tracking-wider mb-2'>{eventName}</h1>
+                    <h2 className='text-lg tracking-wide'>{startDateStr}</h2>
+                    <p className='text-lg tracking-wide'>{startTimeStr} - {endTimeStr}</p>
+                </div>
+                <div>
+                    <h2 className='font-semibold text-lg'>
+                        {`${venue.city}, ${venue.state}`}
+                    </h2>
+                   
+                </div>
+                <div>
+                    <h3 className='font-semibold'>Description:</h3>
+                    <p>{description}</p>
+                </div>
 
-            </div>
+            </article>
+          
             <div className='mt-auto mb-10 px-6'>
                 <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>
                     Details
