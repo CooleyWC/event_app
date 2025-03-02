@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, NavLink, useNavigate} from 'react-router-dom';
-import { useAuth} from '../context/AuthProvider'
+import { useAuth} from '../context/AuthProvider';
+import { IoLocationOutline, IoTimeOutline } from "react-icons/io5";
 
 
 const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
@@ -84,18 +85,28 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
                 <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
             </NavLink>
             <h1 className='text-6xl text-black dark:text-ivory'>{eventData.name}</h1>
-            <div className='font-semibold'>
-                <p>{startDateStr}</p>
-                <p>{startTimeStr} - {endTimeStr}</p>
+            <div className='font-semibold flex flex-row gap-4'>
+                <IoTimeOutline className='text-2xl'/>
+                <div>
+                    <p>{startDateStr}</p>
+                    <p>{startTimeStr} - {endTimeStr}</p>
+                </div>
+                
             </div>
-            <div>
+            <div className='text-2xl flex flex-row gap-4'>
+                <IoLocationOutline />
+                <div>
                     <h2 className='font-semibold text-lg'>
                         {eventData.venue.name}
                     </h2>
-                    <p className='text-lg'>
-                        {`${eventData.venue.street}, ${eventData.venue.city}, ${eventData.venue.state}, ${eventData.venue.zip}`}
-                    </p>
+                    <div>
+                        <p className='text-lg'>
+                            {`${eventData.venue.street}, ${eventData.venue.city}, ${eventData.venue.state}, ${eventData.venue.zip}`}
+                        </p>
+                    </div>
                 </div>
+                
+            </div>
             <p>{eventData.description}</p>
             {hasTicket ? (
                 <>
