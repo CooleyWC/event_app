@@ -1,25 +1,25 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
-import useVenueFormData from '../context/VenueFormData';
+// import useVenueFormData from '../context/VenueFormData';
 
 function CreateVenueForm({submitVenue, userCreatedEvents}) {
 
-    const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
+    // const {venueFormData, saveVenueFormData, clearVenueFormData} = useVenueFormData();
 
-    const {venueSelect, setVenueSelect} = useState('')
+    const createdEvents = userCreatedEvents.map((createdEvent)=> createdEvent.venue)
 
-    // console.log('in venue', userCreatedEvents)
+    const venueSet = createdEvents.filter((venue, index, self)=>
+        index===self.findIndex((v)=>v.id===venue.id)
+    )
 
-    const createdVenues = userCreatedEvents.map((event)=>{
+    const createdVenues = venueSet.map((venue)=>{
         return (
-            <option key={event.venue.id} value={event.venue.id}>
-                {event.venue.name}
+            <option key={venue.id} value={venue.id}>
+                {venue.name}
             </option>
         )
     })
-
-    console.log('created Venues', createdVenues)
 
     const venueSchema = yup.object({
         name: yup
@@ -71,7 +71,16 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
     })
 
     const handleSelectChange = (e)=>{
+
+        
+
         const selectedVenueId = parseInt(e.target.value)
+
+        if(!selectedVenueId){
+            formik.resetForm()
+            return
+        }
+
         const selectedVenue = userCreatedEvents.find((ev) => {
             return ev.venue.id === selectedVenueId
         })
@@ -94,7 +103,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
         <div className='px-6'>
             <p>Use a previously created Venue?</p>
             <select onChange={handleSelectChange} className='rounded-sm pl-2'>
-                <option value=''>Select A Venue</option>
+                <option value=''>Select A Venue or Clear Form</option>
                 {createdVenues}
             </select>
         </div>
