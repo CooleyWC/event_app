@@ -25,6 +25,10 @@ function EventCard({eventID, eventName, startTime, endTime, description, image, 
         }
     }, [user])
 
+    if(!venue){
+        return <p>....loading</p>
+    }
+
     return (
         <div className='dark:bg-gray-700 dark:text-ivory max-w-sm rounded mx-2 my-2 flex flex-col'>
             <div>

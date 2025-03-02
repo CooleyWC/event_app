@@ -55,6 +55,10 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     if(!user){
         return <p>...loading</p>
     }
+    
+    if(!eventData.venue){
+        return <p>....loading</p>
+    }
 
     const onProcessTicket = ()=>{
         handleProcessTicket(eventData, price)
@@ -66,9 +70,7 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     }
 
 
-    if(!eventData.venue){
-        return <p>....loading</p>
-    }
+    
 
     return (
         <>

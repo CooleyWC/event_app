@@ -34,6 +34,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                 startTime={ticket.event.start_time}
                 endTime={ticket.event.end_time}
                 image={ticket.event.image}
+                venue={ticket.event.venue}
             />
         )
     })
