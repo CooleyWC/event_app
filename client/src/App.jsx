@@ -6,6 +6,7 @@ import ErrorPage from "./ErrorPage";
 import Layout from "./Layout";
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/forms/Login";
+import SignUp from "./components/forms/SignUp";
 import {useAuth} from './components/context/AuthProvider'
 import EventDetail from "./components/pages/EventDetail";
 
@@ -142,6 +143,7 @@ const handleNewEvent = (newEvent)=>{
       <Routes>
         <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
         <Route path='/login' element={<Login />}/>
+        <Route path='/signup' element={<SignUp />}/>
         <Route path='/dashboard' element={
           <Dashboard 
             sideOpen={sideOpen} 

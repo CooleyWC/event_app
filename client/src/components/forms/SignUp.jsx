@@ -2,68 +2,28 @@ import React, {useState} from 'react';
 import {useAuth} from '../context/AuthProvider'
 import {useNavigate} from 'react-router-dom'
 
-function Login() {
+function SignUp() {
 
     const {login} = useAuth()
 
     let navigate = useNavigate()
 
-    const [emailInput, setEmailInput] = useState('')
-    const [passwordInput, setPasswordInput] = useState('')
-
-
-    const handleEmailChange = (e)=>{
-        setEmailInput(e.target.value)
+    const handleSubmit = ()=>{
+        console.log('yo')
     }
 
-    const handlePasswordChange = (e)=>{
-        setPasswordInput(e.target.value)
+    const handleLoginClick = ()=>{
+
+        navigate('/login')
+        console.log('login')
     }
-
-
-    const handleSubmit = async (e)=>{
-
-        const values = {
-            email: emailInput,
-            password: passwordInput
-        }
-
-        e.preventDefault()
-        try {
-            const res = await fetch('/api/login',{
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(values)
-            })
-            const userData = await res.json()
-
-            if (!res.ok){
-                console.log('error', userData.error)
-                return
-            } else {
-                console.log('login success')
-                login(userData)
-                setEmailInput('')
-                setPasswordInput('')
-                navigate('/dashboard')
-            }
-        } catch (error) {
-            console.error('error loggin in', error)
-        }
-        
-    }
-
-    const handleSignUpClick = ()=>{
-        navigate('/signup')
-    }
+    
 
     return (
         <div className='px-6 bg-ivory dark:bg-gray-800 text-slate-800 mt-[64px] flex h-screen  flex-col'>
             
             <div className='mt-20 sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Sign In to Your Account</h1>
+                <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Create A New Account</h1>
             </div>
             
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
@@ -92,8 +52,8 @@ function Login() {
                 </form>
                 <div className='mt-4 flex flex-col justify-center'>
                     <h2 className='text-center'>Don't have an account?</h2>
-                    <button onClick={handleSignUpClick} className='font-semibold text-lg'>
-                        Create New Account
+                    <button onClick={handleLoginClick} className='font-semibold text-lg'>
+                        Login
                     </button>
                 </div>
             </div>
@@ -101,4 +61,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default SignUp;
