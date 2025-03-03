@@ -111,12 +111,12 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-ivory'>Create Venue</h1>
-                <h2 className='text-md  text-center text-ivory'>Enter the details of where the event will take place.</h2>
+                <h2 className='text-md mb-4 text-center text-ivory'>Enter the details of where the event will take place.</h2>
             </div>
-            <div className='flex flex-col mb-4'>
-                <p className='block text-ivory'>Use a previously created venue?</p>
-                <select onChange={handleSelectChange} className='rounded-sm pl-2'>
-                    <option value=''>Select A Venue or Clear Form</option>
+            <div className='flex flex-col mb-10 space-y-4'>
+                <p className='block text-ivory font-medium'>Use a previously created venue?</p>
+                <select onChange={handleSelectChange} className='rounded-sm pl-2 h-8 bg-gray-200'>
+                    <option value=''> -- Select A Saved Venue --</option>
                         {createdVenues}
                 </select>
             </div>

@@ -54,11 +54,11 @@ function EventCard({eventID, eventName, startTime, endTime, description, image, 
             </article>
           
             <div className='mt-auto mb-10 px-6'>
-                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>
+                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>
                     Details
                 </NavLink>
                 {hasTicket && (
-                    <h1 className='inline-block mx-2'>(You're going to this event)</h1>
+                    <h1 className='inline-block mt-4'>(You're going to this event)</h1>
                 )}
             </div>
         </div>
