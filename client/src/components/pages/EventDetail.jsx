@@ -36,6 +36,8 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
         return <p>...loading</p>
     }
 
+    console.log('eventData', eventData)
+
 
     const startTimeFormat = new Date(eventData.start_time)
     const startDateStr = startTimeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
@@ -109,6 +111,9 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
                     
                 </div>
                 <p>{eventData.description}</p>
+                <div>
+                    <p>{`There are ${eventData.current_total} tickets of ${eventData.venue.capacity} left for this event!`}</p>
+                </div>
                 {hasTicket ? (
                     <>
                         <h3 className='text-2xl font-semibold inline-block'>

@@ -35,7 +35,6 @@ function CreateEvent({handleNewEvent}) {
         )
     })
 
-    console.log('created Venues', createdVenues)
 
     const submitVenue = async (values) =>{
 
