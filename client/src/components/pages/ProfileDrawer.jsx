@@ -60,8 +60,8 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
                         </a>
                     </li>
                 ))}
-                <li className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900'>
-                    <button onClick={onLogoutClick}>Logout</button>
+                <li onClick={onLogoutClick} className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900'>
+                    Logout
                 </li>
             </ul>
         </div>

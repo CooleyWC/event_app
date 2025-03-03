@@ -75,15 +75,15 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
 
     return (
         <div className='bg-gray-800'>
-        <div className='w-full bg-gray-800 mx-auto grid grid-col lg:grid-cols-2 mt-20 max-w-[1600px]'>
+        <div className='w-full bg-gray-800 mx-auto grid grid-col lg:grid-cols-2 mt-20 lg:pt-20 max-w-[1600px]'>
             <div className='flex justify-center lg:order-2'>
                 <img src={`${eventData.image}`} alt={`${eventData.name} image`}
                     className='max-h-[500px] max-w-full object-cover'
                 />
             </div>
-            <div className='pt-20 px-4 dark:bg-gray-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
+            <div className='pt-20 lg:pt-0 px-4 lg:px-8 dark:bg-gray-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
                 <NavLink to={'/dashboard/find_events'}>
-                    <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
+                    <button className='min-w-56 bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
                 </NavLink>
                 <h1 className='text-6xl text-black dark:text-ivory'>{eventData.name}</h1>
                 <div className='font-semibold flex flex-row gap-4'>
@@ -111,13 +111,13 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
                 <p>{eventData.description}</p>
                 {hasTicket ? (
                     <>
-                        <h1 className='border-solid border-2 inline-block'>
+                        <h3 className='text-2xl font-semibold inline-block'>
                             You have a ticket for this event
-                        </h1>
-                        <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onTicketDelete}>Cancel</button>
+                        </h3>
+                        <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-red-600 border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onTicketDelete}>Cancel</button>
                     </>
                 ):(
-                    <button className='max-w-56 bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onProcessTicket}>Get Ticket</button>
+                    <button className='min-w-56 min-h-20 text-2xl bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onProcessTicket}>Get Ticket</button>
                 )}
                 
             </div>
