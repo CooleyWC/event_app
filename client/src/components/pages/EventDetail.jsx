@@ -74,53 +74,55 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
     
 
     return (
-        <>
-        <div className='flex justify-center bg-gray-900'>
-            <img src={`${eventData.image}`} alt={`${eventData.name} image`}
-                className='max-h-[500px] max-w-full'
-            />
-        </div>
-        <div className='pt-20 px-4 dark:bg-slate-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
-            <NavLink to={'/dashboard/find_events'}>
-                <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
-            </NavLink>
-            <h1 className='text-6xl text-black dark:text-ivory'>{eventData.name}</h1>
-            <div className='font-semibold flex flex-row gap-4'>
-                <IoTimeOutline className='text-2xl'/>
-                <div>
-                    <p>{startDateStr}</p>
-                    <p>{startTimeStr} - {endTimeStr}</p>
-                </div>
-                
+        <div className='bg-gray-800'>
+        <div className='w-full bg-gray-800 mx-auto grid grid-col lg:grid-cols-2 mt-20 max-w-[1600px]'>
+            <div className='flex justify-center lg:order-2'>
+                <img src={`${eventData.image}`} alt={`${eventData.name} image`}
+                    className='max-h-[500px] max-w-full object-cover'
+                />
             </div>
-            <div className='text-2xl flex flex-row gap-4'>
-                <IoLocationOutline />
-                <div>
-                    <h2 className='font-semibold text-lg'>
-                        {eventData.venue.name}
-                    </h2>
+            <div className='pt-20 px-4 dark:bg-gray-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
+                <NavLink to={'/dashboard/find_events'}>
+                    <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
+                </NavLink>
+                <h1 className='text-6xl text-black dark:text-ivory'>{eventData.name}</h1>
+                <div className='font-semibold flex flex-row gap-4'>
+                    <IoTimeOutline className='text-2xl'/>
                     <div>
-                        <p className='text-lg'>
-                            {`${eventData.venue.street}, ${eventData.venue.city}, ${eventData.venue.state}, ${eventData.venue.zip}`}
-                        </p>
+                        <p>{startDateStr}</p>
+                        <p>{startTimeStr} - {endTimeStr}</p>
                     </div>
+                    
                 </div>
+                <div className='text-2xl flex flex-row gap-4'>
+                    <IoLocationOutline />
+                    <div>
+                        <h2 className='font-semibold text-lg'>
+                            {eventData.venue.name}
+                        </h2>
+                        <div>
+                            <p className='text-lg'>
+                                {`${eventData.venue.street}, ${eventData.venue.city}, ${eventData.venue.state}, ${eventData.venue.zip}`}
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <p>{eventData.description}</p>
+                {hasTicket ? (
+                    <>
+                        <h1 className='border-solid border-2 inline-block'>
+                            You have a ticket for this event
+                        </h1>
+                        <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onTicketDelete}>Cancel</button>
+                    </>
+                ):(
+                    <button className='max-w-56 bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onProcessTicket}>Get Ticket</button>
+                )}
                 
             </div>
-            <p>{eventData.description}</p>
-            {hasTicket ? (
-                <>
-                    <h1 className='border-solid border-2 inline-block'>
-                        You have a ticket for this event
-                    </h1>
-                    <button className='bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onTicketDelete}>Cancel</button>
-                </>
-            ):(
-                <button className='max-w-56 bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out' onClick={onProcessTicket}>Get Ticket</button>
-            )}
-            
         </div>
-        </>
+        </div>
     );
 };
 
