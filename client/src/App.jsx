@@ -90,6 +90,19 @@ function App() {
             return
         } 
         console.log('approved', result.message)
+
+        const eventsAfterTicketProcess = allEvents.map((event)=>{
+          if(event.id === result.event.id){
+            const updatedTotal = result.event.current_total
+            event.current_total = updatedTotal
+            return event
+          } else {
+            return event
+          }
+        })
+
+        setAllEvents(eventsAfterTicketProcess)
+
         await checkUser()
 
     } catch (error) {
@@ -104,7 +117,7 @@ const handleTicketDelete = (ticketID)=>{
   })
   .then((res)=>{
     if(res.ok){
-      console.log('handleDelete success')
+      console.log('handleDelete success', res)
       checkUser()
     }
   })
@@ -169,6 +182,7 @@ const handleNewEvent = (newEvent)=>{
           <EventDetail 
             handleProcessTicket={handleProcessTicket}
             handleTicketDelete={handleTicketDelete}
+            allEvents={allEvents}
           />} />
       </Routes>
     </Router>

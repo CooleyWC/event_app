@@ -4,7 +4,7 @@ import { useAuth} from '../context/AuthProvider';
 import { IoLocationOutline, IoTimeOutline } from "react-icons/io5";
 
 
-const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
+const EventDetail = ({handleProcessTicket, handleTicketDelete, allEvents}) => {
 
     // change this later
     const price = 10
@@ -30,13 +30,11 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete}) => {
             setEventData(data)
         })
         .catch((error)=>console.error(error))
-    }, [eventID])
+    }, [eventID, allEvents])
 
     if(!eventData){
         return <p>...loading</p>
     }
-
-    console.log('eventData', eventData)
 
 
     const startTimeFormat = new Date(eventData.start_time)
