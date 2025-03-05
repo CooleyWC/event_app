@@ -45,14 +45,26 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete, allEvents}) => {
     const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
 
     useEffect(()=>{
+
+        if(!userTickets){
+            setHasTicket(false)
+            setMatchingTicket(null)
+        }
+
+        let foundMatchingTicket = false
+
         for(let ticket of userTickets){
             if(String(ticket.event_id) === String(eventID)){
                 setHasTicket(true)
                 setMatchingTicket(ticket.id)
-            } else {
-                setHasTicket(false)
-                setMatchingTicket(null)
-            }
+                foundMatchingTicket = true
+                break
+            } 
+        }
+
+        if(!foundMatchingTicket){
+            setHasTicket(false)
+            setMatchingTicket(null)
         }
     }, [user])
 
