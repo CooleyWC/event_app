@@ -49,6 +49,9 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete, allEvents}) => {
             if(String(ticket.event_id) === String(eventID)){
                 setHasTicket(true)
                 setMatchingTicket(ticket.id)
+            } else {
+                setHasTicket(false)
+                setMatchingTicket(null)
             }
         }
     }, [user])
@@ -61,13 +64,15 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete, allEvents}) => {
         return <p>....loading</p>
     }
 
+    const ticketsLeft = (eventData.venue.capacity - eventData.current_total)
+
     const onProcessTicket = ()=>{
         handleProcessTicket(eventData, price)
     }
 
     const onTicketDelete = ()=>{
         handleTicketDelete(matchingTicket)
-        navigate('/dashboard/upcoming_events')
+    
     }
 
 
@@ -110,7 +115,7 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete, allEvents}) => {
                 </div>
                 <p>{eventData.description}</p>
                 <div>
-                    <p>{`There are ${eventData.current_total} tickets of ${eventData.venue.capacity} left for this event!`}</p>
+                    <p>{`There are ${ticketsLeft} tickets of ${eventData.venue.capacity} left for this event!`}</p>
                 </div>
                 {hasTicket ? (
                     <>

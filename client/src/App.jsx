@@ -117,9 +117,28 @@ const handleTicketDelete = (ticketID)=>{
   })
   .then((res)=>{
     if(res.ok){
-      console.log('handleDelete success', res)
-      checkUser()
+      console.log('handleDelete success step 1', res)
+      return res.json()
+      
+    } else {
+      console.log('oh no')
     }
+  })
+  .then((result)=>{
+    console.log('step 2 result:', result)
+    const eventsAfterTicketProcess = allEvents.map((event)=>{
+      if(event.id === result.event.id){
+        const updatedTotal = result.event.current_total
+        event.current_total = updatedTotal
+        return event
+      } else {
+        return event
+      }
+    })
+
+    setAllEvents(eventsAfterTicketProcess)
+
+    checkUser()
   })
   .catch((error)=>{
     console.error(error.error)

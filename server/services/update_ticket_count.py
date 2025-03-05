@@ -12,6 +12,8 @@ def update_ticket_count(event_id, num):
         if not event_id:
             return {"error": "event not found"}, 404
         
+        # breakpoint()
+        
         event.current_total += num
         db.session.commit()
 

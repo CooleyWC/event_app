@@ -26,12 +26,12 @@ if __name__ == "__main__":
     db.session.add_all([user_1, user_2, user_3])
     db.session.commit()
 
-    print('adding tickets')
-    ticket_1 = Ticket(price=4, user_id=1, event_id=1)
-    ticket_2 = Ticket(price=2, user_id=3, event_id=1)
+    # print('adding tickets')
+    # ticket_1 = Ticket(price=4, user_id=1, event_id=1)
+    # ticket_2 = Ticket(price=2, user_id=3, event_id=1)
 
-    db.session.add_all([ticket_1, ticket_2])
-    db.session.commit()
+    # db.session.add_all([ticket_1, ticket_2])
+    # db.session.commit()
 
 
     print('adding venues')
@@ -45,14 +45,14 @@ if __name__ == "__main__":
     print('adding events')
 
     dateObj_1 = datetime(year=2025, month=4, day=12, hour=10, minute=30, second=30, tzinfo=pytz.UTC)
-    dateObj_2 = datetime(year=2025, month=2, day=7, hour=11, minute=30, second=0, tzinfo=pytz.UTC)
+    dateObj_2 = datetime(year=2025, month=6, day=7, hour=11, minute=30, second=0, tzinfo=pytz.UTC)
     dateObj_3 = datetime(year=2025, month=7, day=19, hour=8, minute=30, second=0, tzinfo=pytz.UTC)
     dateObj_4 = datetime(year=2025, month=9, day=2, hour=12, minute=0, second=0, tzinfo=pytz.UTC)
 
     print(dateObj_1)
 
     dateObj_1_end = datetime(year=2025, month=4, day=12, hour=12, minute=0, second=30, tzinfo=pytz.UTC)
-    dateObj_2_end = datetime(year=2025, month=2, day=7, hour=15, minute=0, second=0, tzinfo=pytz.UTC)
+    dateObj_2_end = datetime(year=2025, month=6, day=7, hour=15, minute=0, second=0, tzinfo=pytz.UTC)
     dateObj_3_end = datetime(year=2025, month=7, day=19, hour=10, minute=0, second=0, tzinfo=pytz.UTC)
     dateObj_4_end = datetime(year=2025, month=9, day=2, hour=14, minute=0, second=0, tzinfo=pytz.UTC)
 
@@ -68,6 +68,22 @@ if __name__ == "__main__":
     event_5 = Event(name='Radiohead', image='https://images.unsplash.com/photo-1468392788711-903a924761a6?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='Radiohead plays Huey Lewis and the News greatest hits', start_time=dateObj_1, end_time=dateObj_1_end, creator_id=1, venue_id=2)
 
     db.session.add_all([event_1, event_2, event_3, event_4, event_5])
+    db.session.commit()
+
+    print('adding tickets')
+    ticket_1 = Ticket(price=4, user_id=1, event_id=1)
+    ticket_2 = Ticket(price=2, user_id=3, event_id=1)
+
+    db.session.add_all([ticket_1, ticket_2])
+    db.session.commit()
+
+    # Update current_total for events
+    event_1.current_total = Ticket.query.filter_by(event_id=1).count()
+    event_2.current_total = Ticket.query.filter_by(event_id=2).count()
+    event_3.current_total = Ticket.query.filter_by(event_id=3).count()
+    event_4.current_total = Ticket.query.filter_by(event_id=4).count()
+    event_5.current_total = Ticket.query.filter_by(event_id=5).count()
+
     db.session.commit()
 
 
