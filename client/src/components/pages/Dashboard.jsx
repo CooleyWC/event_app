@@ -39,7 +39,6 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
         )
     })
 
-    console.log('upcoming events', upcomingEvents)
 
     return (
         <div className='bg-ivory dark:bg-gray-800'>
@@ -57,9 +56,13 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                     {(!section || section==='find_events') && (
                         <EventList allEvents={allEvents}/>
                     )}
-                    {section==='upcoming_events' && userTickets.length !== 0 ? (
+                    {section==='upcoming_events' && (
+                    userTickets.length !== 0 ? (
                         <div>{upcomingEvents}</div>
-                    ): (<p className='mt-44 text-white flex justify-center text-2xl'>You don't have any upcoming events.</p>)}
+                    ) : (
+                        <p className='mt-44 text-white flex justify-center text-2xl'>You don't have any upcoming events.</p>
+                    )
+                    )}
                     {section==='create_event' && (
                         <CreateEvent handleNewEvent={handleNewEvent}/>
                     )}
