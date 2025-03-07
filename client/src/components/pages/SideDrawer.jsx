@@ -14,6 +14,10 @@ const navLinks = [
         title: 'Create Event',
         href: 'create_event',
     },
+    {
+        title: 'Manage Events',
+        href: 'manage_events',
+    },
 ]
 
 

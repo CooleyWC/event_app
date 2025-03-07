@@ -10,6 +10,7 @@ import EventCard from '../cards/EventCard';
 import ProfileCard from '../cards/ProfileCard';
 import CreateEvent from '../forms/CreateEvent';
 import EventList from './EventList';
+import ManageEvents from './ManageEvents';
 
 function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, toggleProfileDrawer, profileOpen, handleNewEvent}) {
 
@@ -65,6 +66,9 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                     )}
                     {section==='create_event' && (
                         <CreateEvent handleNewEvent={handleNewEvent}/>
+                    )}
+                    {section==='manage_events' && (
+                        <ManageEvents/>
                     )}
                     {section==='profile' && (
                         <ProfileCard 
