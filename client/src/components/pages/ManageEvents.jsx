@@ -1,5 +1,4 @@
 import React from 'react';
-import EventCard from '../cards/EventCard';
 import { useAuth } from '../context/AuthProvider';
 import AdminEventCard from '../cards/AdminEventCard';
 
@@ -10,7 +9,7 @@ function ManageEvents({allEvents}) {
 
     const createdEvents = user.created_events
 
-    console.log('manage events createdEvents:', createdEvents)
+    // console.log('manage events createdEvents:', createdEvents)
 
     const adminEvents = createdEvents.map((ev)=>{
         return (
@@ -23,6 +22,7 @@ function ManageEvents({allEvents}) {
                 description={ev.description}
                 image={ev.image}
                 venue={ev.venue}
+                event={ev}
             />
         )
     })

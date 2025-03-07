@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
 
-function AdminEventCard({eventID, eventName, startTime, endTime, description, image, venue}) {
+function AdminEventCard({eventID, eventName, startTime, endTime, description, image, venue, event}) {
 
 
     const {user} = useAuth();
@@ -20,58 +20,62 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
         return <p>....loading</p>
     }
 
-    console.log('venue', venue)
+    console.log('event', event)
 
     return (
-        <div className='dark:bg-gray-700 dark:text-ivory w-full max-w-[1400px] grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-4 rounded mx-2 my-2 p-2 gap-4'>
-            <div>
-                <h2>ID: {eventID}</h2>
+        <div className='dark:bg-gray-700 dark:text-ivory w-full max-w-[1400px] rounded mx-2 my-2 p-2 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-5 '>
+                <div>
+                    <h2><span className='font-semibold'>ID: </span>{eventID}</h2>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Name: </span>{eventName}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Start Time: </span>{startTimeStr}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>End Time: </span>{endTimeStr}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Tickets Sold: </span>{event.current_total}</p>
+                </div>
+            </div>
+            <div className='my-4'>
+                <div className='mb-4'>
+                    <p><span className='font-semibold'>Description: </span>{description}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Image URL: </span>{image}</p>
+                </div>
+            </div>
+            <hr className='h-[0.5px] bg-white w-full my-2' />
+            <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-4 '>
+                <div>
+                    <h2><span className='font-semibold'>ID: </span>{venue.id}</h2>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Name: </span>{venue.name}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Street: </span>{venue.street}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>City: </span>{venue.city}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>State: </span>{venue.state}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Zip: </span>{venue.zip}</p>
+                </div>
+                <div>
+                    <p><span className='font-semibold'>Capacity: </span>{venue.capacity}</p>
+                </div>
             </div>
             <div>
-                <p>Name: {eventName}</p>
+                <p><span className='font-semibold'>Description: </span>{venue.description}</p>
             </div>
-            <div>
-                <p>Start Time: {startTimeStr}</p>
-            </div>
-            <div>
-                <p>End Time: {endTimeStr}</p>
-            </div>
-            <div>
-                <p>Description: {description}</p>
-            </div>
-            <div>
-                <p>Image Address: {image}</p>
-            </div>
-            <span className='h-[0.5px] bg-white w-full my-4 col-span-4'></span>
-            <h2>Venue</h2>
-            <div>
-                <h2>ID: {venue.id}</h2>
-            </div>
-            <div>
-                <p>Name: {venue.name}</p>
-            </div>
-            <div>
-                <p>Street: {venue.street}</p>
-            </div>
-            <div>
-                <p>City: {venue.city}</p>
-            </div>
-            <div>
-                <p>State: {venue.state}</p>
-            </div>
-            <div>
-                <p>Zip: {venue.zip}</p>
-            </div>
-            <div>
-                <p>Capacity: {venue.capacity}</p>
-            </div>
-            <div className='col-span-4'>
-                <p>Description: {venue.description}</p>
-            </div>
-           
-
-          
-            
         </div>
     );
 }
