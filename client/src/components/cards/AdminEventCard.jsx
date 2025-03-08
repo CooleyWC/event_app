@@ -6,6 +6,9 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
 
 
     const {user} = useAuth();
+    const [updateOpen, setUpdateOpen] = useState(false)
+    const [attrSelect, setAttrSelect] = useState(null)
+    const [textInput, setTextInput] = useState('')
 
 
     const startTimeFormat = new Date(startTime)
@@ -20,16 +23,51 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
         return <p>....loading</p>
     }
 
-    console.log('event', event)
+
+    const handleEventNameClick = ()=>{
+        setAttrSelect('Event Name')
+        setUpdateOpen(!updateOpen)
+    }
+
+    const handleUpdateCancel = ()=>{
+        setAttrSelect(null)
+        setUpdateOpen(false)
+    }
+
+    const handleUpdateSubmit = ()=>{
+
+        const updatedEvent = {...event, [attrSelect]: textInput}
+        console.log('updatedEvent', updatedEvent)
+    }
+
 
     return (
         <div className='dark:bg-gray-700 dark:text-ivory w-full max-w-[1400px] rounded mx-2 my-2 p-2 gap-8'>
+            {updateOpen && (
+                <>
+                    <label>{`Update ${attrSelect}`} </label>
+                    <input type='text'
+                        className='text-black pl-1'
+                        value={textInput}
+                        onChange={(e)=>setTextInput(e.target.value)}
+                    />
+                    <button onClick={handleUpdateSubmit}>Submit Update</button>
+                    <button onClick={handleUpdateCancel}>Cancel Update</button>
+                </>
+            )}
             <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-5 '>
                 <div>
                     <h2><span className='font-semibold'>ID: </span>{eventID}</h2>
                 </div>
                 <div>
-                    <p><span className='font-semibold'>Name: </span>{eventName}</p>
+                    <p><span className='font-semibold'>Name: </span>
+                        <button 
+                            onClick={handleEventNameClick}    
+                            className='hover:bg-slate-950'
+                        >
+                            {eventName}
+                        </button>
+                    </p>
                 </div>
                 <div>
                     <p><span className='font-semibold'>Start Time: </span>{startTimeStr}</p>
