@@ -43,6 +43,5 @@ class Events(Resource):
             error={'error': 'there was an error adding this event'}
             return error, 422
     
-   
 
     

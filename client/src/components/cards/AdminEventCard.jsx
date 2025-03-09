@@ -24,8 +24,8 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
     }
 
 
-    const handleEventNameClick = ()=>{
-        setAttrSelect('Event Name')
+    const handleEventNameClick = (attr)=>{
+        setAttrSelect(attr)
         setUpdateOpen(!updateOpen)
     }
 
@@ -34,10 +34,32 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
         setUpdateOpen(false)
     }
 
-    const handleUpdateSubmit = ()=>{
+    const handleUpdateSubmit = async ()=>{
 
         const updatedEvent = {...event, [attrSelect]: textInput}
         console.log('updatedEvent', updatedEvent)
+
+        const sendy = JSON.stringify(updatedEvent)
+        console.log('data to send', sendy)
+        return 
+
+        const res = await fetch(`/api/event_by_id/${event.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedEvent)
+        })
+
+        const eventData = await res.json()
+
+        if(!res.ok){
+            console.log('error', eventData.error)
+       
+        } else {
+            // update state
+        }
+
     }
 
 
@@ -62,7 +84,7 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
                 <div>
                     <p><span className='font-semibold'>Name: </span>
                         <button 
-                            onClick={handleEventNameClick}    
+                            onClick={()=>handleEventNameClick('name')}    
                             className='hover:bg-slate-950'
                         >
                             {eventName}
