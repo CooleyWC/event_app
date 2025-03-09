@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
+import UpdateEventForm from '../forms/UpdateEventForm'
 
 function AdminEventCard({eventID, eventName, startTime, endTime, description, image, venue, event}) {
 
@@ -8,8 +9,6 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
     const {user} = useAuth();
     const [updateOpen, setUpdateOpen] = useState(false)
     const [attrSelect, setAttrSelect] = useState(null)
-    const [textInput, setTextInput] = useState('')
-
 
     const startTimeFormat = new Date(startTime)
     const startDateStr = startTimeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
@@ -18,11 +17,9 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
     const endTimeFormat = new Date(endTime)
     const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
 
-
     if(!venue){
         return <p>....loading</p>
     }
-
 
     const handleEventNameClick = (attr)=>{
         setAttrSelect(attr)
@@ -34,15 +31,10 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
         setUpdateOpen(false)
     }
 
-    const handleUpdateSubmit = async ()=>{
+    const handleUpdateSubmit = async (inputResult)=>{
 
-        const updatedEvent = {...event, [attrSelect]: textInput}
-        console.log('updatedEvent', updatedEvent)
-
-        const sendy = JSON.stringify(updatedEvent)
-        console.log('data to send', sendy)
-        return 
-
+        const updatedEvent = {...event, [attrSelect]: inputResult}
+        
         const res = await fetch(`/api/event_by_id/${event.id}`, {
             method: 'PATCH',
             headers: {
@@ -57,25 +49,20 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
             console.log('error', eventData.error)
        
         } else {
-            // update state
+            console.log('update state here', eventData)
         }
-
     }
-
 
     return (
         <div className='dark:bg-gray-700 dark:text-ivory w-full max-w-[1400px] rounded mx-2 my-2 p-2 gap-8'>
             {updateOpen && (
-                <>
-                    <label>{`Update ${attrSelect}`} </label>
-                    <input type='text'
-                        className='text-black pl-1'
-                        value={textInput}
-                        onChange={(e)=>setTextInput(e.target.value)}
-                    />
-                    <button onClick={handleUpdateSubmit}>Submit Update</button>
-                    <button onClick={handleUpdateCancel}>Cancel Update</button>
-                </>
+
+                <UpdateEventForm 
+                    onSubmitUpdate={handleUpdateSubmit}
+                    onUpdateCancel={handleUpdateCancel}
+                    attrSelect={attrSelect}
+                />
+                
             )}
             <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-5 '>
                 <div>
