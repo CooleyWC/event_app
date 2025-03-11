@@ -22,6 +22,10 @@ class EventByID(Resource):
                 for attr in data:
                     if attr == 'name':
                         setattr(event, attr, data.get(attr))
+                    if attr == 'description':
+                        setattr(event, attr, data.get(attr))
+                    if attr == 'image':
+                        setattr(event, attr, data.get(attr))
 
                 db.session.add(event)
                 db.session.commit()

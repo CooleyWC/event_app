@@ -113,7 +113,14 @@ function AdminEventCard({eventID}) {
                     </p>
                 </div>
                 <div>
-                    <p><span className='font-semibold'>Image URL: </span>{image}</p>
+                    <p><span className='font-semibold'>Image URL: </span>
+                        <button 
+                            onClick={()=>handleEventUpdateClick('image')}    
+                            className='hover:bg-slate-950 p-1'
+                        >
+                            {image}
+                        </button>
+                    </p>
                 </div>
             </div>
             <hr className='h-[0.5px] bg-white w-full my-2' />
