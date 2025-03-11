@@ -40,3 +40,15 @@ class EventByID(Resource):
         else:
             error = {'error': 'there was a problem accessing this event in the database'}
             return error, 400
+        
+    def delete(self, id):
+        try:
+            event = Event.query.filter(Event.id == id).first()
+
+            db.session.delete(event)
+            db.session.commit()
+
+            return {'success-message': 'the event {id} was successfully deleted'}, 200
+        except:
+            error = {'error': 'problem deleting event: {id}'}
+            return error, 422

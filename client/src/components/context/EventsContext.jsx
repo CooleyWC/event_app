@@ -26,8 +26,16 @@ export const EventsProvider = ({children})=>{
         setAllEvents(updatedEvents)
     }
 
+    const deleteEvent = (id)=>{
+        const eventsAfterDelete = allEvents.filter((event)=>{
+            return event.id !== id
+        })
+        setAllEvents(eventsAfterDelete)
+
+    }
+
     return (
-        <EventsContext.Provider value={{allEvents, updateEvent}}>
+        <EventsContext.Provider value={{allEvents, setAllEvents, updateEvent, deleteEvent}}>
             {children}
         </EventsContext.Provider>
     )

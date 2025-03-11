@@ -11,7 +11,7 @@ function AdminEventCard({eventID}) {
     const [updateOpen, setUpdateOpen] = useState(false)
     const [attrSelect, setAttrSelect] = useState(null)
 
-    const {allEvents, updateEvent} = useEvents()
+    const {allEvents, updateEvent, deleteEvent} = useEvents()
 
 
     const event = allEvents.find((evt)=> evt.id === eventID)
@@ -64,6 +64,19 @@ function AdminEventCard({eventID}) {
         updateEvent(eventData)
         setAttrSelect(null)
         setUpdateOpen(false)
+    }
+
+    const handleEventDelete = ()=>{
+        fetch(`api/event_by_id/${eventID}`, {
+            method: 'DELETE'
+        })
+        .then((res)=>{
+            if(res.ok){
+                deleteEvent(eventID)
+            } else {
+                console.error(res.error)
+            }
+        })
     }
 
     return (
@@ -149,6 +162,9 @@ function AdminEventCard({eventID}) {
             </div>
             <div>
                 <p><span className='font-semibold'>Description: </span>{venue.description}</p>
+            </div>
+            <div className='bg-gray-950 flex justify-center align-center mt-10'>
+                <button onClick={handleEventDelete}>Delete Event</button>
             </div>
         </div>
     );

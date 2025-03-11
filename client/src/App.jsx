@@ -18,7 +18,7 @@ function App() {
   const [sideOpen, setSideOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
   // const [allEvents, setAllEvents] = useState([])
-  const {allEvents} = useEvents()
+  const {allEvents, setAllEvents} = useEvents()
   
 
   const [darkMode, setDarkMode] = useState(()=>{
@@ -37,13 +37,6 @@ function App() {
     checkUser()
   }, [])
 
-  // useEffect(()=>{
-  //   fetch('/api/events')
-  //   .then(res=>res.json())
-  //   .then(data=>{
-  //     setAllEvents(data)
-  //   })
-  // }, [])
   
   const checkUser = async () =>{
     try{ 
