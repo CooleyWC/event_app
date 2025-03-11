@@ -8,6 +8,7 @@ import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/forms/Login";
 import SignUp from "./components/forms/SignUp";
 import {useAuth} from './components/context/AuthProvider'
+import {useEvents} from './components/context/EventsContext'
 import EventDetail from "./components/pages/EventDetail";
 
 
@@ -16,7 +17,8 @@ function App() {
   const {login, logout, user, update} = useAuth()
   const [sideOpen, setSideOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
-  const [allEvents, setAllEvents] = useState([])
+  // const [allEvents, setAllEvents] = useState([])
+  const {allEvents} = useEvents()
   
 
   const [darkMode, setDarkMode] = useState(()=>{
@@ -35,13 +37,13 @@ function App() {
     checkUser()
   }, [])
 
-  useEffect(()=>{
-    fetch('/api/events')
-    .then(res=>res.json())
-    .then(data=>{
-      setAllEvents(data)
-    })
-  }, [])
+  // useEffect(()=>{
+  //   fetch('/api/events')
+  //   .then(res=>res.json())
+  //   .then(data=>{
+  //     setAllEvents(data)
+  //   })
+  // }, [])
   
   const checkUser = async () =>{
     try{ 

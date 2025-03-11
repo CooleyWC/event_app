@@ -1,28 +1,30 @@
 import React from 'react';
 import { useAuth } from '../context/AuthProvider';
+import { useEvents } from '../context/EventsContext';
 import AdminEventCard from '../cards/AdminEventCard';
 
 
-function ManageEvents({allEvents}) {
+
+function ManageEvents() {
 
     const {user} = useAuth()
 
-    const createdEvents = user.created_events
+    const {allEvents} = useEvents();
 
-    // console.log('manage events createdEvents:', createdEvents)
+    const createdEvents = allEvents.filter((event)=>event.creator_id === user.id)
 
     const adminEvents = createdEvents.map((ev)=>{
         return (
             <AdminEventCard
                 key={ev.id}
                 eventID={ev.id}
-                eventName={ev.name}
-                startTime={ev.start_time}
-                endTime={ev.end_time}
-                description={ev.description}
-                image={ev.image}
-                venue={ev.venue}
-                event={ev}
+                // eventName={ev.name}
+                // startTime={ev.start_time}
+                // endTime={ev.end_time}
+                // description={ev.description}
+                // image={ev.image}
+                // venue={ev.venue}
+                // event={ev}
             />
         )
     })

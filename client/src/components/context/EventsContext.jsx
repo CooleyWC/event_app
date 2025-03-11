@@ -11,12 +11,19 @@ export const useEvents = ()=>{
 export const EventsProvider = ({children})=>{
     const [allEvents, setAllEvents] = useState([])
 
+    useEffect(()=>{
+        fetch('/api/events')
+        .then(res=>res.json())
+        .then(data=>{
+          setAllEvents(data)
+        })
+      }, [])
+
     const updateEvent = (updatedEvent)=>{
-        setAllEvents((prevEvents)=>
-            prevEvents.map((event)=>
-                event.id === updateEvent.id ? updatedEvent : event
-            )
+        const updatedEvents = allEvents.map((event)=>
+            event.id === updatedEvent.id ? updatedEvent : event
         )
+        setAllEvents(updatedEvents)
     }
 
     return (

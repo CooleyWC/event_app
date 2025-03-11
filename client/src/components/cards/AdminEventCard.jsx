@@ -1,27 +1,36 @@
 import React, {useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
+import { useEvents } from '../context/EventsContext';
 import UpdateEventForm from '../forms/UpdateEventForm'
 
-function AdminEventCard({eventID, eventName, startTime, endTime, description, image, venue, event}) {
+function AdminEventCard({eventID}) {
 
 
     const {user} = useAuth();
     const [updateOpen, setUpdateOpen] = useState(false)
     const [attrSelect, setAttrSelect] = useState(null)
 
-    const startTimeFormat = new Date(startTime)
+    const {allEvents, updateEvent} = useEvents()
+
+
+    const event = allEvents.find((evt)=> evt.id === eventID)
+
+    const {name, start_time, end_time, description, image, venue} = event
+
+    const startTimeFormat = new Date(start_time)
     const startDateStr = startTimeFormat.toLocaleDateString('en-US', {month: 'long', weekday: 'long', day: '2-digit', year: 'numeric'})
     const startTimeStr = startTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
 
-    const endTimeFormat = new Date(endTime)
+    const endTimeFormat = new Date(end_time)
     const endTimeStr = endTimeFormat.toLocaleTimeString('en-US', {hour: 'numeric', minute: '2-digit'})
+
 
     if(!venue){
         return <p>....loading</p>
     }
 
-    const handleEventNameClick = (attr)=>{
+    const handleEventUpdateClick = (attr)=>{
         setAttrSelect(attr)
         setUpdateOpen(!updateOpen)
     }
@@ -51,6 +60,10 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
         } else {
             console.log('update state here', eventData)
         }
+
+        updateEvent(eventData)
+        setAttrSelect(null)
+        setUpdateOpen(false)
     }
 
     return (
@@ -71,10 +84,10 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
                 <div>
                     <p><span className='font-semibold'>Name: </span>
                         <button 
-                            onClick={()=>handleEventNameClick('name')}    
-                            className='hover:bg-slate-950'
+                            onClick={()=>handleEventUpdateClick('name')}    
+                            className='hover:bg-slate-950 p-1'
                         >
-                            {eventName}
+                            {name}
                         </button>
                     </p>
                 </div>
@@ -90,7 +103,14 @@ function AdminEventCard({eventID, eventName, startTime, endTime, description, im
             </div>
             <div className='my-4'>
                 <div className='mb-4'>
-                    <p><span className='font-semibold'>Description: </span>{description}</p>
+                    <p><span className='font-semibold'>Description: </span>
+                        <button 
+                            onClick={()=>handleEventUpdateClick('description')}    
+                            className='hover:bg-slate-950 p-1'
+                        >
+                            {description}
+                        </button>
+                    </p>
                 </div>
                 <div>
                     <p><span className='font-semibold'>Image URL: </span>{image}</p>
