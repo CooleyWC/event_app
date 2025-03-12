@@ -131,7 +131,7 @@ function AdminEventCard({eventID}) {
                             onClick={()=>handleEventUpdateClick('image')}    
                             className='hover:bg-gray-950 p-1'
                         >
-                            <img src={image} className='w-[100px] h-[100px]'/>
+                            <img src={image} alt={`image for ${name} event`} className='w-[100px] h-[100px]'/>
                         </button>
                     </p>
                 </div>

@@ -16,11 +16,11 @@ if __name__ == "__main__":
     Venue.query.delete()
 
     print('adding users')
-    user_1 = User(first_name='will', last_name='coole', email='willia@gmail.com', location='fort wayne')
+    user_1 = User(first_name='Will', last_name='Cooley', email='will@gmail.com', location='fort wayne')
     user_1.password_hash='paradiddle'
-    user_2 = User(first_name='charles', last_name='barkley', email='cb@gmail.com', location='chicago')
+    user_2 = User(first_name='Charles', last_name='Barkley', email='cb@gmail.com', location='chicago')
     user_2.password_hash='paradiddle'
-    user_3 = User(first_name='michael', last_name='shannon', email='msh@gmail.com', location='chicago')
+    user_3 = User(first_name='Michael', last_name='Shannon', email='msh@gmail.com', location='chicago')
     user_3.password_hash='paradiddle'
 
     db.session.add_all([user_1, user_2, user_3])
@@ -35,10 +35,10 @@ if __name__ == "__main__":
 
 
     print('adding venues')
-    venue_1 = Venue(name='Wills House', street='1555 spicelane', city='fort worth', state='CO', zip=23489, capacity=10, description='backyard neighbor')
-    venue_2 = Venue(name='Firefly Coffee', street='st joe', city='denver', state='MA', zip=98243, capacity=20, description='coffee shop')
-    venue_3 = Venue(name='Sweetwater', street='goshen road', city='naperville', state='NV', zip=12398, capacity=50, description='music megalopolis')
-    venue_4 = Venue(name='Queso House', street='Dobree', city='chicago', state='NY', zip=23489, capacity=5, description='texas desert')
+    venue_1 = Venue(name='Wills House', street='1555 Madison', city='Fort Worth', state='CO', zip=23489, capacity=10, description='Living room space that fits 10 with lamps and 3 outlets.')
+    venue_2 = Venue(name='Firefly Coffee', street='9834 St Joe', city='Denver', state='MA', zip=98243, capacity=20, description='Coffee Shop with 4ft of performance space')
+    venue_3 = Venue(name='The Clyde', street='123 Goshen Rd.', city='Naperville', state='NV', zip=12398, capacity=50, description='Medium sized music venue with retro design and aesthetic.')
+    venue_4 = Venue(name='Conjure Coffee', street='5 Dobree St', city='Chicago', state='WY', zip=23489, capacity=5, description='Coffee Shop with a stage and audio engineer.')
 
     db.session.add_all([venue_1, venue_2, venue_3, venue_4])
 
@@ -59,11 +59,11 @@ if __name__ == "__main__":
 
     event_1 = Event(name='Third Coast Percussion', image='https://images.unsplash.com/photo-1570372323342-7d843e3d80ac?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='Percussion Ensemble concert by Third Coast Percussion. Premiering new works by Philip Glass', start_time=dateObj_1, end_time=dateObj_1_end, creator_id=1, venue_id=1)
 
-    event_2 = Event(name='Takacs Quartet', image='https://plus.unsplash.com/premium_photo-1703618159183-0e34e2304a5c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='World renowned sting quartet perfoming works by Mozart and Mos Def', start_time=dateObj_2, end_time=dateObj_2_end, creator_id=2, venue_id=2)
+    event_2 = Event(name='Takacs Quartet', image='https://plus.unsplash.com/premium_photo-1703618159183-0e34e2304a5c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='World renowned string quartet perfoming works by Beethoven, Mozart, Justin Beiber, and Sibelius', start_time=dateObj_2, end_time=dateObj_2_end, creator_id=2, venue_id=2)
 
-    event_3 = Event(name='Boston Brass', image='https://images.unsplash.com/photo-1506647385858-14280cbf4438?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='Some really good musicians playing on brass instruments. Perfoming Taylor Swifts entire anthology', start_time=dateObj_3, end_time=dateObj_3_end, creator_id=2, venue_id=3)
+    event_3 = Event(name='Boston Brass', image='https://images.unsplash.com/photo-1506647385858-14280cbf4438?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description="Juillard trained brass musicians perfoming Taylor Swift's entire anthology", start_time=dateObj_3, end_time=dateObj_3_end, creator_id=2, venue_id=3)
 
-    event_4 = Event(name='Panoramic', image='https://www.niu.edu/external-programs/_images/banners/17-steel-drum-band-action-1024-dg-049.jpg', description='Steel Pan based performing arts group. Perfoming works from their new album', start_time=dateObj_4, end_time=dateObj_4_end, creator_id=2, venue_id=4)
+    event_4 = Event(name='Panoramic', image='https://www.niu.edu/external-programs/_images/banners/17-steel-drum-band-action-1024-dg-049.jpg', description='Steel Pan performing arts group from DeKalb Illinois. Perfoming works from their new album', start_time=dateObj_4, end_time=dateObj_4_end, creator_id=2, venue_id=4)
 
     event_5 = Event(name='Radiohead', image='https://images.unsplash.com/photo-1468392788711-903a924761a6?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='Radiohead plays Huey Lewis and the News greatest hits', start_time=dateObj_1, end_time=dateObj_1_end, creator_id=1, venue_id=2)
 

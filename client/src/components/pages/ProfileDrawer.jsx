@@ -51,7 +51,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
                 {navLinks.map(({title, href})=>(
                     <li key={title} 
                         section-ref={href} 
-                        className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900 '
+                        className='py-2 px-4 cursor-pointer text-black text-center dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900 '
                         onClick={onLinkClick}
                         >
                         
@@ -60,7 +60,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
                         </a>
                     </li>
                 ))}
-                <li onClick={onLogoutClick} className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900'>
+                <li onClick={onLogoutClick} className='py-2 px-4 cursor-pointer text-black text-center dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900'>
                     Logout
                 </li>
             </ul>
