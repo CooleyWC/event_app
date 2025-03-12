@@ -48,6 +48,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
             .required('Zip is required'),
         capacity: yup
             .number('Enter Venue Capacity')
+            .min(3, 'Capacity must be larger than 3')
             .required('Capacity is required'),
         description: yup
             .string('Enter a brief description of the venue')
