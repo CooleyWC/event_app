@@ -119,19 +119,19 @@ function AdminEventCard({eventID}) {
                     <p><span className='font-semibold'>Description: </span>
                         <button 
                             onClick={()=>handleEventUpdateClick('description')}    
-                            className='hover:bg-slate-950 p-1'
+                            className='hover:bg-gray-950 p-1'
                         >
                             {description}
                         </button>
                     </p>
                 </div>
                 <div>
-                    <p><span className='font-semibold'>Image URL: </span>
+                    <p className='flex gap-4'><span className='font-semibold'>Image: </span>
                         <button 
                             onClick={()=>handleEventUpdateClick('image')}    
-                            className='hover:bg-slate-950 p-1'
+                            className='hover:bg-gray-950 p-1'
                         >
-                            {image}
+                            <img src={image} className='w-[100px] h-[100px]'/>
                         </button>
                     </p>
                 </div>
@@ -163,8 +163,8 @@ function AdminEventCard({eventID}) {
             <div>
                 <p><span className='font-semibold'>Description: </span>{venue.description}</p>
             </div>
-            <div className='bg-gray-950 flex justify-center align-center mt-10'>
-                <button onClick={handleEventDelete}>Delete Event</button>
+            <div className='bg-gray-950 flex justify-center align-center mt-10 p-4'>
+                <button className='border-red-700 p-2 border-2 hover:bg-red-950' onClick={handleEventDelete}>Delete Event</button>
             </div>
         </div>
     );
