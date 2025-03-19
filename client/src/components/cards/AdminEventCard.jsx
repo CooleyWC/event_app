@@ -13,7 +13,6 @@ function AdminEventCard({eventID}) {
 
     const {allEvents, updateEvent, deleteEvent} = useEvents()
 
-
     const event = allEvents.find((evt)=> evt.id === eventID)
 
     const {name, start_time, end_time, description, image, venue} = event
@@ -90,31 +89,37 @@ function AdminEventCard({eventID}) {
                 />
                 
             )}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-5 '>
-                <div>
+            <div className='my-4 font-semibold text-2xl'>
+                <h2>Event</h2>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-5 gap-2'>
+                <div className='border p-2 rounded-sm'>
                     <h2><span className='font-semibold'>ID: </span>{eventID}</h2>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Name: </span>
                         <button 
                             onClick={()=>handleEventUpdateClick('name')}    
-                            className='hover:bg-slate-950 p-1'
+                            className='hover:bg-slate-950'
                         >
                             {name}
                         </button>
                     </p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
+                    <p><span className='font-semibold'>Date: </span>{startDateStr}</p>
+                </div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Start Time: </span>{startTimeStr}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>End Time: </span>{endTimeStr}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Tickets Sold: </span>{event.current_total}</p>
                 </div>
             </div>
-            <div className='my-4'>
+            <div className='my-4 border p-2 rounded-sm'>
                 <div className='mb-4'>
                     <p><span className='font-semibold'>Description: </span>
                         <button 
@@ -136,35 +141,39 @@ function AdminEventCard({eventID}) {
                     </p>
                 </div>
             </div>
-            <hr className='h-[0.5px] bg-white w-full my-2' />
-            <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-4 '>
-                <div>
+            <hr className='h-[2px] border-0 bg-transparent border-t-2 border-gray-800 w-full my-8' />
+            {/* venue */}
+            <div className='my-4 font-semibold text-2xl'>
+                <h2>Event Venue</h2>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg: lg:grid-cols-3 xl:grid-cols-4 gap-2'>
+                <div className='border p-2 rounded-sm'>
                     <h2><span className='font-semibold'>ID: </span>{venue.id}</h2>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Name: </span>{venue.name}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Street: </span>{venue.street}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>City: </span>{venue.city}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>State: </span>{venue.state}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Zip: </span>{venue.zip}</p>
                 </div>
-                <div>
+                <div className='border p-2 rounded-sm'>
                     <p><span className='font-semibold'>Capacity: </span>{venue.capacity}</p>
                 </div>
             </div>
-            <div>
+            <div className='border p-2 rounded-sm my-2'>
                 <p><span className='font-semibold'>Description: </span>{venue.description}</p>
             </div>
-            <div className='bg-gray-950 flex justify-center align-center mt-10 p-4'>
-                <button className='border-red-700 p-2 border-2 hover:bg-red-950' onClick={handleEventDelete}>Delete Event</button>
+            <div className='flex justify-center align-center mt-10 p-4'>
+                <button className='border-red-700 p-2 border-2 hover:bg-red-950 rounded-sm' onClick={handleEventDelete}>Delete Event</button>
             </div>
         </div>
     );
