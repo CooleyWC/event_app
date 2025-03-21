@@ -35,19 +35,19 @@ function Layout() {
                 <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center'>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mb-4'>Discover</h3>
-                        <p className='w-[70%] mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mb-4'>Find</h3>
-                        <p className='w-[70%] mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mb-4'>Invite</h3>
-                        <p className='w-[70%] mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mb-4'>Enjoy</h3>
-                        <p className='w-[70%] mx-auto'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                 </section>
                 <div className='bg-gray-400 w-full flex justify-center py-4'>
