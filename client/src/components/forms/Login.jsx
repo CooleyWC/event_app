@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {useAuth} from '../context/AuthProvider'
 import {useNavigate} from 'react-router-dom'
+import {useFormik} from 'formik';
+import * as yup from 'yup';
 
 function Login() {
 
@@ -8,27 +10,19 @@ function Login() {
 
     let navigate = useNavigate()
 
-    const [emailInput, setEmailInput] = useState('')
-    const [passwordInput, setPasswordInput] = useState('')
+    const loginSchema = yup.object({
+        email: yup
+            .string('Enter your email')
+            .email('Enter a valid email')
+            .required('Email is required'),
+        password: yup
+            .string('Enter your password')
+            .min(8, 'Password should be a minimum of 8 characters')
+            .required('Password is required')
+    })
 
+    const submitUser = async (values) => {
 
-    const handleEmailChange = (e)=>{
-        setEmailInput(e.target.value)
-    }
-
-    const handlePasswordChange = (e)=>{
-        setPasswordInput(e.target.value)
-    }
-
-
-    const handleSubmit = async (e)=>{
-
-        const values = {
-            email: emailInput,
-            password: passwordInput
-        }
-
-        e.preventDefault()
         try {
             const res = await fetch('/api/login',{
                 method: 'POST',
@@ -41,19 +35,27 @@ function Login() {
 
             if (!res.ok){
                 console.log('error', userData.error)
+           
                 return
             } else {
-                console.log('login success')
                 login(userData)
-                setEmailInput('')
-                setPasswordInput('')
                 navigate('/dashboard')
             }
         } catch (error) {
-            console.error('error loggin in', error)
+            console.error('error loggin in')
+            alert(error.message)
         }
-        
     }
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema: loginSchema,
+        onSubmit: submitUser,
+    })
+
 
     const handleSignUpClick = ()=>{
         navigate('/signup')
@@ -67,7 +69,7 @@ function Login() {
             </div>
             
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
-                <form onSubmit={handleSubmit} className='space-y-4'>
+                <form onSubmit={formik.handleSubmit} className='space-y-4'>
                     <label htmlFor='email' className='block font-medium'>Email Address</label>
                     <input 
                         type='email' 
@@ -75,7 +77,8 @@ function Login() {
                         name='email'
                         placeholder='example@gmail.com'
                         className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
-                        onChange={(e)=>handleEmailChange(e)}
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
                     />
                     <label htmlFor='password' className='block font-medium'>Password</label>
                     <input 
@@ -84,7 +87,8 @@ function Login() {
                         name='password'
                         placeholder='enter your password here'
                         className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
-                        onChange={(e)=>handlePasswordChange(e)}
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
                     />
                     <div>
                         <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 '>Login</button>
