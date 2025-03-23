@@ -59,7 +59,13 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                     )}
                     {section==='upcoming_events' && (
                     userTickets.length !== 0 ? (
-                        <div>{upcomingEvents}</div>
+                        <>
+                            <div className='pt-2 flex justify-center'>
+                                <div className='grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2'>
+                                    {upcomingEvents}
+                                </div>
+                            </div>
+                        </>
                     ) : (
                         <p className='mt-44 text-white flex justify-center text-2xl'>You don't have any upcoming events.</p>
                     )
