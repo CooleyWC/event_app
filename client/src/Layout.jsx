@@ -16,7 +16,7 @@ function Layout() {
 
     return (
         <>
-        <div className='mt-18  h-screen  bg-ivory dark:bg-gray-800 text-slate-800'>
+        <div className='mt-18 min-h-screen bg-ivory dark:bg-gray-800 text-slate-800'>
             {/* hero */}
             <div className='pt-32 md:pt-44 px-4 lg:pt-52 lg:px-10 w-full flex flex-col lg:flex-row gap-4 '>
                 <section className='w-full lg:w-[80%] xl:w-[70%] mx-auto flex flex-col gap-2 lg:gap-8'>
@@ -56,8 +56,8 @@ function Layout() {
                 </div>
             </div>
             {/* review carousel */}
-            <div className='h-[400px] bg-gray-200 pt-4'>
-                <div >
+            <div className='bg-gray-300 mx-auto max-w-[1600px] w-full mt-10'>
+                <div>
                     <h1 className='text-center text-2xl font-semibold'>Recent Feedback</h1>
                     <Carousel />
                 </div>
