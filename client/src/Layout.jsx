@@ -14,6 +14,11 @@ function Layout() {
         navigate('/login')
     }
 
+    const handleNewsletterAdd = (e)=>{
+        e.preventDefault()
+        console.log('newsletter', e)
+    }
+
     return (
         <>
         <div className='mt-18 min-h-screen bg-ivory dark:bg-gray-800 text-slate-800'>
@@ -96,7 +101,7 @@ function Layout() {
                     <div>
                         <label className='mb-2'>Signup for our newsletter</label>
                         <input className='block text-black mb-2 rounded-sm'/>
-                        <button className='bg-gray-800 text-white font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-gray-950 hover:text-white transition ease-in-out'>Sign Up</button>
+                        <button type='submit' onClick={handleNewsletterAdd} className='bg-gray-800 text-white font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-gray-950 hover:text-white transition ease-in-out'>Sign Up</button>
                     </div>
                     
                 </div>
