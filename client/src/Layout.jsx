@@ -66,24 +66,37 @@ function Layout() {
             <footer className='bg-gray-950 text-white flex flex-col sm:flex-row justify-between px-10'>
                 <div className='my-8'>
                     <h5 className='font-bold text-lg mb-4'>How it works</h5>
-                    <a className='block text-sm'>FAQ for Artists and Presenters</a>
-                    <a className='block text-sm'>FAQ for Hosts and Venues</a>
+                    <a href='#' className='block text-sm'>FAQ for Artists and Presenters</a>
+                    <a href='#' className='block text-sm'>FAQ for Hosts and Venues</a>
+                </div>
+                <div className='my-8'>
+                    <h5 className='font-semibold mb-4'>Topics</h5>
+                    <a href='#' className='block text-sm'>House Concert</a>
+                    <a href='#' className='block text-sm'>Wedding</a>
+                    <a href='#' className='block text-sm'>Birthday</a>
                 </div>
                 <div className='my-8'>
                     <h5 className='font-semibold mb-4'>About Us</h5>
-                    <a className='block text-sm'>Blog</a>
-                    <a className='block text-sm'>Jobs</a>
-                    <a className='block text-sm'>Press</a>
+                    <a href='#' className='block text-sm'>Blog</a>
+                    <a href='#' className='block text-sm'>Jobs</a>
+                    <a href='#' className='block text-sm'>Press</a>
                 </div>
                 <div className='my-8'>
                     <div className='flex flex-row gap-8 mb-4'>
-                        <FaInstagram className='text-2xl'/>
-                        <FaFacebook className='text-2xl'/>
-                        <FaYoutube className='text-2xl'/>
+                        <a href='#'>
+                            <FaInstagram className='text-2xl'/>
+                        </a>
+                        <a href='#'>
+                            <FaFacebook className='text-2xl'/>
+                        </a>
+                        <a href='#'>
+                            <FaYoutube className='text-2xl'/>
+                        </a>
                     </div>
                     <div>
-                        <label>Signup for our newsletter</label>
-                        <input className='block'/>
+                        <label className='mb-2'>Signup for our newsletter</label>
+                        <input className='block text-black mb-2 rounded-sm'/>
+                        <button className='bg-gray-800 text-white font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-gray-950 hover:text-white transition ease-in-out'>Sign Up</button>
                     </div>
                     
                 </div>
