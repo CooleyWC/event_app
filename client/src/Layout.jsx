@@ -1,7 +1,8 @@
 import React from 'react';
-import { use } from 'react';
 import {useNavigate} from 'react-router-dom'
 import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa6";
+
+import Carousel from './ui/Swiper/Carousel';
 
 
 function Layout() {
@@ -55,9 +56,10 @@ function Layout() {
                 </div>
             </div>
             {/* review carousel */}
-            <div className='h-[300px] bg-gray-200'>
-                <div>
-                    <h4 className='text-center'>Review Cards Will Go Here</h4>
+            <div className='h-[400px] bg-gray-200 pt-4'>
+                <div >
+                    <h1 className='text-center text-2xl font-semibold'>Recent Feedback</h1>
+                    <Carousel />
                 </div>
             </div>
             {/* footer */}
