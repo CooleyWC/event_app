@@ -11,6 +11,8 @@ import 'swiper/css/scrollbar';
 
 import './Carousel.css';
 
+import StarRating from '../StarRatings/StarRating';
+
 
 function Carousel() {
 
@@ -40,12 +42,12 @@ function Carousel() {
             {testimonalData.map((testimonial, index)=>
                 <SwiperSlide key={index}>
                     <div className='shadow-lg'>
-                        <img className='h-auto max-h-[200px] w-full object-cover' 
+                        <img className='h-auto max-h-[200px] w-full object-cover rounded-md' 
                             src={testimonial.image} 
                             alt={testimonial.eventName} 
                         />
-                        <h3 className='text-center'>{testimonial.eventName}</h3>
-                        <p className='text-center'>Rating: {testimonial.starRating} stars</p>
+                        <h3 className='text-center font-semibold'>{testimonial.eventName}</h3>
+                        <StarRating rating={testimonial.starRating}/>
                         <p className='italic text-center'>"{testimonial.quote}"</p>
                         <p className='text-center'>- {testimonial.raterName}</p>
                     </div>

@@ -61,9 +61,9 @@ function Layout() {
                 </div>
             </div>
             {/* review carousel */}
-            <div className='bg-gray-300 mx-auto max-w-[1600px] w-full mt-10'>
+            <div className='bg-gray-300 mx-auto max-w-[1600px] w-full mt-10 mb-10'>
                 <div>
-                    <h1 className='text-center text-2xl font-semibold'>Recent Feedback</h1>
+                    <h1 className='text-center text-2xl font-semibold my-4 pt-4'>Recent Feedback</h1>
                     <Carousel />
                 </div>
             </div>
