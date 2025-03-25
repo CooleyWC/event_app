@@ -3,7 +3,7 @@ import testimonalData from '../Swiper/cards/testimonialData'
 
 
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Pagination, A11y } from 'swiper/modules';
+import {Pagination, Navigation, A11y } from 'swiper/modules';
 import "swiper/css";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -20,8 +20,9 @@ function Carousel() {
 
     return (
         <Swiper
-            modules={[Pagination, A11y]}                     
+            modules={[Pagination, Navigation,  A11y]}                     
             pagination={{clickable: true,}}
+            navigation
             spaceBetween={10}
             breakpoints={{
                 1200: {
