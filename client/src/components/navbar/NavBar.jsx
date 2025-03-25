@@ -72,7 +72,7 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                         ):(
                             <>
                                 <NavLink 
-                                    className='text-black dark:text-ivory p-1 sm:p-4'
+                                    className='text-black dark:text-ivory p-1 sm:p-4 font-semibold text-lg tracking-wider'
                                     to='/login'
                                 >
                                     Login
