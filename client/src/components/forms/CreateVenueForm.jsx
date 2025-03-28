@@ -108,7 +108,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                 {createdVenues}
             </select>
         </div> */}
-        <div className='px-6 max-w-[1000px] w-full bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
+        <div className='px-6 max-w-[1000px] w-full bg-ivory dark:bg-la-gray-med-light text-slate-800 flex flex-col my-8 pb-8 rounded-sm'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-ivory'>Create Venue</h1>
@@ -116,7 +116,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
             </div>
             <div className='flex flex-col mb-10 space-y-4'>
                 <p className='block text-ivory font-medium'>Use a previously created venue?</p>
-                <select onChange={handleSelectChange} className='rounded-sm pl-2 h-8 bg-gray-200'>
+                <select onChange={handleSelectChange} className='rounded-sm pl-2 h-8 bg-gray-200 focus:outline-none'>
                     <option value=''> -- Select A Saved Venue --</option>
                         {createdVenues}
                 </select>
@@ -132,7 +132,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                         id='name' 
                         name='name'
                         placeholder="e.g. The McAllister Residence - Living Room"
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500'
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
@@ -149,7 +149,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                         id='street'
                         name='street'
                         placeholder='e.g. 670 Lincoln Ave.'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                         value={formik.values.street}
                         onChange={formik.handleChange}
                     />
@@ -169,7 +169,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                             id='city'
                             name='city'
                             placeholder='e.g Winnetka'
-                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500' 
                             value={formik.values.city}
                             onChange={formik.handleChange}
                         />
@@ -185,7 +185,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                             name='state'
                             placeholder='e.g IL'
                             rows='7'
-                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                             value={formik.values.state}
                             onChange={formik.handleChange}
                         />
@@ -200,7 +200,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                             id='zip'
                             name='zip'
                             placeholder='e.g 60092'
-                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                            className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                             value={formik.values.zip}
                             onChange={formik.handleChange}
                         />
@@ -218,7 +218,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                         type='number'
                         id='capacity'
                         name='capacity'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                         value={formik.values.capacity}
                         onChange={formik.handleChange}
                     />
@@ -235,7 +235,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                         name='description'
                         placeholder="e.g. A spacious, warmly decorated suburban home, and the living room is a centerpiece of its cozy, classic aesthetic... "
                         rows='4'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic  placeholder-gray-500' 
                         value={formik.values.description}
                         onChange={formik.handleChange}
                     />
@@ -245,7 +245,7 @@ function CreateVenueForm({submitVenue, userCreatedEvents}) {
                     </div>
 
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 '>Save and Continue</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-la-blue dark:text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 '>Save and Continue</button>
                     </div>
         
                 </form>
