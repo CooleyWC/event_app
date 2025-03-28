@@ -30,7 +30,7 @@ function EventCard({eventID, eventName, startTime, endTime, description, image, 
     }
 
     return (
-        <div className='dark:bg-la-gray-med-light dark:text-ivory max-w-sm rounded mx-2 my-2 flex flex-col'>
+        <div className='dark:bg-la-gray-med-light bg-la-light-gray-extra-lightest dark:text-ivory text-la-gray-med max-w-sm rounded mx-2 my-2 flex flex-col'>
             <div>
                 <img src={image} className='h-[200px] w-full object-cover'/>
             </div>
@@ -54,7 +54,7 @@ function EventCard({eventID, eventName, startTime, endTime, description, image, 
             </article>
           
             <div className='mt-auto mb-10 px-6'>
-                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>
+                <NavLink to={`/dashboard/event/${eventID}`} className='bg-transparent font-bold py-2 px-4 mr-2 border-solid rounded border-la-gray-med dark:border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>
                     Details
                 </NavLink>
                 {hasTicket && (
