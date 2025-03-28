@@ -27,7 +27,7 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
 
     return (
         <>
-        <nav className='fixed top-0 z-50 w-full bg-white dark:bg-la-gray-dark text-black dark:text-ivory'>
+        <nav className='fixed top-0 z-50 w-full bg-la-light-gray-med dark:bg-la-gray-dark text-black dark:text-ivory'>
             <div className='px-3 py-3 sm:py-5'>
                 <div className='flex items-center justify-between'>
                     <div className='flex items-center justify-start rtl:justify-end'>

@@ -41,7 +41,7 @@ function Carousel() {
         >
             {testimonalData.map((testimonial, index)=>
                 <SwiperSlide key={index}>
-                    <div className='shadow-lg bg-la-gray-light rounded-md overflow-hidden text-white'>
+                    <div className='shadow-lg bg-la-light-gray-med dark:bg-la-gray-light rounded-md overflow-hidden dark:text-white text-black'>
                         <img className='h-auto max-h-[200px] w-full object-cover' 
                             src={testimonial.image} 
                             alt={testimonial.eventName} 

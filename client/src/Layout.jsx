@@ -21,7 +21,7 @@ function Layout() {
 
     return (
         <>
-        <div className='mt-18 min-h-screen bg-ivory dark:bg-la-gray text-slate-800'>
+        <div className='mt-18 min-h-screen bg-la-light-gray-extra-light dark:bg-la-gray text-slate-800'>
             {/* hero */}
             <div className='pt-32 md:pt-44 px-4 lg:pt-52 lg:px-10 w-full flex flex-col justify-between lg:flex-row gap-4 max-w-[1600px] mx-auto'>
                 <section className='w-full lg:w-[80%] xl:w-[70%] mx-auto flex flex-col gap-2 lg:gap-8'>
@@ -37,7 +37,7 @@ function Layout() {
                 </picture>
             </div>
             {/* info cards */}
-            <div className='bg-la-gray-med text-white mx-auto max-w-[1600px] w-full mt-14'>
+            <div className='bg-la-light-gray text-black dark:bg-la-gray-med dark:text-white mx-auto max-w-[1600px] w-full mt-14'>
                 <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center'>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mb-4'>Discover</h3>
@@ -56,35 +56,35 @@ function Layout() {
                         <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                 </section>
-                <div className='bg-la-gray-light w-full flex justify-center py-4'>
+                <div className='bg-la-light-gray-med dark:bg-la-gray-light w-full flex justify-center py-4'>
                     <button onClick={handleGetStartedClick} className='tracking-wide text-xl bg-la-blue text-white font-semibold py-3 px-5 mr-2 border-solid rounded  hover:bg-la-blue-dark hover:text-white transition ease-in-out uppercase'>Get Started</button>
                 </div>
             </div>
             {/* review carousel */}
-            <div className='bg-la-gray-med mx-auto max-w-[1600px] w-full mt-10 mb-10'>
+            <div className='bg-la-light-gray dark:bg-la-gray-med mx-auto max-w-[1600px] text-black dark:text-ivory w-full mt-10 mb-10'>
                 <div>
-                    <h1 className='text-center text-2xl font-semibold my-4 pt-4 text-ivory tracking-wide'>Recent Feedback</h1>
+                    <h1 className='text-center text-2xl font-semibold my-4 pt-4 tracking-wide'>Recent Feedback</h1>
                     <Carousel />
                 </div>
             </div>
             {/* footer */}
-            <footer className='bg-la-gray-dark text-white flex flex-col sm:flex-row justify-between px-10'>
+            <footer className='bg-white dark:bg-la-gray-dark dark:text-white flex flex-col sm:flex-row justify-between px-10'>
                 <div className='my-8'>
                     <h5 className='font-bold text-xl uppercase mb-4'>How it works</h5>
-                    <a href='#' className='block text-lg font-semibold text-la-blue'>FAQ for Artists and Presenters</a>
-                    <a href='#' className='block text-lg font-semibold text-la-blue'>FAQ for Hosts and Venues</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue'>FAQ for Artists and Presenters</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue'>FAQ for Hosts and Venues</a>
                 </div>
                 <div className='my-8'>
                     <h5 className='font-semibold mb-4 text-xl uppercase'>Topics</h5>
-                    <a href='#' className='block text-lg font-semibold text-la-blue'>House Concert</a>
-                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Wedding</a>
-                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Birthday</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue'>House Concert</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue tracking-wide'>Wedding</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue tracking-wide'>Birthday</a>
                 </div>
                 <div className='my-8'>
                     <h5 className='font-semibold mb-4 text-xl uppercase'>About Us</h5>
-                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Blog</a>
-                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Jobs</a>
-                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Press</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue tracking-wide'>Blog</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue tracking-wide'>Jobs</a>
+                    <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue tracking-wide'>Press</a>
                 </div>
                 <div className='my-8'>
                     <div className='flex flex-row gap-8 mb-4'>
@@ -101,7 +101,7 @@ function Layout() {
                     <div>
                         <label className='mb-2'>Signup for our Newsletter</label>
                         <input className='block text-black mb-2 p-1 rounded-sm'/>
-                        <button type='submit' onClick={handleNewsletterAdd} className='bg-transparent text-white font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>Sign Up</button>
+                        <button type='submit' onClick={handleNewsletterAdd} className='bg-transparent dark:text-white font-bold py-2 px-4 mr-2 border-solid rounded border-black dark:border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>Sign Up</button>
                     </div>
                     
                 </div>

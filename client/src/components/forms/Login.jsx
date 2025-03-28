@@ -62,10 +62,10 @@ function Login() {
     }
 
     return (
-        <div className='px-6 bg-ivory dark:bg-warm-blackboard-dark text-slate-800 mt-[64px] flex h-screen  flex-col'>
+        <div className='px-6 bg-la-light-gray-extra-light dark:bg-warm-blackboard-dark text-slate-800 mt-[64px] flex h-screen flex-col'>
             
             <div className='mt-20 sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Sign In to Your Account</h1>
+                <h1 className='text-2xl/9 mt-10 mb-4 text-center dark:text-ivory font-semibold'>Sign In to Your Account</h1>
             </div>
             
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
@@ -91,7 +91,7 @@ function Login() {
                         onChange={formik.handleChange}
                     />
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-la-blue dark:text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 '>Login</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-la-blue text-white hover:bg-la-blue-dark transition ease-in-out duration-300 tracking-wide'>Login</button>
                     </div>
                 </form>
                 <div className='mt-4 flex flex-col justify-center'>

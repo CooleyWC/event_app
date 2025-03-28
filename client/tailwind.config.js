@@ -54,6 +54,10 @@ export default {
         'la-gray-med': 'hsl(355, 2%, 20%)',
         'la-gray-med-light': 'hsl(355, 2%, 24%)',
         'la-gray-light': 'hsl(355, 2%, 30%)',
+
+        'la-light-gray': 'hsl(355, 2%, 88%)',
+        'la-light-gray-med': 'hsl(355, 2%, 82%)',
+        'la-light-gray-extra-light': 'hsl(355, 2%, 90%)',
         
       },
       fontFamily: {mulish: ["Mulish", "sans-serif"]}
