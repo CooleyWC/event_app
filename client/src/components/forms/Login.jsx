@@ -76,7 +76,7 @@ function Login() {
                         id='email' 
                         name='email'
                         placeholder='example@gmail.com'
-                        className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
+                        className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-warm-ox-red-light focus:ring-offset-2  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         value={formik.values.email}
                         onChange={formik.handleChange}
                     />
@@ -86,7 +86,7 @@ function Login() {
                         id='password'
                         name='password'
                         placeholder='enter your password here'
-                        className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
+                        className='pl-2 placeholder:italic border border-transparent focus:outline-none focus:ring-4 focus:ring-warm-ox-red-light focus:ring-offset-2  focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600' 
                         value={formik.values.password}
                         onChange={formik.handleChange}
                     />

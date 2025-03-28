@@ -35,6 +35,7 @@ export default {
         'warm-blackboard-dark': 'hsl(0, 0%, 18%)',
         'warm-ox-red': 'hsl(345, 40%, 35%)',
         'warm-ox-red-med': 'hsl(345, 40%, 20%)',
+        'warm-ox-red-light': 'hsl(345, 40%, 40%)',
         'warm-tan': 'hsl(30, 34%, 64%)',
       },
       fontFamily: {mulish: ["Mulish", "sans-serif"]}
