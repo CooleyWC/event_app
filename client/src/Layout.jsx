@@ -57,7 +57,7 @@ function Layout() {
                     </div>
                 </section>
                 <div className='bg-la-gray-light w-full flex justify-center py-4'>
-                    <button onClick={handleGetStartedClick} className='tracking-wide text-xl bg-la-blue text-white font-semibold py-3 px-5 mr-2 border-solid rounded  hover:bg-warm-ox-red-med hover:text-white transition ease-in-out uppercase'>Get Started</button>
+                    <button onClick={handleGetStartedClick} className='tracking-wide text-xl bg-la-blue text-white font-semibold py-3 px-5 mr-2 border-solid rounded  hover:bg-la-blue-dark hover:text-white transition ease-in-out uppercase'>Get Started</button>
                 </div>
             </div>
             {/* review carousel */}
@@ -71,36 +71,36 @@ function Layout() {
             <footer className='bg-la-gray-dark text-white flex flex-col sm:flex-row justify-between px-10'>
                 <div className='my-8'>
                     <h5 className='font-bold text-xl uppercase mb-4'>How it works</h5>
-                    <a href='#' className='block text-sm'>FAQ for Artists and Presenters</a>
-                    <a href='#' className='block text-sm'>FAQ for Hosts and Venues</a>
+                    <a href='#' className='block text-lg font-semibold text-la-blue'>FAQ for Artists and Presenters</a>
+                    <a href='#' className='block text-lg font-semibold text-la-blue'>FAQ for Hosts and Venues</a>
                 </div>
                 <div className='my-8'>
-                    <h5 className='font-semibold mb-4'>Topics</h5>
-                    <a href='#' className='block text-sm'>House Concert</a>
-                    <a href='#' className='block text-sm'>Wedding</a>
-                    <a href='#' className='block text-sm'>Birthday</a>
+                    <h5 className='font-semibold mb-4 text-xl uppercase'>Topics</h5>
+                    <a href='#' className='block text-lg font-semibold text-la-blue'>House Concert</a>
+                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Wedding</a>
+                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Birthday</a>
                 </div>
                 <div className='my-8'>
-                    <h5 className='font-semibold mb-4'>About Us</h5>
-                    <a href='#' className='block text-sm'>Blog</a>
-                    <a href='#' className='block text-sm'>Jobs</a>
-                    <a href='#' className='block text-sm'>Press</a>
+                    <h5 className='font-semibold mb-4 text-xl uppercase'>About Us</h5>
+                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Blog</a>
+                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Jobs</a>
+                    <a href='#' className='block text-lg font-semibold text-la-blue tracking-wide'>Press</a>
                 </div>
                 <div className='my-8'>
                     <div className='flex flex-row gap-8 mb-4'>
                         <a href='#'>
-                            <FaInstagram className='text-2xl'/>
+                            <FaInstagram className='text-[2.3rem] hover:text-la-blue'/>
                         </a>
                         <a href='#'>
-                            <FaFacebook className='text-2xl'/>
+                            <FaFacebook className='text-[2.3rem] hover:text-la-blue'/>
                         </a>
                         <a href='#'>
-                            <FaYoutube className='text-2xl'/>
+                            <FaYoutube className='text-[2.3rem] hover:text-la-blue'/>
                         </a>
                     </div>
                     <div>
-                        <label className='mb-2'>Signup for our newsletter</label>
-                        <input className='block text-black mb-2 rounded-sm'/>
+                        <label className='mb-2'>Signup for our Newsletter</label>
+                        <input className='block text-black mb-2 p-1 rounded-sm'/>
                         <button type='submit' onClick={handleNewsletterAdd} className='bg-transparent text-white font-bold py-2 px-4 mr-2 border-solid rounded border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>Sign Up</button>
                     </div>
                     

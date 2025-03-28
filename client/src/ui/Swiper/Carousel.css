@@ -25,10 +25,11 @@
 .swiper-pagination-bullet {
     width: 14px;
     height: 14px;
+    background-color: hsl(355, 2%, 98%);
 }
 
 .swiper-pagination-bullet-active {
     width: 18px;
     height: 18px;
-    background-color: hsl(215, 28%, 17%);
+    background-color: hsl(202, 74%, 36%);
 }
