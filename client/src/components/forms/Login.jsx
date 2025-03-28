@@ -91,12 +91,12 @@ function Login() {
                         onChange={formik.handleChange}
                     />
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-warm-ox-red dark:text-white hover:bg-warm-ox-red-med hover:text-ivory transition ease-in-out duration-300 '>Login</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-la-blue dark:text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 '>Login</button>
                     </div>
                 </form>
                 <div className='mt-4 flex flex-col justify-center'>
                     <h2 className='text-center'>Don't have an account?</h2>
-                    <button onClick={handleSignUpClick} className='font-semibold text-lg'>
+                    <button onClick={handleSignUpClick} className='font-semibold text-xl text-la-blue hover:text-la-blue-dark'>
                         Create New Account
                     </button>
                 </div>
