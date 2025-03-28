@@ -60,16 +60,16 @@ function CreateEventForm({
     return (
 
         <div className='lg:flex lg:justify-center lg:align-center'>
-        <div className='px-6 w-full max-w-[1000px] bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
+        <div className='px-6 w-full max-w-[1000px] bg-ivory dark:bg-la-gray-med text-slate-800 flex flex-col my-8 pb-8 rounded-sm'>
 
-        <div className='bg-ivory dark:bg-gray-800 text-slate-800 flex flex-col'>
+        <div className='bg-ivory dark:bg-la-gray-med text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-ivory'>Create Event Form</h1>
+                <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-white'>Create Event Form</h1>
                 
                
             </div>
-            <div className='sm:mx-auto sm:w-full sm:max-w-sm bg-gray-900 p-4'>
+            <div className='sm:mx-auto sm:w-full sm:max-w-sm bg-la-gray-dark p-4 rounded-sm'>
                 { venueFormData && (
                     <p className='text-white text-center text-lg'>For this Venue: {venueFormData.name}, {venueFormData.street}</p>
                     )}
@@ -86,7 +86,7 @@ function CreateEventForm({
                         id='name' 
                         name='name'
                         placeholder='e.g Hall and Oates'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-600'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-600'
                         value={formik.values.name}
                         onChange={formik.handleChange} 
                     />
@@ -98,7 +98,7 @@ function CreateEventForm({
                         selected={startDate} 
                         onChange={(date) => onDateChange(date)}
                         minDate={new Date()} 
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         />
                     </div>
 
@@ -113,7 +113,7 @@ function CreateEventForm({
                         timeIntervals={15}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         />
                     </div>
                    
@@ -128,7 +128,7 @@ function CreateEventForm({
                         timeCaption="Time"
                         dateFormat="h:mm aa"
 
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder-gray-600'
                         />
                     </div>
                 </div>
@@ -141,7 +141,7 @@ function CreateEventForm({
                         name='description'
                         placeholder='Hall & Oates is an American pop rock duo formed by Daryl Hall and John Oates in the early 1970s, known for their fusion of rock, soul, and R&B...'
                         rows='7'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500'
                         value={formik.values.description}
                         onChange={formik.handleChange} 
                     />
@@ -154,19 +154,19 @@ function CreateEventForm({
                         id='imageURL'
                         name='imageURL'
                         placeholder='www.hallandoats.org/images.jpg'
-                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-blue-600 focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500'
+                        className='pl-2 border border-transparent focus:outline-none focus:ring-4 focus:ring-la-blue focus:border-transparent block text-gray-900 w-full rounded-sm bg-white py-1.5 placeholder:italic placeholder-gray-500'
                         value={formik.values.imageURL}
                         onChange={formik.handleChange} 
                     />
                     </div>
 
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Create Event</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-xl font-semibold bg-la-blue dark:text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Create Event</button>
                     </div>
                     
                 </form>
                 <div className='flex justify-start align-center'>
-                        <button onClick={handleBackClick} className=' dark:text-white text-black border-solid border-2 rounded-md p-1 hover:bg-gray-700 mt-6'>Back to Venue Form</button>
+                        <button onClick={handleBackClick} className=' dark:text-white text-black border-solid border-2 rounded-sm p-2 hover:bg-la-gray-dark mt-6'>Back to Venue Form</button>
                 </div>
             </div>
         </div>

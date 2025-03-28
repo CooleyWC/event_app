@@ -79,7 +79,7 @@ function AdminEventCard({eventID}) {
     }
 
     return (
-        <div className='dark:bg-gray-700 dark:text-ivory w-full max-w-[1400px] rounded mx-2 my-2 p-2 gap-8'>
+        <div className='dark:bg-la-gray-med dark:text-ivory w-full max-w-[1400px] rounded mx-2 my-2 p-2 gap-8'>
             {updateOpen && (
 
                 <UpdateEventForm 
@@ -100,7 +100,7 @@ function AdminEventCard({eventID}) {
                     <p><span className='font-semibold'>Name: </span>
                         <button 
                             onClick={()=>handleEventUpdateClick('name')}    
-                            className='hover:bg-slate-950'
+                            className='hover:bg-la-gray-dark hover:p-2'
                         >
                             {name}
                         </button>
@@ -124,7 +124,7 @@ function AdminEventCard({eventID}) {
                     <p><span className='font-semibold'>Description: </span>
                         <button 
                             onClick={()=>handleEventUpdateClick('description')}    
-                            className='hover:bg-gray-950 p-1'
+                            className='hover:bg-la-gray-dark p-1 hover:p-2'
                         >
                             {description}
                         </button>
@@ -134,14 +134,14 @@ function AdminEventCard({eventID}) {
                     <p className='flex gap-4'><span className='font-semibold'>Image: </span>
                         <button 
                             onClick={()=>handleEventUpdateClick('image')}    
-                            className='hover:bg-gray-950 p-1'
+                            className='hover:bg-la-gray-dark p-1'
                         >
                             <img src={image} alt={`image for ${name} event`} className='w-[100px] h-[100px]'/>
                         </button>
                     </p>
                 </div>
             </div>
-            <hr className='h-[2px] border-0 bg-transparent border-t-2 border-gray-800 w-full my-8' />
+            <hr className='h-[2px] border-0 bg-transparent border-t-2 border-la-gray-light w-full my-8' />
             {/* venue */}
             <div className='my-4 font-semibold text-2xl'>
                 <h2>Event Venue</h2>
@@ -173,7 +173,7 @@ function AdminEventCard({eventID}) {
                 <p><span className='font-semibold'>Description: </span>{venue.description}</p>
             </div>
             <div className='flex justify-center align-center mt-10 p-4'>
-                <button className='border-red-700 p-2 border-2 hover:bg-red-950 rounded-sm' onClick={handleEventDelete}>Delete Event</button>
+                <button className='border-red-700 p-2 border-2 hover:bg-red-700 rounded-sm' onClick={handleEventDelete}>Delete Event</button>
             </div>
         </div>
     );
