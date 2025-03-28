@@ -36,7 +36,7 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                             className='inline-flex items-center p-2 text-sm sm:hidden'
                             onClick={toggleSideDrawer}
                         >
-                            <IoMenu className='text-2xl' onClick={handleTopnavToggle}/>
+                            <IoMenu className='text-2xl dark:hover:bg-la-gray-med-light' onClick={handleTopnavToggle}/>
                         </button>
                         )}
                         <div className='flex ms-2 md:me-24'>
@@ -51,19 +51,19 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                                 <button
                                     onClick={toggleDarkMode}
                                     aria-label={darkMode ? "Switch to light mode." : "Switch to dark mode."}
-                                    className='p-1 sm:p-4 rounded-sm hover:bg-slate-200 dark:hover:bg-slate-900 transition ease-in-out duration-300'
+                                    className='p-1 sm:p-4 rounded-sm hover:bg-slate-200 dark:hover:bg-la-gray-med-light transition ease-in-out duration-300'
                                 >
                                     {darkMode ? <IoSunnyOutline className='size-8 text-black dark:text-ivory'/> : <IoMoonOutline className='size-8 text-black dark:text-ivory' />}
                                 </button>
                                 
                                 <NavLink 
                                     to='/dashboard'
-                                    className='text-lg p-1 rounded-sm sm:p-4 text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900 transition ease-in-out duration-300 font-semibold tracking-wider'
+                                    className='text-lg p-1 rounded-sm sm:p-4 text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-la-gray-med-light transition ease-in-out duration-300 font-semibold tracking-wider'
                                 >
                                     Dashboard
                                 </NavLink>
                                 <button onClick={toggleProfileDrawer} aria-label='Open profile drawer'>
-                                    <div className='flex gap-2 items-center rounded-sm  text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-slate-900 p-1 sm:p-4 transition ease-in-out duration-300'>
+                                    <div className='flex gap-2 items-center rounded-sm  text-black hover:bg-slate-200 dark:text-ivory dark:hover:bg-la-gray-med-light p-1 sm:p-4 transition ease-in-out duration-300'>
                                         <IoPersonOutline className='size-8'/>
                                         <span className='hidden sm:block font-semibold text-lg tracking-wider'>{nameDisplay}</span>
                                     </div>
