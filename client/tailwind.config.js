@@ -25,7 +25,17 @@ export default {
         'dark-blue': '#333f63',
         'purple': '#715c8c',
         'ivory': '#d7d4dd',
-        'periwinkle': '#838bc2'
+        'periwinkle': '#838bc2',
+
+        'warm-grain': 'hsl(30, 18%, 82%)',
+        'warm-blackboard': 'hsl(0, 0%, 30%)',
+        'warm-blackboard-light': 'hsl(0, 0%, 50%)',
+        'warm-blackboard-very-light': 'hsl(0, 0%, 70%)',
+        'warm-blackboard-very-dark': 'hsl(0, 0%, 10%)',
+        'warm-blackboard-dark': 'hsl(0, 0%, 18%)',
+        'warm-ox-red': 'hsl(345, 40%, 35%)',
+        'warm-ox-red-med': 'hsl(345, 40%, 20%)',
+        'warm-tan': 'hsl(30, 34%, 64%)',
       },
       fontFamily: {mulish: ["Mulish", "sans-serif"]}
     },

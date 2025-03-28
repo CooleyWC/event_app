@@ -91,14 +91,14 @@ const EventDetail = ({handleProcessTicket, handleTicketDelete, allEvents}) => {
     
 
     return (
-        <div className='bg-gray-800'>
-        <div className='w-full bg-gray-800 mx-auto grid grid-col lg:grid-cols-2 mt-20 lg:pt-20 max-w-[1600px]'>
+        <div className='bg-warm-blackboard-dark'>
+        <div className='w-full bg-warm-blackboard-dark mx-auto grid grid-col lg:grid-cols-2 mt-20 lg:pt-20 max-w-[1600px]'>
             <div className='flex justify-center lg:order-2'>
                 <img src={`${eventData.image}`} alt={`${eventData.name} image`}
                     className='max-h-[500px] max-w-full object-cover'
                 />
             </div>
-            <div className='pt-20 lg:pt-0 px-4 lg:px-8 dark:bg-gray-800 h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
+            <div className='pt-20 lg:pt-0 px-4 lg:px-8 dark:bg-warm-blackboard-dark h-full min-h-screen dark:text-ivory flex flex-col gap-6'>
                 <NavLink to={'/dashboard/find_events'}>
                     <button className='min-w-56 bg-transparent font-bold py-2 px-4 border-solid rounded border-ivory border hover:bg-gray-900 hover:text-white transition ease-in-out'>Back to Events</button>
                 </NavLink>

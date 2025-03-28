@@ -42,7 +42,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
 
 
     return (
-        <div className='bg-ivory dark:bg-gray-800'>
+        <div className='bg-ivory dark:bg-warm-blackboard-dark'>
             <SideDrawer 
                 sideOpen={sideOpen} 
                 toggleSideDrawer={toggleSideDrawer}
