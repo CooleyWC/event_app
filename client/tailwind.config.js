@@ -52,6 +52,7 @@ export default {
         'la-gray-dark': 'hsl(355, 2%, 5%)',
         'la-gray': 'hsl(355, 2%, 14%)',
         'la-gray-med': 'hsl(355, 2%, 20%)',
+        'la-gray-med-light': 'hsl(355, 2%, 24%)',
         'la-gray-light': 'hsl(355, 2%, 30%)',
         
       },

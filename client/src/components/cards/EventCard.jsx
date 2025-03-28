@@ -30,7 +30,7 @@ function EventCard({eventID, eventName, startTime, endTime, description, image, 
     }
 
     return (
-        <div className='dark:bg-la-gray-med dark:text-white max-w-sm rounded mx-2 my-2 flex flex-col'>
+        <div className='dark:bg-la-gray-med-light dark:text-ivory max-w-sm rounded mx-2 my-2 flex flex-col'>
             <div>
                 <img src={image} className='h-[200px] w-full object-cover'/>
             </div>
