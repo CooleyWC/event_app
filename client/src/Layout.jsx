@@ -24,10 +24,10 @@ function Layout() {
         <div className='mt-18 min-h-screen bg-la-light-gray-extra-light dark:bg-la-gray text-slate-800'>
             {/* hero */}
             <div className='pt-32 md:pt-44 px-4 lg:pt-52 lg:px-10 w-full flex flex-col justify-between lg:flex-row gap-4 max-w-[1600px] mx-auto'>
-                <section className='w-full lg:w-[80%] xl:w-[70%] mx-auto flex flex-col gap-2 lg:gap-8'>
-                    <h1 className='text-2xl md:text-4xl lg:text-5xl xl:text-8xl text-center font-mulish font-bold dark:text-la-blue'>PARLOR STAGES</h1>
-                    <h2 className='mx-6 md:mx-8 lg:mx-12 xl:mx-24 text-xl xl:text-4xl font-semibold text-center font-mulish dark:text-ivory'>Bring the Magic of Intimate Performances to Your Space</h2>
-                    <p className='mx-6 md:mx-8 lg:mx-12 xl:mx-24 font-mulish text-lg dark:text-ivory '>Experience the charm and elegance of early 20th-century parlor concerts with Parlor Stages. Whether you're hosting a cozy gathering or organizing a unique event, our platform makes it easy to connect with performers and create unforgettable experiences in the comfort of your home or a special venue. From solo recitals to small ensemble performances, rediscover the personal touch of live music. Host, attend, and enjoy concerts the way they were meant to be—up close and personal.</p>
+                <section className='w-full lg:w-[80%] xl:w-[70%] mx-auto flex flex-col gap-8 lg:gap-8'>
+                    <h1 className='text-4xl lg:text-5xl xl:text-7xl text-center font-mulish font-bold dark:text-la-blue'>PARLOR STAGES</h1>
+                    <h2 className='mx-6 md:mx-8 lg:mx-12 xl:mx-24 text-xl lg:text-2xl xl:text-4xl font-semibold text-center font-mulish dark:text-ivory'>Bring the Magic of Intimate Performances to Your Space</h2>
+                    <p className='mx-6 md:mx-8 lg:mx-12 xl:mx-24 font-mulish text-lg dark:text-ivory '>Experience the charm and elegance of early 20th-century parlor concerts with Parlor Stages. Whether you're hosting a cozy gathering or organizing a unique event, our platform makes it easy to connect with performers and create unforgettable experiences in the comfort of your home or a special venue. Host, attend, and enjoy concerts the way they were meant to be—up close and personal.</p>
                 </section>
                 <picture className='lg:w-[70%] mx-auto'>
                     <img 
@@ -37,33 +37,33 @@ function Layout() {
                 </picture>
             </div>
             {/* info cards */}
-            <div className='bg-la-light-gray text-black dark:bg-la-gray-med dark:text-white mx-auto max-w-[1600px] w-full mt-14'>
+            <div className='bg-la-light-gray text-black dark:bg-la-gray-med dark:text-white mx-auto max-w-[1600px] w-full mt-20 mb-20'>
                 <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center'>
                     <div className='py-6'>
-                        <h3 className='text-center text-lg font-semibold mb-4'>Discover</h3>
-                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Discover</h3>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                     <div className='py-6'>
-                        <h3 className='text-center text-lg font-semibold mb-4'>Find</h3>
-                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Find</h3>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                     <div className='py-6'>
-                        <h3 className='text-center text-lg font-semibold mb-4'>Invite</h3>
-                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Invite</h3>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                     <div className='py-6'>
-                        <h3 className='text-center text-lg font-semibold mb-4'>Enjoy</h3>
-                        <p className='w-[70%] mx-auto text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Enjoy</h3>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                 </section>
-                <div className='bg-la-light-gray-med dark:bg-la-gray-light w-full flex justify-center py-4'>
+                <div className=' w-full flex justify-center py-4'>
                     <button onClick={handleGetStartedClick} className='tracking-wide text-xl bg-la-blue text-white font-semibold py-3 px-5 mr-2 border-solid rounded  hover:bg-la-blue-dark hover:text-white transition ease-in-out uppercase'>Get Started</button>
                 </div>
             </div>
             {/* review carousel */}
             <div className='bg-la-light-gray dark:bg-la-gray-med mx-auto max-w-[1600px] text-black dark:text-ivory w-full mt-10 mb-10'>
                 <div>
-                    <h1 className='text-center text-2xl font-semibold my-4 pt-4 tracking-wide'>Recent Feedback</h1>
+                    <h1 className='text-center text-2xl font-semibold my-8 pt-8 tracking-wide'>Recent Feedback</h1>
                     <Carousel />
                 </div>
             </div>
