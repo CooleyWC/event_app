@@ -7,7 +7,7 @@ function ProfileCard({user, firstName, lastName, location}) {
     const numOfTickets = user.tickets.length
     const numOfEvents = user.created_events.length
     return (
-        <div className='pt-10 flex justify-center flex-col text-white gap-4'>
+        <div className='pt-10 flex justify-center flex-col text-la-gray-med dark:text-white gap-4'>
             <div>
                 <h1 className='text-4xl block text-center font-semibold'>{firstName} {lastName}</h1>
                 <p className='block text-center text-2xl'>{location}</p>

@@ -42,7 +42,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
 
     return (
         profileOpen && (
-        <div className={`fixed top-22 right-0 z-40 w-52 pt-6 bg-white dark:bg-slate-950 sm:translate-x-0 transition-transform ${profileOpen ? 'translate-x-0' : 'translate-x-full'} `}
+        <div className={`fixed top-22 right-0 z-40 w-52 pt-6 bg-la-light-gray dark:bg-la-gray-med sm:translate-x-0 transition-transform ${profileOpen ? 'translate-x-0' : 'translate-x-full'} `}
             role='dialog'
             aria-modal='true'
             aria-label='profile drawer'
@@ -51,7 +51,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
                 {navLinks.map(({title, href})=>(
                     <li key={title} 
                         section-ref={href} 
-                        className='py-2 px-4 cursor-pointer text-black text-center dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900 '
+                        className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-la-light-gray-med text-center dark:hover:bg-la-gray-dark mb-4'
                         onClick={onLinkClick}
                         >
                         
@@ -60,7 +60,7 @@ function ProfileDrawer({profileOpen, toggleProfileDrawer}) {
                         </a>
                     </li>
                 ))}
-                <li onClick={onLogoutClick} className='py-2 px-4 cursor-pointer text-black text-center dark:text-ivory hover:bg-slate-200  dark:hover:bg-slate-900'>
+                <li onClick={onLogoutClick} className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-la-light-gray-med text-center dark:hover:bg-la-gray-dark mb-4'>
                     Logout
                 </li>
             </ul>
