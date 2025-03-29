@@ -18,20 +18,13 @@ function ManageEvents() {
             <AdminEventCard
                 key={ev.id}
                 eventID={ev.id}
-                // eventName={ev.name}
-                // startTime={ev.start_time}
-                // endTime={ev.end_time}
-                // description={ev.description}
-                // image={ev.image}
-                // venue={ev.venue}
-                // event={ev}
             />
         )
     })
 
     return (
         <div className='pt-2 flex flex-col items-center'>
-            <h1 className='text-ivory text-2xl my-2'>Event Manager</h1>
+            <h1 className='dark:text-ivory font-semibold text-la-gray-med text-2xl my-2'>Event Manager</h1>
             <div className='flex flex-col items-center w-full px-4 max-w-[2000px]'>
                 {adminEvents}
             </div>    
