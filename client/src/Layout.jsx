@@ -61,14 +61,14 @@ function Layout() {
                 </div>
             </div>
             {/* review carousel */}
-            <div className='bg-la-light-gray dark:bg-la-gray-med mx-auto max-w-[1600px] text-black dark:text-ivory w-full mt-10 mb-10'>
+            <div className='bg-la-light-gray dark:bg-la-gray-med mx-auto max-w-[1600px] text-black dark:text-ivory w-full mt-10 mb-20'>
                 <div>
                     <h1 className='text-center text-2xl font-semibold my-8 pt-8 tracking-wide'>Recent Feedback</h1>
                     <Carousel />
                 </div>
             </div>
             {/* footer */}
-            <footer className='bg-white dark:bg-la-gray-dark dark:text-white flex flex-col sm:flex-row justify-between px-10'>
+            <footer className='bg-white dark:bg-la-gray-dark dark:text-white flex flex-col md:flex-row justify-between px-10 py-10'>
                 <div className='my-8'>
                     <h5 className='font-bold text-xl uppercase mb-4'>How it works</h5>
                     <a href='#' className='block text-lg dark:font-semibold dark:text-la-blue'>FAQ for Artists and Presenters</a>
@@ -99,8 +99,8 @@ function Layout() {
                         </a>
                     </div>
                     <div>
-                        <label className='mb-2'>Signup for our Newsletter</label>
-                        <input className='block text-black mb-2 p-1 rounded-sm'/>
+                        <label >Signup for our Newsletter</label>
+                        <input className='block text-black my-4 p-1 rounded-sm'/>
                         <button type='submit' onClick={handleNewsletterAdd} className='bg-transparent dark:text-white font-bold py-2 px-4 mr-2 border-solid rounded border-black dark:border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>Sign Up</button>
                     </div>
                     
