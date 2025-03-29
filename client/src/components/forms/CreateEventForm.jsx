@@ -60,16 +60,16 @@ function CreateEventForm({
     return (
 
         <div className='lg:flex lg:justify-center lg:align-center'>
-        <div className='px-6 w-full max-w-[1000px] bg-ivory dark:bg-la-gray-med text-slate-800 flex flex-col my-8 pb-8 rounded-sm'>
+        <div className='px-6 w-full max-w-[1000px] bg-la-light-gray-med  dark:bg-la-gray-med text-la-gray-med flex flex-col my-8 pb-8 rounded-sm'>
 
-        <div className='bg-ivory dark:bg-la-gray-med text-slate-800 flex flex-col'>
+        <div className='dark:bg-la-gray-med text-slate-800 flex flex-col'>
             
             <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center text-white'>Create Event Form</h1>
+                <h1 className='text-3xl/9 mt-10 mb-2 font-semibold text-center  text-la-gray-med dark:text-white'>Create Event Form</h1>
                 
                
             </div>
-            <div className='sm:mx-auto sm:w-full sm:max-w-sm bg-la-gray-dark p-4 rounded-sm'>
+            <div className='sm:mx-auto sm:w-full sm:max-w-sm bg-la-gray-light dark:bg-la-gray-dark p-4 rounded-sm'>
                 { venueFormData && (
                     <p className='text-white text-center text-lg'>For this Venue: {venueFormData.name}, {venueFormData.street}</p>
                     )}
@@ -161,12 +161,12 @@ function CreateEventForm({
                     </div>
 
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-xl font-semibold bg-la-blue dark:text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Create Event</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-xl font-semibold bg-la-blue text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 text-transform: uppercase'>Create Event</button>
                     </div>
                     
                 </form>
                 <div className='flex justify-start align-center'>
-                        <button onClick={handleBackClick} className=' dark:text-white text-black border-solid border-2 rounded-sm p-2 hover:bg-la-gray-dark mt-6'>Back to Venue Form</button>
+                        <button onClick={handleBackClick} className=' dark:text-white text-black border-la-gray-med dark:border-la-light-gray border-solid hover:text-white hover:bg-la-gray-med border-2 rounded-sm p-2 dark:hover:bg-la-gray-dark mt-6'>Back to Venue Form</button>
                 </div>
             </div>
         </div>
