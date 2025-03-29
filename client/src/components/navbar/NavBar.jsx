@@ -41,7 +41,10 @@ function NavBar({toggleSideDrawer, toggleDarkMode, darkMode, toggleProfileDrawer
                         )}
                         <div className='flex ms-2 md:me-24'>
                             <NavLink to='/'>
-                                <img src='./src/assets/images/parlor_logo_2.png' className='w-20 h-full'/>
+                                <img 
+                                    src={darkMode ? './src/assets/images/ps-logo-dark.png' : './src/assets/images/ps-logo-light.png'} 
+                                    className='w-20 h-full'
+                                    />
                             </NavLink>
                         </div>
                     </div>
