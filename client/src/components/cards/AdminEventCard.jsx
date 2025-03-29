@@ -173,7 +173,7 @@ function AdminEventCard({eventID}) {
                 <p><span className='font-semibold'>Description: </span>{venue.description}</p>
             </div>
             <div className='flex justify-center align-center mt-10 p-4'>
-                <button className='p-4 bg-red-700 text-white hover:bg-red-800 hover:text-white rounded-sm' onClick={handleEventDelete}>Delete Event</button>
+                <button className='p-4 text-lg font-semibold bg-red-700 text-white hover:bg-red-800 hover:text-white rounded-sm' onClick={handleEventDelete}>Delete Event</button>
             </div>
         </div>
     );
