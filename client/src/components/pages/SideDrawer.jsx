@@ -34,12 +34,12 @@ function SideDrawer({sideOpen}) {
 
     return (
         // pt-20 is responsible for making sure the links do not overlap with the navbar
-        <div className={`fixed border-r-2 border-la-gray-light border-r-la-gray-light top-10 left-0 z-40 w-64 h-screen pt-20 bg-white dark:bg-la-gray sm:translate-x-0 transition-transform ${sideOpen ? "translate-x-0": "-translate-x-full"}`}>
+        <div className={`fixed border-r-2 border-la-gray-light border-r-la-gray-light dark:border-r-la-gray-light top-10 left-0 z-40 w-64 h-screen pt-20 dark:bg-la-gray bg-la-light-gray-extra-light sm:translate-x-0 transition-transform ${sideOpen ? "translate-x-0": "-translate-x-full"}`}>
             <ul className='dark:text-ivory text-black' onClick={onLinkClick}>
                 {navLinks.map(({title, href})=>(
                     <li key={title} 
                         section-ref={href} 
-                        className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-slate-200  dark:hover:bg-la-gray-dark '>
+                        className='py-2 px-4 cursor-pointer text-black dark:text-ivory hover:bg-la-light-gray-med  dark:hover:bg-la-gray-dark '>
                         {title}
                     </li>
                 ))}
