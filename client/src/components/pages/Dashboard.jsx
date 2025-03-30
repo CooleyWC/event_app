@@ -67,7 +67,7 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                             </div>
                         </>
                     ) : (
-                        <p className='mt-44 text-white flex justify-center text-2xl'>You don't have any upcoming events.</p>
+                        <p className='mt-44 text-la-gray-med dark:text-white flex justify-center text-2xl'>You don't have any upcoming events.</p>
                     )
                     )}
                     {section==='create_event' && (
