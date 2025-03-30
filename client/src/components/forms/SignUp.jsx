@@ -89,10 +89,10 @@ function SignUp() {
     
 
     return (
-        <div className='px-6 bg-ivory dark:bg-gray-800 text-slate-800 mt-[64px] flex h-screen  flex-col'>
+        <div className='px-6 bg-la-light-gray-extra-light dark:bg-la-gray-med text-la-gray-med mt-[64px] flex h-screen  flex-col'>
             
             <div className='mt-20 sm:mx-auto sm:w-full sm:max-w-sm'>
-                <h1 className='text-2xl/9 mt-10 text-center text-ivory'>Create A New Account</h1>
+                <h1 className='text-2xl/9 font-semibold mt-10 text-center text-la-gray-med dark:text-ivory'>Create A New Account</h1>
             </div>
             
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
@@ -172,12 +172,12 @@ function SignUp() {
                         <div className='text-red-600'>{formik.errors.password}</div>
                     ) : null}
                     <div>
-                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-gray-600 dark:text-white hover:bg-gray-700 hover:text-ivory transition ease-in-out duration-300 '>Create Account</button>
+                        <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-la-blue text-white hover:bg-la-blue-dark hover:text-ivory transition ease-in-out duration-300 '>Create Account</button>
                     </div>
                 </form>
                 <div className='mt-4 flex flex-col justify-center'>
                     <h2 className='text-center'>Don't have an account?</h2>
-                    <button onClick={handleLoginClick} className='font-semibold text-lg'>
+                    <button onClick={handleLoginClick} className='font-semibold text-xl text-la-blue hover:text-la-blue-dark'>
                         Login
                     </button>
                 </div>

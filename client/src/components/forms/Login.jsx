@@ -62,7 +62,7 @@ function Login() {
     }
 
     return (
-        <div className='px-6 bg-la-light-gray-extra-light dark:bg-warm-blackboard-dark text-slate-800 mt-[64px] flex h-screen flex-col'>
+        <div className='px-6 bg-la-light-gray-extra-light dark:bg-la-gray-med text-la-gray-med mt-[64px] flex h-screen flex-col'>
             
             <div className='mt-20 sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-2xl/9 mt-10 mb-4 text-center dark:text-ivory font-semibold'>Sign In to Your Account</h1>
