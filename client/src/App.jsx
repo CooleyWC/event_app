@@ -168,7 +168,7 @@ const handleNewEvent = (newEvent)=>{
         darkMode={darkMode }
         />
       <Routes>
-        <Route path='/' errorElement={<ErrorPage/>} element={<Layout />}/>
+        <Route path='/' errorElement={<ErrorPage/>} element={<Layout user={user}/>}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<SignUp />}/>
         <Route path='/dashboard' element={

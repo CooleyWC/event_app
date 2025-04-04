@@ -5,7 +5,7 @@ import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa6";
 import Carousel from './ui/Swiper/Carousel';
 
 
-function Layout() {
+function Layout({user}) {
 
     let navigate = useNavigate()
 
@@ -56,9 +56,12 @@ function Layout() {
                         <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
                     </div>
                 </section>
-                <div className=' w-full flex justify-center py-4'>
+                {!user &&(
+                    <div className=' w-full flex justify-center py-4'>
                     <button onClick={handleGetStartedClick} className='tracking-wide text-xl bg-la-blue text-white font-semibold py-3 px-5 mr-2 border-solid rounded  hover:bg-la-blue-dark hover:text-white transition ease-in-out uppercase'>Get Started</button>
                 </div>
+                )}
+                
             </div>
             {/* review carousel */}
             <div className='bg-la-light-gray dark:bg-la-gray-med mx-auto max-w-[1600px] text-black dark:text-ivory w-full mt-10 mb-20'>
