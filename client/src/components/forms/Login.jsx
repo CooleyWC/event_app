@@ -10,6 +10,8 @@ function Login() {
 
     let navigate = useNavigate()
 
+    const [errorMessage, setErrorMessage] = useState('')
+
     const loginSchema = yup.object({
         email: yup
             .string('Enter your email')
@@ -35,10 +37,11 @@ function Login() {
 
             if (!res.ok){
                 console.log('error', userData.error)
-           
+                setErrorMessage(userData.error)
                 return
             } else {
                 login(userData)
+                setErrorMessage('')
                 navigate('/dashboard')
             }
         } catch (error) {
@@ -67,6 +70,10 @@ function Login() {
             <div className='mt-20 sm:mx-auto sm:w-full sm:max-w-sm'>
                 <h1 className='text-2xl/9 mt-10 mb-4 text-center dark:text-ivory font-semibold'>Sign In to Your Account</h1>
             </div>
+
+            {errorMessage && (
+                <p className='text-center text-red-500 font-bold text-2xl'>{errorMessage}</p>
+            )}
             
             <div className='mt-4 text-black dark:text-ivory sm:mx-auto sm:w-full sm:max-w-sm '>
                 <form onSubmit={formik.handleSubmit} className='space-y-4'>
@@ -80,6 +87,9 @@ function Login() {
                         value={formik.values.email}
                         onChange={formik.handleChange}
                     />
+                    {formik.touched.email && formik.errors.email ? (
+                        <div className='text-red-600'>{formik.errors.email}</div>
+                    ) : null}
                     <label htmlFor='password' className='block font-medium'>Password</label>
                     <input 
                         type='password'
@@ -90,6 +100,9 @@ function Login() {
                         value={formik.values.password}
                         onChange={formik.handleChange}
                     />
+                    {formik.touched.password && formik.errors.password ? (
+                        <div className='text-red-600'>{formik.errors.password}</div>
+                    ) : null}
                     <div>
                         <button type='submit' className='flex mt-8 w-full justify-center py-6 rounded-md text-2xl font-semibold bg-la-blue text-white hover:bg-la-blue-dark transition ease-in-out duration-300 tracking-wide'>Login</button>
                     </div>
