@@ -11,6 +11,7 @@ import ProfileCard from '../cards/ProfileCard';
 import CreateEvent from '../forms/CreateEvent';
 import EventList from './EventList';
 import ManageEvents from './ManageEvents';
+import UserCalendar from '../../ui/calendar/UserCalendar';
 
 function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, toggleProfileDrawer, profileOpen, handleNewEvent}) {
 
@@ -75,6 +76,9 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                     )}
                     {section==='manage_events' && (
                         <ManageEvents/>
+                    )}
+                    {section==='calendar' && (
+                        <UserCalendar/>
                     )}
                     {section==='profile' && (
                         <ProfileCard 

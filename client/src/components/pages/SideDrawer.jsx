@@ -18,6 +18,10 @@ const navLinks = [
         title: 'Manage Events',
         href: 'manage_events',
     },
+    {
+        title: 'Calendar',
+        href: 'calendar',
+    }
 ]
 
 
