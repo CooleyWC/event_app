@@ -41,19 +41,19 @@ function Layout({user}) {
                 <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-center'>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Discover</h3>
-                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Explore a growing community of talented artists and unique venues. Find the perfect performance to suit your taste and setting.</p>
                     </div>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Find</h3>
-                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center mb-4'> Search for performers who bring intimate music experiences to life. Discover artists who specialize in creating unforgettable, up-close musical moments.</p>
                     </div>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Invite</h3>
-                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Easily host a concert in your living room, backyard, or favorite local space. Our platform helps you coordinate every detail.</p>
                     </div>
                     <div className='py-6'>
                         <h3 className='text-center text-lg font-semibold mt-2 mb-4'>Enjoy</h3>
-                        <p className='w-[70%] mx-auto text-center mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, minima alias aperiam beatae esse dignissimos.</p>
+                        <p className='w-[70%] mx-auto text-center mb-4'>Sit back and enjoy the music. Whether you're the host or a guest, every performance is a memorable and meaningful experience.</p>
                     </div>
                 </section>
                 {!user &&(
