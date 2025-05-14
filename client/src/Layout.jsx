@@ -102,8 +102,8 @@ function Layout({user}) {
                         </a>
                     </div>
                     <div>
-                        <label >Signup for our Newsletter</label>
-                        <input className='block text-black my-4 p-1 rounded-sm'/>
+                        <label htmlFor="newsletterAdd">Signup for our Newsletter</label>
+                        <input id="newsletterAdd" placeholder='Enter Your Email' className='block text-black my-4 p-1 border border-black rounded'/>
                         <button type='submit' onClick={handleNewsletterAdd} className='bg-transparent dark:text-white font-bold py-2 px-4 mr-2 border-solid rounded border-black dark:border-ivory border hover:bg-la-blue hover:text-white transition ease-in-out'>Sign Up</button>
                     </div>
                     
