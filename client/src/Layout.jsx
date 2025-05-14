@@ -31,7 +31,7 @@ function Layout({user}) {
                 </section>
                 <picture className='lg:w-[70%] mx-auto'>
                     <img 
-                        src='../src/assets/images/living-room.png' alt='living room with guitar' 
+                        src='../src/assets/images/living-room.png' alt='living room setup with guitar and seating for concert' 
                         className='object-cover max-w-full rounded-xl'
                         />
                 </picture>
