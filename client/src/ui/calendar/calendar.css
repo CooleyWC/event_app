@@ -1,0 +1,39 @@
+/* calendar.css */
+.dark .rbc-calendar {
+
+  color: #d7d4dd;
+}
+
+.dark .rbc-btn-group button {
+    color: #d7d4dd;
+}
+
+.dark .rbc-btn-group button.rbc-active {
+  color: hsl(355, 2%, 14%) !important; /* Tailwind red-500 or whatever you prefer */
+}
+
+.dark .rbc-btn-group button:hover {
+    color: hsl(355, 2%, 14%);
+}
+
+.dark .rbc-today {
+    background-color: hsl(355, 2%, 30%) !important; /* Tailwind's gray-700 */
+}
+
+.dark .rbc-off-range {
+    color: hsl(355, 2%, 62%)
+}
+
+.dark .rbc-off-range-bg {
+  background-color: hsl(355, 2%, 5%) !important; /* Tailwind gray-500 */
+}
+
+.dark .rbc-toolbar .rbc-btn-group:first-child button {
+  color: #d7d4dd;
+}
+
+.dark .rbc-toolbar .rbc-btn-group:first-child button:hover,
+.dark .rbc-toolbar .rbc-btn-group:first-child button:focus,
+.dark .rbc-toolbar .rbc-btn-group:first-child button:active {
+  color: hsl(355, 2%, 5%)
+}
