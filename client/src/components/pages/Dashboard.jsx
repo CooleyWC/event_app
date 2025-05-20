@@ -78,7 +78,9 @@ function Dashboard({sideOpen, toggleSideDrawer, closeDrawer, allEvents, togglePr
                         <ManageEvents/>
                     )}
                     {section==='calendar' && (
-                        <UserCalendar/>
+                        <UserCalendar
+                            userTickets={user.tickets}
+                        />
                     )}
                     {section==='profile' && (
                         <ProfileCard 

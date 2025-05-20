@@ -44,17 +44,17 @@ if __name__ == "__main__":
 
     print('adding events')
 
-    dateObj_1 = datetime(year=2025, month=4, day=12, hour=10, minute=30, second=30, tzinfo=pytz.UTC)
-    dateObj_2 = datetime(year=2025, month=6, day=7, hour=11, minute=30, second=0, tzinfo=pytz.UTC)
-    dateObj_3 = datetime(year=2025, month=7, day=19, hour=8, minute=30, second=0, tzinfo=pytz.UTC)
-    dateObj_4 = datetime(year=2025, month=9, day=2, hour=12, minute=0, second=0, tzinfo=pytz.UTC)
+    dateObj_1 = datetime(year=2025, month=6, day=12, hour=10, minute=30, second=30, tzinfo=pytz.UTC)
+    dateObj_2 = datetime(year=2025, month=8, day=7, hour=11, minute=30, second=0, tzinfo=pytz.UTC)
+    dateObj_3 = datetime(year=2025, month=9, day=19, hour=8, minute=30, second=0, tzinfo=pytz.UTC)
+    dateObj_4 = datetime(year=2025, month=11, day=2, hour=12, minute=0, second=0, tzinfo=pytz.UTC)
 
     print(dateObj_1)
 
-    dateObj_1_end = datetime(year=2025, month=4, day=12, hour=12, minute=0, second=30, tzinfo=pytz.UTC)
-    dateObj_2_end = datetime(year=2025, month=6, day=7, hour=15, minute=0, second=0, tzinfo=pytz.UTC)
-    dateObj_3_end = datetime(year=2025, month=7, day=19, hour=10, minute=0, second=0, tzinfo=pytz.UTC)
-    dateObj_4_end = datetime(year=2025, month=9, day=2, hour=14, minute=0, second=0, tzinfo=pytz.UTC)
+    dateObj_1_end = datetime(year=2025, month=6, day=12, hour=12, minute=0, second=30, tzinfo=pytz.UTC)
+    dateObj_2_end = datetime(year=2025, month=8, day=7, hour=15, minute=0, second=0, tzinfo=pytz.UTC)
+    dateObj_3_end = datetime(year=2025, month=9, day=19, hour=10, minute=0, second=0, tzinfo=pytz.UTC)
+    dateObj_4_end = datetime(year=2025, month=11, day=2, hour=14, minute=0, second=0, tzinfo=pytz.UTC)
 
 
     event_1 = Event(name='Third Coast Percussion', image='https://images.unsplash.com/photo-1570372323342-7d843e3d80ac?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', description='Percussion Ensemble concert by Third Coast Percussion. Premiering new works by Philip Glass', start_time=dateObj_1, end_time=dateObj_1_end, creator_id=1, venue_id=1)

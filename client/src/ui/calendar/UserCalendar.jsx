@@ -19,16 +19,26 @@ const localizer = dateFnsLocalizer({
   locales,
 })
 
-function UserCalendar() {
+function UserCalendar({userTickets}) {
+  
+  const eventsToDisplay = userTickets.map((ticket)=>{
+
+    return ({
+      title: ticket.event.name,
+      start: parse(ticket.event.start_time, 'yyyy-MM-dd HH:mm:ss', new Date()),
+      end: parse(ticket.event.end_time, 'yyyy-MM-dd HH:mm:ss', new Date()),
+    })
+  })
+
     return (
         <div>
             <Calendar
               localizer={localizer}
-              // events={myEventsList}
+              events={eventsToDisplay}
               startAccessor="start"
               endAccessor="end"
               style={{ height: 500 }}
-        />
+            />
         </div>
     );
 }
