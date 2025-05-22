@@ -1,6 +1,20 @@
 /* calendar.css */
-.dark .rbc-calendar {
 
+:root:not(.dark) .rbc-calendar * {
+  border-color: hsl(355, 2%, 30%) !important;
+}
+
+.rbc-toolbar-label {
+  color: black !important;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.dark .rbc-toolbar-label {
+  color: #d7d4dd !important;
+}
+
+.dark .rbc-calendar {
   color: #d7d4dd;
 }
 
@@ -9,7 +23,7 @@
 }
 
 .dark .rbc-btn-group button.rbc-active {
-  color: hsl(355, 2%, 14%) !important; /* Tailwind red-500 or whatever you prefer */
+  color: hsl(355, 2%, 14%) !important; 
 }
 
 .dark .rbc-btn-group button:hover {
@@ -17,23 +31,44 @@
 }
 
 .dark .rbc-today {
-    background-color: hsl(355, 2%, 30%) !important; /* Tailwind's gray-700 */
+    background-color: hsl(355, 2%, 30%) !important;
 }
 
+.rbc-today {
+    background-color: hsl(355, 2%, 82%) !important;
+}
+
+/* off range dates */
 .dark .rbc-off-range {
     color: hsl(355, 2%, 62%)
 }
 
 .dark .rbc-off-range-bg {
-  background-color: hsl(355, 2%, 5%) !important; /* Tailwind gray-500 */
+  background-color: hsl(355, 2%, 5%) !important;
 }
 
 .dark .rbc-toolbar .rbc-btn-group:first-child button {
   color: #d7d4dd;
 }
 
+/* left side toolbar buttons */
 .dark .rbc-toolbar .rbc-btn-group:first-child button:hover,
 .dark .rbc-toolbar .rbc-btn-group:first-child button:focus,
 .dark .rbc-toolbar .rbc-btn-group:first-child button:active {
   color: hsl(355, 2%, 5%)
+}
+
+/* event style */
+.dark .rbc-event {
+  background-color: hsl(202, 74%, 40%) !important; 
+  color: white !important; 
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.rbc-event {
+  background-color: hsl(202, 74%, 40%) !important; 
+  color: white !important; 
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }

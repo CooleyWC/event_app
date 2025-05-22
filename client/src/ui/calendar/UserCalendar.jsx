@@ -32,13 +32,13 @@ function UserCalendar({userTickets}) {
   })
 
     return (
-        <div>
+        <div className='p-2'>
             <Calendar
               localizer={localizer}
               events={eventsToDisplay}
               startAccessor="start"
               endAccessor="end"
-              style={{ height: 500 }}
+              style={{ height: 900 }}
             />
         </div>
     );
