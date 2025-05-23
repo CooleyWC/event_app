@@ -19,7 +19,7 @@
 }
 
 .dark .rbc-btn-group button {
-    color: #d7d4dd;
+  color: #d7d4dd;
 }
 
 .dark .rbc-btn-group button.rbc-active {
@@ -27,20 +27,20 @@
 }
 
 .dark .rbc-btn-group button:hover {
-    color: hsl(355, 2%, 14%);
+  color: hsl(355, 2%, 14%);
 }
 
 .dark .rbc-today {
-    background-color: hsl(355, 2%, 30%) !important;
+  background-color: hsl(355, 2%, 30%) !important;
 }
 
 .rbc-today {
-    background-color: hsl(355, 2%, 82%) !important;
+  background-color: hsl(355, 2%, 82%) !important;
 }
 
 /* off range dates */
 .dark .rbc-off-range {
-    color: hsl(355, 2%, 62%)
+  color: hsl(355, 2%, 62%)
 }
 
 .dark .rbc-off-range-bg {
